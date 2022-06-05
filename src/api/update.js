@@ -1,10 +1,18 @@
 import { ORIGIN } from "../config";
 
 export const update = async (category = "", id = 0, value = "") => {
-  const path = `${category}/${id}`;
+  /*
   const body = {
     data: {
       isLoggedIn: value,
+    },
+  };
+  */
+
+  const path = `${category}/${id}`;
+  const body = {
+    data: {
+      name: value,
     },
   };
   const url = encodeURI(`${ORIGIN}${path}`);

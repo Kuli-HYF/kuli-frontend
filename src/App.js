@@ -1,8 +1,9 @@
 import "./App.css";
 
-import { get } from "./api/get";
 import { Button } from "./components/button/Button";
+import { get } from "./api/get";
 import { populate } from "./api/populate";
+import { update } from "./api/update";
 
 function App() {
   const handleGet = async (event) => {
@@ -17,6 +18,13 @@ function App() {
     console.log("populate", result);
   };
 
+  const handleUpdate = async (event) => {
+    // function takes 'category' ="" 'id'=0 'value'=""
+    const search = event.target.parentElement.children[0].value;
+    const result = await update("tests", 1, search);
+    console.log("update", result);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -26,7 +34,7 @@ function App() {
         <input type="input"></input>
         <Button color="blue" action={handleGet} title="get" />
         <Button color="orange" action={handlePopulate} title="populate" />
-        <Button color="green" action={handlePopulate} title="update" />
+        <Button color="green" action={handleUpdate} title="update" />
       </div>
     </div>
   );
