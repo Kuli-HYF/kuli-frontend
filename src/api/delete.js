@@ -14,6 +14,6 @@ export const Delete = async (value = "", id = 0) => {
     throw new Error(`${response.status}: ${response.statusText}`);
   }
   const result = await response.json();
-  console.log("delete", result);
+  // console.log("delete", result);
   return result;
 };
