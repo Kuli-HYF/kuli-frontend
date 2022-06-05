@@ -3,7 +3,8 @@ import "./App.css";
 import { Button } from "./components/button/Button";
 import { get } from "./api/get";
 import { populate } from "./api/populate";
-import { update } from "./api/update";
+import { put } from "./api/put";
+import { post } from "./api/post";
 
 function App() {
   const handleGet = async (event) => {
@@ -19,10 +20,27 @@ function App() {
   };
 
   const handleUpdate = async (event) => {
-    // function takes 'category' ="" 'id'=0 'value'=""
+    // function takes 'category' ="" 'id'=0 'value'={}
     const search = event.target.parentElement.children[0].value;
-    const result = await update("tests", 1, search);
+    const body = {
+      data: {
+        name: search,
+      },
+    };
+    const result = await put("tests", 1, body);
     console.log("update", result);
+  };
+
+  const handleAdd = async (event) => {
+    // function takes 'category' ="" 'value'={}
+    const search = event.target.parentElement.children[0].value;
+    const body = {
+      data: {
+        name: search,
+      },
+    };
+    const result = await post("tests", body);
+    console.log("add", result);
   };
 
   return (
@@ -34,7 +52,8 @@ function App() {
         <input type="input"></input>
         <Button color="blue" action={handleGet} title="get" />
         <Button color="orange" action={handlePopulate} title="populate" />
-        <Button color="green" action={handleUpdate} title="update" />
+        <Button color="purple" action={handleUpdate} title="update" />
+        <Button color="green" action={handleAdd} title="add" />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { ORIGIN } from "../config";
 
-export const update = async (category = "", id = 0, value = "") => {
+export const put = async (category = "", id = 0, value = {}) => {
   /*
   const body = {
     data: {
@@ -10,11 +10,7 @@ export const update = async (category = "", id = 0, value = "") => {
   */
 
   const path = `${category}/${id}`;
-  const body = {
-    data: {
-      name: value,
-    },
-  };
+  const body = value;
   const url = encodeURI(`${ORIGIN}${path}`);
   const response = await fetch(url, {
     method: "PUT",
