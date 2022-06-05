@@ -5,6 +5,7 @@ import { get } from "./api/get";
 import { populate } from "./api/populate";
 import { put } from "./api/put";
 import { post } from "./api/post";
+import { Delete } from "./api/delete";
 
 function App() {
   const handleGet = async (event) => {
@@ -43,6 +44,13 @@ function App() {
     console.log("add", result);
   };
 
+  const handleDelete = async (event) => {
+    // function takes 'value' ="" 'id'=0
+    const search = Number(event.target.parentElement.children[0].value);
+    const result = await Delete("tests", search);
+    console.log("delete", result);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -54,6 +62,7 @@ function App() {
         <Button color="orange" action={handlePopulate} title="populate" />
         <Button color="purple" action={handleUpdate} title="update" />
         <Button color="green" action={handleAdd} title="add" />
+        <Button color="red" action={handleDelete} title="delete" />
       </div>
     </div>
   );

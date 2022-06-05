@@ -1,20 +1,19 @@
 import { ORIGIN } from "../config";
 
-export const post = async (path, value) => {
-  const category = path;
-  const body = value;
-  const url = encodeURI(`${ORIGIN}${category}`);
+export const Delete = async (value = "", id = 0) => {
+  const category = value;
+  const path = `${category}/${id}`;
+  const url = encodeURI(`${ORIGIN}${path}`);
   const response = await fetch(url, {
-    method: "POST",
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(body),
   });
   if (!response.ok) {
     throw new Error(`${response.status}: ${response.statusText}`);
   }
   const result = await response.json();
-  // console.log("add", result);
+  console.log("delete", result);
   return result;
 };
