@@ -1,20 +1,24 @@
-// import logo from './logo.svg';
 import "./App.css";
 
+import { get } from "./api/get";
+import { Button } from "./components/button/Button";
+
 function App() {
+  const handleGet = async (event) => {
+    const search = event.target.parentElement.children[0].value;
+    const result = await get(search);
+    console.log("get", result);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        ></a> */}
-
         <h1> welcome to Kuli</h1>
       </header>
+      <div className="test-btn">
+        <input type="input"></input>
+        <Button action={handleGet} title="get" />
+      </div>
     </div>
   );
 }
