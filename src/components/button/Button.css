@@ -1,6 +1,23 @@
-.btn {
+.blue {
   border-style: none;
   background-color: rgb(71, 71, 250);
   font-size: 20px;
   color: azure;
+  margin: 10px;
+}
+
+.orange {
+  border-style: none;
+  background-color: rgb(250, 178, 71);
+  font-size: 20px;
+  color: azure;
+  margin: 10px;
+}
+
+.green {
+  border-style: none;
+  background-color: rgb(26, 182, 26);
+  font-size: 20px;
+  color: azure;
+  margin: 10px;
 }
