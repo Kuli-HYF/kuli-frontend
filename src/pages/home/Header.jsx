@@ -1,4 +1,5 @@
 import "./home.css";
+import { Link } from "react-router-dom";
 
 import logo from "../../assets/logo.png";
 
@@ -12,7 +13,14 @@ const Header = () => {
         Kuli is a place for finding opportunities and sharing insights about
         local companies committed to gender equality.
       </h1>
-      <Button title="click"/>
+      <div className="header-buttons-container">
+        <Link to={"/badges"}>
+          <Button title="to form" />
+        </Link>
+        <Link to={"/companies"}>
+          <Button title="to company list" />
+        </Link>
+      </div>
     </div>
   );
 };
