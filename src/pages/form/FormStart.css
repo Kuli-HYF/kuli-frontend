@@ -1,8 +1,14 @@
+.container {
+  width: 100%;
+  height: 10%;
+}
+
 .survey-intro__container {
   margin: 5% 10% 16% 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: ;
 }
 
 .survey-intro__title {
@@ -21,7 +27,7 @@
 .survey-intro__category-list {
   list-style-type: none;
   padding: 0;
-  margin: 0 0 8% 0;
+  margin: 0 0 4% 0;
 }
 
 .survey-intro__category-list__item {

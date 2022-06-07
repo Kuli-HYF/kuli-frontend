@@ -6,7 +6,7 @@ import { Button } from "../../components/button/Button";
 
 const FormStart = () => {
   return (
-    <>
+    <div className="container">
       <div className="survey-intro__container">
         <div className="survey-intro__title">
           <h2>Our System</h2>
@@ -29,17 +29,18 @@ const FormStart = () => {
             <li className="survey-intro__category-list__item">Health, safety and freedom from violence</li>
             <li className="survey-intro__category-list__item">Governance and leadership</li>
           </ul>
+          <p className="survey-intro__body-text">Ready to join us?</p>
         </div>
         <div className="buttons">
           <Link to={"/"}>
-            <Button title="Home" color="dark-blue" />
+            <Button title="Sign Up" color="dark-blue" />
           </Link>
           <Link to={"/"}>
             <Button title="To questionnaire" color="dark-blue" />
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
