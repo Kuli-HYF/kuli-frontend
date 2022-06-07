@@ -47,3 +47,19 @@
   padding: 10px;
   border-radius: 8px;
 } */
+
+
+button {
+  width: 190px;
+  color: white;
+  border-style: none;
+  font-size: 20px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dark-blue {
+  background-color: var(--dark-blue);
+}
