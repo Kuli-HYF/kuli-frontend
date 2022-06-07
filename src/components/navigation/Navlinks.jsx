@@ -5,10 +5,11 @@ import logo from "../../assets/logo.png";
 
 const NavLinks = () => {
   return (
-    <>
+    <><div className="nav-logo-container">
       <Link to={"/"}>
-        <img src={logo} className="nav-logo" alt="logo"></img>
+        <img src={logo} className="nav-logo" alt="Kuli logo"></img>
       </Link>
+      </div>
       <ul className="nav-list">
         <li>
           <NavLink to={"/badges"}>Badges</NavLink>
