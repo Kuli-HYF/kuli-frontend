@@ -27,7 +27,7 @@ h1 {
   margin-bottom: 30px;
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--dark-purple);
+  color: var(--dark-blue);
   font-family: "Mulish", sans-serif;
 }
 
@@ -48,8 +48,8 @@ button {
   cursor: pointer;
 }
 
-.dark-purple {
-  background-color: var(--dark-purple);
+.dark-blue {
+  background-color: var(--dark-blue);
 }
 
 .dark-pink {
