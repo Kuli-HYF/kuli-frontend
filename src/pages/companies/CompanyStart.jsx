@@ -1,3 +1,4 @@
+import './company.css'
 import { Link } from "react-router-dom";
 
 import Navigation from "../../components/navigation/Navigation";
@@ -8,7 +9,7 @@ const CompanyStart = () => {
   return (
     <>
       <Navigation />
-      <div>companies home</div>
+      <div className="companies-div">companies home</div>
 
       <Link to={"/"}>
         <Button title="go home" />

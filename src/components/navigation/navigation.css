@@ -40,6 +40,10 @@
   display: none;
 }
 
+.closed {
+  display: none;
+}
+
 @media (max-width: 800px) {
   .navigation-container {
     flex-direction: column;
@@ -51,8 +55,15 @@
     display: none;
   }
 
+  .nav-list li {
+    margin-bottom: 12px;
+  }
+
   .nav-list a {
     margin-right: 0;
+  }
+  .closed {
+    display: none;
   }
 
   .open {
