@@ -1,7 +1,13 @@
 import "./navigation.css";
 
+import NavLinks from "./Navlinks";
+
 const Navigation = () => {
-  return <div className="navigation-container">navigation</div>;
+  return (
+    <nav className="navigation-container">
+      <NavLinks />
+    </nav>
+  );
 };
 
 export default Navigation;

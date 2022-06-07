@@ -1,8 +1,26 @@
-.navigation-container{
+.navigation-container {
   position: fixed;
   height: 50px;
   width: 100%;
   display: flex;
   align-items: center;
   background-color: antiquewhite;
+}
+
+.nav-logo {
+  width: 100px;
+}
+
+.nav-list {
+  display: flex;
+  margin-left: auto;
+  list-style-type: none;
+}
+
+.nav-list a {
+  margin-right: 20px;
+}
+
+.nav-list a {
+  text-decoration: none;
 }
