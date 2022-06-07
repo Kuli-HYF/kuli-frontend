@@ -1,18 +1,21 @@
 .header-container {
   background-color: var(--light-pink);
-  text-align: center;
-  display: flex;
-  justify-content: center;
+  height: 100vh;
+
+  /* display: flex;
+  justify-content: center; */
 }
 
 .header-content {
   max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
   padding-inline: 30px;
-  height: 100vh;
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .header-buttons-container {

@@ -7,7 +7,6 @@ import { Button } from "../../components/button/Button";
 
 const Header = () => {
   return (
-    <div className="header-container">
       <div className="header-content">
         <img src={logo} className="logo" alt="logo"></img>
         <h1>
@@ -30,7 +29,6 @@ const Header = () => {
           </Link>
         </div>
       </div>
-    </div>
   );
 };
 
