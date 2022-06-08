@@ -71,6 +71,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/badges" element={<FormStart />} />
           <Route path="/companies" element={<CompanyStart />} />
+          <Route path="/form" element={'form'} />
+          <Route path="/sign-up" element={'sign-up'} />
         </Routes>
       </div>
 
