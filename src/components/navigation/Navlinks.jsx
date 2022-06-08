@@ -48,15 +48,14 @@ const NavLinks = () => {
       <ul className={navOpen ? "nav-list open" : "nav-list closed"}>
         <motion.li
           animate={navOpen ? "opened" : "closed"}
-          transition={{delay: 0.05}}
+          transition={{ delay: 0.05 }}
           variants={variants}
         >
           <NavLink to={"/badges"}>Badges</NavLink>
         </motion.li>
         <motion.li
           animate={navOpen ? "opened" : "closed"}
-          transition={{delay: 0.10}}
-
+          transition={{ delay: 0.1 }}
           variants={variants}
         >
           <NavLink to={"/companies"}>Companies</NavLink>
