@@ -6,8 +6,8 @@ const FormStart = () => {
   return (
     <>
       <div>badges home</div>
-      <Link to={"/"}>
-        <Button title="go home" />
+      <Link to={"/form"}>
+        <Button title="go to form" />
       </Link>
     </>
   );

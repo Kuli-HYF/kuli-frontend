@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import CompanyStart from "./pages/companies/CompanyStart";
 import FormStart from "./pages/form/FormStart";
+import { Button } from "./components/button/Button";
+import { Former } from "./pages/form/Form";
 
 /*
 import { Button } from "./components/button/Button";
@@ -14,9 +16,7 @@ import { post } from "./api/post";
 import { Delete } from "./api/delete";
 */
 
-
 function App() {
-
   /*
   const handleGet = async (event) => {
     const search = event.target.parentElement.children[0].value;
@@ -63,7 +63,6 @@ function App() {
 
   */
 
-
   return (
     <Router>
       <div className="main-container">
@@ -71,6 +70,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/badges" element={<FormStart />} />
           <Route path="/companies" element={<CompanyStart />} />
+          <Route path="/form" element={<Former />}></Route>
         </Routes>
       </div>
 
@@ -82,12 +82,8 @@ function App() {
         <Button color="green" action={handleAdd} title="add" />
         <Button color="red" action={handleDelete} title="delete" />
       </div> */}
-
     </Router>
   );
 }
 
 export default App;
-
-
-
