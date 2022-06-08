@@ -71,6 +71,7 @@ function App() {
           <Route path="/badges" element={<FormStart />} />
           <Route path="/companies" element={<CompanyStart />} />
           <Route path="/form" element={<Former />}></Route>
+          <Route path="/sign-up" element={"sign-up"} />
         </Routes>
       </div>
 
