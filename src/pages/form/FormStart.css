@@ -1,43 +1,64 @@
+.container {
+  background-color: var(--light-blue);
+  height: 100%;
+  width: 100%;
+}
+
 .survey-intro__container {
-  margin: 4% 8% 0% 8%;
+  margin-left: 8%;
+  margin-right: 8%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fdfbf9;
-  padding-right: 12px;
-  padding-left: 12px;
-  padding-top: 36px;
-  padding-bottom: 36px;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background-color: var(--light-blue);
+  padding-right: 4%;
+  padding-left: 4%;
+  padding-top: 4%;
+  padding-bottom: 8%;
 }
 
 .survey-intro__title {
-  margin-bottom: 28px;
+  margin-bottom: 8vh;
+  color: var(--dark-blue);
 }
 
 .survey-intro__body-container {
   width: 76%;
+  height: 100%;
   min-width: 240px;
+
 }
 
 .survey-intro__body-text {
-  text-align: justify;
+  text-align: center;
 }
 
-.survey-intro__category-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0 0 4% 0;
+.category-list__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 8% 0 4% 0;
 }
 
 .survey-intro__category-list__item {
-  background-image: url("../../assets/li-icon.png");
-  background-repeat: no-repeat;
-  background-position: 1px;
-  padding-left: 20px;
-  background-size: 15px;
-  font-size: 20px;
-  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 16px;
+  width: 180px;
+  height: 180px;
+}
+.survey-intro__category-list__item img {
+  min-width: 20px;
+  max-width: 80px;
+}
+
+.survey-intro__category-list__item p {
+  font-family: ;
 }
 
 .buttons {
@@ -53,4 +74,29 @@
       flex-direction: column;
       align-items: center;
     }
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+div.fadeIn p, h2 {
+  animation: 2.4s fadeIn;
+}
+
+div.fadeIn {
+  animation: 2.8s fadeIn;
+}
+
+div.fadeIn a {
+  animation: 4s fadeIn;
+}
+
+.buttons button:hover {
+  background-color: #1c1941;
+}
+
+.buttons button:active {
+  background-color: #4c4a70;
 }
