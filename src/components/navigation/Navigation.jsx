@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
+import { DeviceSize } from "./Media";
+
 import "./navigation.css";
 
-import NavLinks from "./Navlinks";
+import Logo from "./Logo";
+import NavLinks from "./NavLinks";
+import NavLinksMobile from "./NavLinksMobile";
 
 const Navigation = () => {
-  
+  const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
+
   return (
     <nav className="navigation-container">
-      <NavLinks />
+      <Logo />
+      {!isMobile && <NavLinks />}
+      {isMobile && <NavLinksMobile />}
     </nav>
   );
 };
