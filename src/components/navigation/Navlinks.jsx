@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useRef } from "react";
 import { useState } from "react";
 import { navLinks } from "./NavData";
 
@@ -5,6 +7,8 @@ import NavLinkItem from "./NavLinkItem";
 
 const NavLinks = () => {
   const [selected, setSelected] = useState(0);
+
+  const currentLink = useRef;
 
   return (
     <>
@@ -14,8 +18,12 @@ const NavLinks = () => {
             name={name}
             link={link}
             key={i}
-            selected={selected === i}
-            onClick={() => setSelected(i)}
+            selected={currentLink.current === i}
+            onClick={() => {
+              setSelected(i);
+
+              currentLink.current = i;
+            }}
           />
         ))}
       </ul>
