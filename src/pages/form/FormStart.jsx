@@ -1,42 +1,39 @@
 import "./FormStart.css";
 
 import { Link } from "react-router-dom";
-
 import { Button } from "../../components/button/Button";
+import { Title } from "./title/Title.jsx";
+import { Text } from "./text/Text.jsx";
+import { Badge } from "./badge/Badge.jsx";
+import { useState, useEffect } from "react";
+import { get } from "../../api/get.js";
 
 const FormStart = () => {
+  const [data, setData] = useState("");
+  const fetchData = async () => {
+    const result = await get("intropage?populate[badge][populate]=badgeImg");
+    setData(result.data.attributes);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  console.log(data.badge);
+
   return (
     <div className="container">
-      <div className="survey-intro__container">
-        <div className="survey-intro__title">
-          <h2>Our System</h2>
-        </div>
+      <div className="survey-intro__container fadeIn">
+        <Title title={data.title} />
         <div className="survey-intro__body-container">
-          <p className="survey-intro__body-text">
-            Kuli provides a questionnaire that allows users to asses different
-            aspects of a company's working environment, internal dynamics and
-            more.
-          </p>
-          <p className="survey-intro__body-text">
-            Questionnaires are divided into 4 different categories that focus on
-            different aspects:
-          </p>
-          <ul className="survey-intro__category-list">
-            <li className="survey-intro__category-list__item">
-              Employment and compensation
-            </li>
-            <li className="survey-intro__category-list__item">
-              Work life balance and career development
-            </li>
-            <li className="survey-intro__category-list__item">
-              Health, safety and freedom from violence
-            </li>
-            <li className="survey-intro__category-list__item">
-              Governance and leadership
-            </li>
-          </ul>
+          <Text text={data.bodyText} />
+          <div className="category-list__container fadeIn">
+            {data ? data.badge.map((elm) => {
+              return <Badge badge={elm} key={elm.id}/>
+            }) : <p>Try again</p>}
+          </div>
         </div>
-        <div className="buttons">
+        <div className="buttons fadeIn">
           <Link to={"/form"}>
             <Button title="To questionnaire" color="dark-blue" />
           </Link>
