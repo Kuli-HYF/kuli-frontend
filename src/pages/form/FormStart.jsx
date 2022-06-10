@@ -1,52 +1,36 @@
 import "./FormStart.css";
 
 import { Link } from "react-router-dom";
-
 import { Button } from "../../components/button/Button";
+import { Title } from "./title/Title.jsx";
+import { Text } from "./text/Text.jsx";
+import { Badge } from "./badge/Badge.jsx";
+import { useState, useEffect } from "react";
+import { get } from "../../api/get.js";
 
 const FormStart = () => {
+  const [data, setData] = useState("");
+  const fetchData = async () => {
+    const result = await get("intropage?populate[badge][populate]=badgeImg");
+    setData(result.data.attributes);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  console.log(data.badge);
+
   return (
     <div className="container">
       <div className="survey-intro__container fadeIn">
-        <div className="survey-intro__title">
-          <h2>Kuli Questionnaires</h2>
-        </div>
+        <Title title={data.title} />
         <div className="survey-intro__body-container">
-          <p className="survey-intro__body-text">
-            Kuli provides a questionnaire that allows users to asses different
-            aspects of a company's working environment, internal dynamics and
-            more. Questionnaires are divided into 4 different categories that
-            focus on different aspects:
-          </p>
+          <Text text={data.bodyText} />
           <div className="category-list__container fadeIn">
-            <div className="survey-intro__category-list__item fadeIn">
-              <img
-                src="https://www.freepngimg.com/thumb/facebook/66701-golden-picture-badge-template-icon-free-download-png-hq.png"
-                alt="badge"
-              />
-              <p>Employment and compensation</p>
-            </div>
-            <div className="survey-intro__category-list__item fadeIn">
-              <img
-                src="https://www.freepngimg.com/thumb/facebook/66701-golden-picture-badge-template-icon-free-download-png-hq.png"
-                alt="badge"
-              />
-              <p>Work life balance and career development</p>
-            </div>
-            <div className="survey-intro__category-list__item fadeIn">
-              <img
-                src="https://www.freepngimg.com/thumb/facebook/66701-golden-picture-badge-template-icon-free-download-png-hq.png"
-                alt="badge"
-              />
-              <p>Health, safety and freedom from violence</p>
-            </div>
-            <div className="survey-intro__category-list__item fadeIn">
-              <img
-                src="https://www.freepngimg.com/thumb/facebook/66701-golden-picture-badge-template-icon-free-download-png-hq.png"
-                alt="badge"
-              />
-              <p>Governance and leadership</p>
-            </div>
+            {data ? data.badge.map((elm) => {
+              return <Badge badge={elm} key={elm.id}/>
+            }) : <p>Try again</p>}
           </div>
         </div>
         <div className="buttons fadeIn">
