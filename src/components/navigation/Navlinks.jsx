@@ -1,24 +1,24 @@
+import { useState } from "react";
+import { navLinks } from "./NavData";
+
+import NavLinkItem from "./NavLinkItem";
 import { NavLink } from "react-router-dom";
 
 const NavLinks = () => {
+  const [selected, setSelected] = useState(0);
+
   return (
     <>
       <ul className="nav-list">
-        <li>
-          <NavLink to={"/badges"}>Badges</NavLink>
-        </li>
-        <li>
-          <NavLink to={"/companies"}>Companies</NavLink>
-        </li>
-        <li>
-          <NavLink to={"/"}>About Us</NavLink>
-        </li>
-        <li>
-          <NavLink to={"/"}>Sign Up</NavLink>
-        </li>
-        <li>
-          <NavLink to={"/"}>Login</NavLink>
-        </li>
+        {navLinks.map(({ name, link }, i) => (
+          <NavLinkItem
+            name={name}
+            link={link}
+            key={i}
+            selected={selected === i}
+            onClick={() => setSelected(i)}
+          />
+        ))}
       </ul>
     </>
   );

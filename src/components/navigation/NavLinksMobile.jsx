@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-
 import { motion } from "framer-motion";
+
+import { navLinks } from "./NavData";
 
 import Hamburger from "./Hamburger";
 
-const NavLinksMobile = (props) => {
+const NavLinksMobile = () => {
   const [isOpen, setOpen] = useState(false);
 
   const linkVariants = {
@@ -43,21 +44,11 @@ const NavLinksMobile = (props) => {
         variants={menuVariants}
         animate={isOpen ? "opened" : "closed"}
       >
-        <motion.li variants={linkVariants}>
-          <NavLink to={"/badges"}>Badges</NavLink>
-        </motion.li>
-        <motion.li variants={linkVariants}>
-          <NavLink to={"/companies"}>Companies</NavLink>
-        </motion.li>
-        <motion.li variants={linkVariants}>
-          <NavLink to={"/"}>About Us</NavLink>
-        </motion.li>
-        <motion.li variants={linkVariants}>
-          <NavLink to={"/"}>Sign Up</NavLink>
-        </motion.li>
-        <motion.li variants={linkVariants}>
-          <NavLink to={"/"}>Login</NavLink>
-        </motion.li>
+        {navLinks.map(({ name, link }, i) => (
+          <motion.li key={i} variants={linkVariants}>
+            <NavLink to={`/${link}`}>{name}</NavLink>
+          </motion.li>
+        ))}
       </motion.ul>
     </>
   );
