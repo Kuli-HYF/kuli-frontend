@@ -2,7 +2,6 @@ import { useState } from "react";
 import { navLinks } from "./NavData";
 
 import NavLinkItem from "./NavLinkItem";
-import { NavLink } from "react-router-dom";
 
 const NavLinks = () => {
   const [selected, setSelected] = useState(0);

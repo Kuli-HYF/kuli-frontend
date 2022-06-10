@@ -2,8 +2,6 @@ import "./FormStart.css";
 
 import { Link } from "react-router-dom";
 
-import Navigation from "../../components/navigation/Navigation";
-
 import { Button } from "../../components/button/Button";
 
 const FormStart = () => {
