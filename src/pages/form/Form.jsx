@@ -3,9 +3,10 @@ import { Yup } from "yup";
 import { Button } from "../../components/button/Button";
 import { useState, useEffect, useRef } from "react";
 import { get } from "../../api/get";
+import { Link } from "react-router-dom";
 
 import "./Form.css";
-import { toHaveAccessibleDescription } from "@testing-library/jest-dom/dist/matchers";
+// import { toHaveAccessibleDescription } from "@testing-library/jest-dom/dist/matchers";
 import { badgeCalc } from "../../logic/badgeCalc";
 
 export const Former = () => {
@@ -45,7 +46,7 @@ export const Former = () => {
   // console.log("form", questions);
 
   return badges.data && questions.data ? (
-    <h1>Loading...</h1>
+    <h1 key="743">Loading...</h1>
   ) : (
     <Formik
       initialValues={{
@@ -65,7 +66,7 @@ export const Former = () => {
                   <></>
                 ) : (
                   <div key={i + 19}>
-                    <p key={i + 111}>{tit[0]}</p>
+                    <p key={i + 867}>{tit[0]}</p>
                     {tit[2].map((ans, i) => (
                       <label key={i + 32}>
                         <Field
@@ -76,40 +77,43 @@ export const Former = () => {
                         />
                         {ans.answer}
                       </label>
-                      // <p>{ans.answer}</p>
                     ))}
                   </div>
                 )
               )
             )}
           </div>
-          <Button
-            key={10}
-            title="Back"
-            kind="button"
-            action={() => handleBack()}
-          />
-          <Button
-            key={12}
-            title="Next"
-            kind="submit"
-            action={() => setCategory(category + 1)}
-          />
+          {category === 0 ? (
+            <Link to={"/badges"}>
+              <Button title="Return" kind="button" color="dark-pink" />
+            </Link>
+          ) : (
+            <Button
+              key={10}
+              color="dark-pink"
+              title="Back"
+              kind="button"
+              action={() => handleBack()}
+            />
+          )}
+          {category === badges.length - 1 ? (
+            <Link to={"/congrats"}>
+              <Button title="Submit" kind="button" color="dark-blue" />
+            </Link>
+          ) : (
+            <Button
+              key={12}
+              color="dark-blue"
+              title="Next"
+              kind="submit"
+              action={() => setCategory(category + 1)}
+            />
+          )}
         </Form>
       )}
     </Formik>
   );
 };
-/*
-
-export const Button = ({ title, action, color, kind }) => {
-  return (
-    <button type={kind} onClick={action} className={color}>
-      {title}
-    </button>
-  );
-};
-*/
 
 /*
 export const Former = () => {
@@ -155,32 +159,4 @@ export const Former = () => {
     </form>
   );
 };
-*/
-/*
-export const Former = () => (
- 
-
-  <Formik
-    initialValues={{
-      checked: [],
-    }}
-    onSubmit={(values) => console.log(values)}
-  >
-    {({ values }) => (
-      <Form>
-        <div className="question">
-          <label>
-            <Field type="checkbox" name="checked" value="one-one" />
-            one
-          </label>
-          <label>
-            <Field type="checkbox" name="checked" value="two-one" />
-            two
-          </label>
-        </div>
-        <button type="submit">submit</button>
-      </Form>
-    )}
-  </Formik>
-);
 */
