@@ -1,9 +1,35 @@
 import { useFormik } from "formik";
 import { Yup } from "yup";
 import { Button } from "../../components/button/Button";
+import { useState, useEffect } from "react";
+import { get } from "../../api/get";
 
 import "./Form.css";
 
+export const Former = () => {
+  const [badges, setData] = useState({});
+  const [questions, setQuestions] = useState({});
+  const fetchBadges = async () => {
+    const result = await get("intropage?populate[badge][populate]=badge-name");
+    setData(result.data.attributes.badge);
+  };
+  const fetchQuestions = async () => {
+    const result = await get("testform?populate[questions][populate]=*");
+    setQuestions(result.data.attributes.questions);
+  };
+
+  useEffect(() => {
+    fetchBadges();
+    fetchQuestions();
+  }, []);
+
+  console.log("badge", badges);
+  // console.log("quest", questions);
+
+  return <h1>boo</h1>;
+};
+
+/*
 export const Former = () => {
   const formik = useFormik({
     initialValues: {
@@ -47,7 +73,7 @@ export const Former = () => {
     </form>
   );
 };
-
+*/
 /*
 export const Former = () => (
  
