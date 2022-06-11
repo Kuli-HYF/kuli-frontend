@@ -1,21 +1,36 @@
-import { useFormik } from "formik";
+import { useFormik, Formik, Form, Field } from "formik";
 import { Yup } from "yup";
 import { Button } from "../../components/button/Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { get } from "../../api/get";
 
 import "./Form.css";
+import { toHaveAccessibleDescription } from "@testing-library/jest-dom/dist/matchers";
+import { badgeCalc } from "../../logic/badgeCalc";
 
 export const Former = () => {
-  const [badges, setData] = useState({});
-  const [questions, setQuestions] = useState({});
+  const [badges, setBadges] = useState([]);
+  const [questions, setQuestions] = useState([]);
+  // const [category, setCategory] = useState(0);
+  // const [answers, setAnswers] = useState({});
+  // const category = useRef(0);
+  const [category, setCategory] = useState(0);
+  let answers = {};
+
   const fetchBadges = async () => {
-    const result = await get("intropage?populate[badge][populate]=badge-name");
-    setData(result.data.attributes.badge);
+    const promiseBadge = await get(
+      "intropage?populate[badge][populate]=badge-name"
+    );
+    const names = promiseBadge.data.attributes.badge;
+    setBadges(names.map((name) => name.badgeName)); // badge names)
   };
+
   const fetchQuestions = async () => {
-    const result = await get("testform?populate[questions][populate]=*");
-    setQuestions(result.data.attributes.questions);
+    const promiseQuest = await get("testform?populate[questions][populate]=*");
+    const prompts = promiseQuest.data.attributes.questions;
+    setQuestions(
+      prompts.map((name) => [name.prompt, name.badge, name.selections])
+    ); //[question, badge, {answers}]);
   };
 
   useEffect(() => {
@@ -23,11 +38,78 @@ export const Former = () => {
     fetchQuestions();
   }, []);
 
-  console.log("badge", badges);
-  // console.log("quest", questions);
+  const handleBack = () => {
+    category > 0 ? setCategory(category - 1) : console.log(category);
+  };
 
-  return <h1>boo</h1>;
+  // console.log("form", questions);
+
+  return badges.data && questions.data ? (
+    <h1>Loading...</h1>
+  ) : (
+    <Formik
+      initialValues={{
+        checked: [],
+      }}
+      onSubmit={(values) => badgeCalc(values.checked)}
+    >
+      {({ values }) => (
+        <Form key="90">
+          <div className="questionnaire">
+            <h1 key="20">{badges[category]}</h1>
+            {!badges && !questions ? (
+              <h1 key="30">Load</h1>
+            ) : (
+              questions.map((tit, i) =>
+                tit[1] !== badges[category] ? (
+                  <></>
+                ) : (
+                  <div key={i + 19}>
+                    <p key={i + 111}>{tit[0]}</p>
+                    {tit[2].map((ans, i) => (
+                      <label key={i + 32}>
+                        <Field
+                          key={ans.score}
+                          type="checkbox"
+                          name="checked"
+                          value={ans.score}
+                        />
+                        {ans.answer}
+                      </label>
+                      // <p>{ans.answer}</p>
+                    ))}
+                  </div>
+                )
+              )
+            )}
+          </div>
+          <Button
+            key={10}
+            title="Back"
+            kind="button"
+            action={() => handleBack()}
+          />
+          <Button
+            key={12}
+            title="Next"
+            kind="submit"
+            action={() => setCategory(category + 1)}
+          />
+        </Form>
+      )}
+    </Formik>
+  );
 };
+/*
+
+export const Button = ({ title, action, color, kind }) => {
+  return (
+    <button type={kind} onClick={action} className={color}>
+      {title}
+    </button>
+  );
+};
+*/
 
 /*
 export const Former = () => {

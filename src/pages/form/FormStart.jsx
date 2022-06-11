@@ -19,7 +19,7 @@ const FormStart = () => {
     fetchData();
   }, []);
 
-  console.log(data.badge);
+  // console.log(data.badge);
 
   return (
     <div className="container">
@@ -28,9 +28,13 @@ const FormStart = () => {
         <div className="survey-intro__body-container">
           <Text text={data.bodyText} />
           <div className="category-list__container fadeIn">
-            {data ? data.badge.map((elm) => {
-              return <Badge badge={elm} key={elm.id}/>
-            }) : <p>Try again</p>}
+            {data ? (
+              data.badge.map((elm) => {
+                return <Badge badge={elm} key={elm.id} />;
+              })
+            ) : (
+              <p>Try again</p>
+            )}
           </div>
         </div>
         <div className="buttons fadeIn">
