@@ -1,22 +1,25 @@
 import { useFormik, Formik, Form, Field } from "formik";
 import { Yup } from "yup";
 import { Button } from "../../components/button/Button";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { get } from "../../api/get";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import "./Form.css";
 // import { toHaveAccessibleDescription } from "@testing-library/jest-dom/dist/matchers";
 import { badgeCalc } from "../../logic/badgeCalc";
 
 export const Former = () => {
+  let navigate = useNavigate();
+
   const [badges, setBadges] = useState([]);
   const [questions, setQuestions] = useState([]);
   // const [category, setCategory] = useState(0);
-  // const [answers, setAnswers] = useState({});
+  const [answers, setAnswers] = useState([]);
   // const category = useRef(0);
   const [category, setCategory] = useState(0);
-  let answers = {};
+
+  // const answers = useRef({});
 
   const fetchBadges = async () => {
     const promiseBadge = await get(
@@ -29,9 +32,10 @@ export const Former = () => {
   const fetchQuestions = async () => {
     const promiseQuest = await get("testform?populate[questions][populate]=*");
     const prompts = promiseQuest.data.attributes.questions;
-    setQuestions(
-      prompts.map((name) => [name.prompt, name.badge, name.selections])
-    ); //[question, badge, {answers}]);
+    setQuestions(promiseQuest.data.attributes.questions);
+    // setQuestions(
+    //   prompts.map((name) => [name.prompt, name.badge, name.selections])
+    // ); //[question, badge, {answers}]);
   };
 
   useEffect(() => {
@@ -52,30 +56,29 @@ export const Former = () => {
       initialValues={{
         checked: [],
       }}
-      onSubmit={(values) => badgeCalc(values.checked)}
+      onSubmit={(values) => console.log("submit:", values)}
     >
       {({ values }) => (
-        <Form key="90">
+        <Form>
           <div className="questionnaire">
             <h1 key="20">{badges[category]}</h1>
             {!badges && !questions ? (
               <h1 key="30">Load</h1>
             ) : (
-              questions.map((tit, i) =>
-                tit[1] !== badges[category] ? (
-                  <></>
+              questions.map((question) =>
+                question.badge !== badges[category] ? (
+                  <React.Fragment key={question.id} />
                 ) : (
-                  <div key={i + 19}>
-                    <p key={i + 867}>{tit[0]}</p>
-                    {tit[2].map((ans, i) => (
-                      <label key={i + 32}>
+                  <div key={question.id}>
+                    <p>{question.prompt}</p>
+                    {question.selections.map((answer) => (
+                      <label key={answer.id}>
                         <Field
-                          key={ans.score}
                           type="checkbox"
                           name="checked"
-                          value={ans.score}
+                          value={answer.score}
                         />
-                        {ans.answer}
+                        {answer.answer}
                       </label>
                     ))}
                   </div>
@@ -89,7 +92,6 @@ export const Former = () => {
             </Link>
           ) : (
             <Button
-              key={10}
               color="dark-pink"
               title="Back"
               kind="button"
@@ -97,12 +99,19 @@ export const Former = () => {
             />
           )}
           {category === badges.length - 1 ? (
-            <Link to={"/congrats"}>
-              <Button title="Submit" kind="button" color="dark-blue" />
-            </Link>
-          ) : (
+            // <Link to={"/confirm"}>
             <Button
-              key={12}
+              title="Next"
+              kind="submit"
+              color="dark-blue"
+              action={() => {
+                navigate("/confirm");
+                badgeCalc(answers);
+              }}
+            />
+          ) : (
+            // </Link>
+            <Button
               color="dark-blue"
               title="Next"
               kind="submit"
@@ -115,6 +124,22 @@ export const Former = () => {
   );
 };
 
+/**
+ import { useNavigate } from "react-router-dom";
+
+function SignupForm() {
+  let navigate = useNavigate();
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    await submitForm(event.target);
+    navigate("../success", { replace: true });
+  }
+
+  return <form onSubmit={handleSubmit}>{/* ... */
+/*}</form>;
+}
+ */
 /*
 export const Former = () => {
   const formik = useFormik({
