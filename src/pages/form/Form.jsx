@@ -31,7 +31,7 @@ export const Former = () => {
 
   const fetchQuestions = async () => {
     const promiseQuest = await get("testform?populate[questions][populate]=*");
-    const prompts = promiseQuest.data.attributes.questions;
+    // const prompts = promiseQuest.data.attributes.questions;
     setQuestions(promiseQuest.data.attributes.questions);
     // setQuestions(
     //   prompts.map((name) => [name.prompt, name.badge, name.selections])
@@ -47,7 +47,7 @@ export const Former = () => {
     category > 0 ? setCategory(category - 1) : console.log(category);
   };
 
-  // console.log("form", questions);
+  // console.log("form", badges);
 
   return badges.data && questions.data ? (
     <h1 key="743">Loading...</h1>
@@ -56,7 +56,15 @@ export const Former = () => {
       initialValues={{
         checked: [],
       }}
-      onSubmit={(values) => console.log("submit:", values)}
+      onSubmit={(values) => {
+        if (category === badges.length) {
+          console.log("now", values.checked);
+          setAnswers(values.checked);
+          badgeCalc(answers);
+          // navigate("/confirm");
+        }
+        console.log("not yet", values.checked);
+      }}
     >
       {({ values }) => (
         <Form>
@@ -64,6 +72,19 @@ export const Former = () => {
             <h1 key="20">{badges[category]}</h1>
             {!badges && !questions ? (
               <h1 key="30">Load</h1>
+            ) : category === badges.length ? (
+              questions.map((quest) =>
+                quest.selections.map((sel) =>
+                  answers.includes(sel.score) ? (
+                    <div key={quest.id}>
+                      <h2>{quest.prompt}</h2>
+                      <p>{sel.answer}</p>{" "}
+                    </div>
+                  ) : (
+                    <React.Fragment key={sel.id} />
+                  )
+                )
+              )
             ) : (
               questions.map((question) =>
                 question.badge !== badges[category] ? (
@@ -98,24 +119,28 @@ export const Former = () => {
               action={() => handleBack()}
             />
           )}
-          {category === badges.length - 1 ? (
-            // <Link to={"/confirm"}>
+          {category === badges.length ? (
+            <Button title="Submit" kind="submit" color="dark-blue" />
+          ) : category === badges.length - 1 ? (
             <Button
-              title="Next"
-              kind="submit"
+              title="Confirm"
+              kind="button"
               color="dark-blue"
               action={() => {
-                navigate("/confirm");
-                badgeCalc(answers);
+                // console.log("cat", category);
+                setCategory(category + 1);
               }}
+              // action={badgeCalc(answers)}
             />
           ) : (
-            // </Link>
             <Button
-              color="dark-blue"
               title="Next"
-              kind="submit"
-              action={() => setCategory(category + 1)}
+              kind="button"
+              color="dark-blue"
+              action={() => {
+                // console.log("cat", category);
+                setCategory(category + 1);
+              }}
             />
           )}
         </Form>
