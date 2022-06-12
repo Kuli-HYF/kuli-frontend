@@ -63,7 +63,7 @@ export const Former = () => {
           badgeCalc(answers);
           // navigate("/confirm");
         }
-        console.log("not yet", values.checked);
+        // console.log("not yet", values.checked);
       }}
     >
       {({ values }) => (
@@ -77,7 +77,7 @@ export const Former = () => {
                 quest.selections.map((sel) =>
                   answers.includes(sel.score) ? (
                     <div key={quest.id}>
-                      <h2>{quest.prompt}</h2>
+                      <h3>{quest.prompt}</h3>
                       <p>{sel.answer}</p>{" "}
                     </div>
                   ) : (
@@ -120,7 +120,12 @@ export const Former = () => {
             />
           )}
           {category === badges.length ? (
-            <Button title="Submit" kind="submit" color="dark-blue" />
+            <Button
+              title="Submit"
+              kind="submit"
+              color="dark-blue"
+              action={() => setTimeout(navigate, 2000, "/confirm")}
+            />
           ) : category === badges.length - 1 ? (
             <Button
               title="Confirm"
