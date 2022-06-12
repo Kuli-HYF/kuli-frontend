@@ -124,7 +124,7 @@ export const Former = () => {
               title="Submit"
               kind="submit"
               color="dark-blue"
-              action={() => setTimeout(navigate, 2000, "/confirm")}
+              action={() => setTimeout(navigate, 1000, "/confirm")}
             />
           ) : category === badges.length - 1 ? (
             <Button
