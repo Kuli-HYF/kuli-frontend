@@ -15,6 +15,9 @@ const NavLinksMobile = () => {
     opened: {
       opacity: 1,
       y: 20,
+      transition:{
+        ease: "easeOut",
+      }
     },
     closed: {
       opacity: 0,
@@ -27,7 +30,7 @@ const NavLinksMobile = () => {
       top: 0,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.07,
+        staggerChildren: 0.04,
         bounce: 0,
       },
     },

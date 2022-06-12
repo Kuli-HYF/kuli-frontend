@@ -1,4 +1,4 @@
-import './company.css'
+import "./company.css";
 import { Link } from "react-router-dom";
 
 import Navigation from "../../components/navigation/Navigation";
@@ -9,10 +9,12 @@ const CompanyStart = () => {
   return (
     <>
       <Navigation />
-      <div className="companies-div">companies home</div>
+      <div className="temp-div">
+        <h2>companies home</h2>
+      </div>
 
       <Link to={"/"}>
-        <Button title="go home" />
+      <Button title="home" color="temp-button dark-pink" />
       </Link>
     </>
   );

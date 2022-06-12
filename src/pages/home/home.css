@@ -122,9 +122,9 @@ h1 {
   .header-paragraph-container {
     padding: 0;
   }
-  p {
-    font-size: 1rem;
-  }
+  /* .header-paragraph {
+    font-size: 1.2rem;
+  } */
 }
 
 @media (max-width: 576px) {
