@@ -11,11 +11,11 @@ const CompanyStart = () => {
       <Navigation />
       <div className="temp-div">
         <h2>companies home</h2>
-      </div>
 
-      <Link to={"/"}>
-      <Button title="home" color="temp-button dark-pink" />
-      </Link>
+        <Link to={"/"}>
+          <Button title="home" color="temp-button dark-pink" />
+        </Link>
+      </div>
     </>
   );
 };
