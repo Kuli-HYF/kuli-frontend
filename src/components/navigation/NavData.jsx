@@ -1,8 +1,8 @@
 export const navLinks = [
-  { link: "", name: "Home" },
-  { link: "badges", name: "Our System" },
-  { link: "companies", name: "Companies" },
-  { link: "", name: "About Us" },
-  { link: "", name: "Sign Up" },
-  { link: "", name: "Login" },
+  { link: "/", name: "Home" },
+  { link: "/badges", name: "Our System" },
+  { link: "/companies", name: "Companies" },
+  { link: "/about", name: "About Us" },
+  { link: "/signup", name: "Sign Up" },
+  { link: "/login", name: "Login" },
 ];

@@ -4,10 +4,9 @@ import Header from "./Header";
 const Home = () => {
   return (
     <>
-        <div className="header-container">
-
-      <Navigation />
-      <Header />
+      <div className="header-container">
+        <Navigation />
+        <Header />
       </div>
     </>
   );

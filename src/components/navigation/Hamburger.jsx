@@ -11,7 +11,6 @@ const Path = (props) => (
 
 const transition = { duration: 0.33 };
 
-
 const Hamburger = ({ toggle, isOpen }) => {
   return (
     <button className="hamburger-button" onClick={toggle}>
@@ -40,7 +39,10 @@ const Hamburger = ({ toggle, isOpen }) => {
           animate={isOpen ? "open" : "closed"}
           initial={false}
           variants={{
-            closed: { d: "M 2 16.346 L 20 16.346", stroke: "hsl(-122, 45%, 30%)" },
+            closed: {
+              d: "M 2 16.346 L 20 16.346",
+              stroke: "hsl(-122, 45%, 30%)",
+            },
             open: { d: "M 3 2.5 L 17 16.346", stroke: "hsl(-122, 45%, 30%)" },
           }}
           transition={transition}
