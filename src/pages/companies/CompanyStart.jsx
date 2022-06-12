@@ -9,6 +9,7 @@ import { Button } from "../../components/button/Button";
 
 const CompanyStart = () => {
   const [companies, setCompanies] = useState([]);
+  const [search, setSearch] = useState("");
 
   const fetchCompanies = async () => {
     const result = await get("companies");
@@ -16,15 +17,33 @@ const CompanyStart = () => {
   };
 
   useEffect(() => {
-    fetchCompanies();
-    console.log(companies);
-  }, []);
+    if (!search.length > 0) {
+      fetchCompanies();
+    }
+    // console.log(companies);
+  }, [search]);
 
-  // const handleGet = async (event) => {
-  //   const search = event.target.parentElement.children[0].value;
-  //   const companiesUrl = "companies";
+  // const getCompanyInput = (e) => {
+  //   setSearch(search)
+  //   console.log("search :" + search)
+  // }
+
+  useEffect(() => {
+    if (search.length > 0) {
+      let filteredCompanies = companies.filter((company) =>
+        company.attributes.name.toLowerCase().includes(search.toLowerCase())
+      );
+
+      setCompanies(filteredCompanies);
+      console.log(filteredCompanies);
+    }
+  }, [search]);
+
+  // const handleGet = async () => {
   //   const result = await get(search);
   //   console.log("get", result);
+  //   console.log("search: " + search);
+  //   setCompanies(result.data);
   // };
 
   return (
@@ -43,8 +62,17 @@ const CompanyStart = () => {
           {/* <Link to={"/"}>
             <Button title="home" color="temp-button dark-pink" />
           </Link> */}
-          <input type="input"></input>
+          <input
+            type="input"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          ></input>
           {/* <Button color="blue" action={handleGet} title="get" /> */}
+          <div className="companies-results-container">
+            {companies.map((el) => (
+              <p key={el.id}>{el.attributes.name}</p>
+            ))}
+          </div>
         </div>
       </div>
     </>
