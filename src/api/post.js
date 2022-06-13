@@ -1,15 +1,13 @@
 import { ORIGIN } from "../config";
 
- const post = async (path, value) => {
-  const category = path;
-  const body = value;
-  const url = encodeURI(`${ORIGIN}${category}`);
+ export const post = async (path, value) => {
+  const url = encodeURI(`${ORIGIN}${path}`);
   const response = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify(value),
   });
   if (!response.ok) {
     throw new Error(`${response.status}: ${response.statusText}`);
@@ -19,4 +17,4 @@ import { ORIGIN } from "../config";
   return result;
 };
 
-export default post;
+

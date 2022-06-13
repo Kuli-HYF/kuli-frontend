@@ -1,35 +1,15 @@
 import {TextField} from "../Textfield/TextField";
 import './style.css';
+import {post} from '../../api/post';
 import {Formik , Form} from "formik";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as Yup from 'yup';
-import { ORIGIN } from "../../config";
 
 import React from 'react'
 
  export const Signup = () => {
 
-     const post = async (path, value) => {
-        const category = path;
-        const body = value;
-        const url = encodeURI(`${ORIGIN}${category}`);
-        const response = await fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(body),
-        });
-        if (!response.ok) {
-          throw new Error(`${response.status}: ${response.statusText}`);
-        }
-        const result = await response.json();
-        // console.log("add", result);
-        return result;
-      };
-      
-     
-      
+
 
 
 
@@ -74,12 +54,18 @@ import React from 'react'
     //here we make the post request 
 
     validationSchema = {validate} 
-    onSubmit = {data =>{
-       //call the POST funtion here 
+    onSubmit = {(values) => {
+
+        setTimeout(() => {
+
+         const postVules = post("auth/local/register",values);
 
 
-        console.log(data);
-        Signup.post(data);
+        }, 1000);
+
+
+
+    }
 
         // const data = new FormData();
         // for (let i = 0; i < values.length; i++) {
@@ -94,13 +80,11 @@ import React from 'react'
       
 
         // })
-    
-
 
 
     }
     
-    }
+    
     >
         {formik => (
 
