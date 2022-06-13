@@ -31,8 +31,6 @@ export const badgeCalc = (toCalc) => {
   });
   console.log("totals", totals);
 
-  const sort = totals.sort(
-    (a, b) => Math.ceil(a.average) - Math.ceil(b.average)
-  );
+  const sort = totals.sort((a, b) => a.average - b.average);
   console.log("sorted", sort);
 };
