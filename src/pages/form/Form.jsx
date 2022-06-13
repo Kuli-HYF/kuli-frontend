@@ -1,12 +1,12 @@
+import "./Form.css";
+
 import { useFormik, Formik, Form, Field } from "formik";
-import { Yup } from "yup";
-import { Button } from "../../components/button/Button";
 import React, { useState, useEffect, useRef } from "react";
-import { get } from "../../api/get";
 import { useNavigate, Link } from "react-router-dom";
 
-import "./Form.css";
-// import { toHaveAccessibleDescription } from "@testing-library/jest-dom/dist/matchers";
+import { Button } from "../../components/button/Button";
+import { get } from "../../api/get";
+
 import { badgeCalc } from "../../logic/badgeCalc";
 
 export const Former = () => {
@@ -14,12 +14,8 @@ export const Former = () => {
 
   const [badges, setBadges] = useState([]);
   const [questions, setQuestions] = useState([]);
-  // const [category, setCategory] = useState(0);
   const [answers, setAnswers] = useState([]);
-  // const category = useRef(0);
   const [category, setCategory] = useState(0);
-
-  // const answers = useRef({});
 
   const fetchBadges = async () => {
     const promiseBadge = await get(
@@ -31,11 +27,7 @@ export const Former = () => {
 
   const fetchQuestions = async () => {
     const promiseQuest = await get("testform?populate[questions][populate]=*");
-    // const prompts = promiseQuest.data.attributes.questions;
     setQuestions(promiseQuest.data.attributes.questions);
-    // setQuestions(
-    //   prompts.map((name) => [name.prompt, name.badge, name.selections])
-    // ); //[question, badge, {answers}]);
   };
 
   useEffect(() => {
@@ -58,12 +50,10 @@ export const Former = () => {
       }}
       onSubmit={(values) => {
         if (category === badges.length) {
-          console.log("now", values.checked);
+          console.log("now", values);
           setAnswers(values.checked);
           badgeCalc(answers);
-          // navigate("/confirm");
         }
-        // console.log("not yet", values.checked);
       }}
     >
       {({ values }) => (
@@ -76,9 +66,9 @@ export const Former = () => {
               questions.map((quest) =>
                 quest.selections.map((sel) =>
                   answers.includes(sel.score) ? (
-                    <div key={quest.id}>
+                    <div key={sel.id}>
                       <h3>{quest.prompt}</h3>
-                      <p>{sel.answer}</p>{" "}
+                      <p>{sel.answer}</p>
                     </div>
                   ) : (
                     <React.Fragment key={sel.id} />
@@ -135,7 +125,6 @@ export const Former = () => {
                 // console.log("cat", category);
                 setCategory(category + 1);
               }}
-              // action={badgeCalc(answers)}
             />
           ) : (
             <Button

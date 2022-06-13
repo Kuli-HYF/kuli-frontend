@@ -1,27 +1,33 @@
 export const badgeCalc = (toCalc) => {
-  console.log("to calculate", toCalc);
+  // console.log("to calculate", toCalc);
   const filtered = toCalc.filter((val) => Number(val[2]) !== 0);
-  console.log("filtered", filtered);
-  const groupObject = {};
+  // console.log("filtered", filtered); // [111, 122, 211, 223]
 
-  const groups = filtered.map((val, i) =>
-    val[0] === i ? (groupObject.i = val) : console.log("ping")
-  );
-  console.log("grouped", groups);
+  const groups = [];
 
-  /*
-  const groups = filtered.map((val, i) =>
-    val[0] === String(filtered[i + 1])[0]
-      ? console.log("equal", val, filtered[i + 1])
-      : console.log("nope", val, filtered[i + 1])
-  );
-*/
-  /*
-  const groups = filtered.sort((val1, val2) => {
-    const intoArr = [];
-    val1[0] === val2[0] ? intoArr.push(val1) : console.log("ping");
-    return intoArr;
+  for (let i = 1; i < filtered.length; i++) {
+    const group = [];
+    filtered.map(
+      (val) => (Number(val[0]) === i ? group.push(val) : console.log("nope"))
+      // console.log("last try", group, groups);
+    );
+    groups.push(group);
+  }
+  const scores = groups.filter((group) => group.length !== 0);
+  console.log("please", scores);
+
+  const totals = [];
+
+  scores.map((score) => {
+    const total = {};
+    total.badge = score[0][0];
+    const sum = score.reduce((sum, num) => {
+      return sum + Number(num[2]);
+    }, 0);
+    const average = sum / score.length;
+    total.average = average;
+    console.log("total", total);
+    totals.push(total);
   });
-  */
-  // console.log("groups", groups);
+  console.log("totals", totals);
 };
