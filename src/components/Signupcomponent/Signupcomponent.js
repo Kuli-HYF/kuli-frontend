@@ -71,6 +71,14 @@ import React from 'react'
       
 
         // })
+        const data = new FormData();
+        ajax({
+            type: 'POST',
+            url: 'https://kuli-strapi.herokuapp.com/api/',
+            data: data
+
+        });
+
 
 
     }
