@@ -1,5 +1,5 @@
 export const badgeCalc = (toCalc) => {
-  // console.log("to calculate", toCalc);
+  console.log("to calculate", toCalc);
   const filtered = toCalc.filter((val) => Number(val[2]) !== 0);
   // console.log("filtered", filtered); // [111, 122, 211, 223]
 
@@ -26,8 +26,13 @@ export const badgeCalc = (toCalc) => {
     }, 0);
     const average = sum / score.length;
     total.average = average;
-    console.log("total", total);
+    // console.log("total", total);
     totals.push(total);
   });
   console.log("totals", totals);
+
+  const sort = totals.sort(
+    (a, b) => Math.ceil(a.average) - Math.ceil(b.average)
+  );
+  console.log("sorted", sort);
 };
