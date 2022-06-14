@@ -19,12 +19,13 @@ import React from 'react'
   //validating the form 
     const validate = Yup.object(
         {
-            firstName: Yup.string()
-            .max(15, 'Must be 15 characters or less')
-            .required('Required'),
-            lastName: Yup.string()
-            .max(20, 'Must be 20 characters or less')
-            .required('Required'),
+            // firstName: Yup.string()
+            // .max(15, 'Must be 15 characters or less')
+            // .required('Required'),
+            // lastName: Yup.string()
+            // .max(20, 'Must be 20 characters or less')
+            // .required('Required'),
+
             email: Yup.string()
             .email('email is invalid')
             .max(15, 'Must be 15 characters or less')
@@ -42,6 +43,26 @@ import React from 'react'
     const handleAdd = async (values) => {
         // function takes 'category' ="" 'value'={}
         // const search = event.target.parentElement.children[0].value;
+
+        /**
+         * get data from text field
+         * compare the data with the data found in the database
+         * login user 
+         */
+
+        /** 
+         * compare the data with the data found in the database
+         * make a fetch request and get the values avaliable in the database 
+         * make a compare with the data in the textfield
+         * 
+         */
+
+          /** 
+         * login user 
+         * 
+         */
+
+
         const body = {
           data: {
             email: values.email,
