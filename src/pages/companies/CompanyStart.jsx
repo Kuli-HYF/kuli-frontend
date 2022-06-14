@@ -1,26 +1,25 @@
 import "./company.css";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { get } from "../../api/get";
 
 import Navigation from "../../components/navigation/Navigation";
 
-import { Button } from "../../components/button/Button";
 
 const CompanyStart = () => {
   const [companies, setCompanies] = useState([]);
   const [search, setSearch] = useState("");
 
   const fetchCompanies = async () => {
-    const result = await get("companies");
+    const result = await get("companies?populate=*");
     setCompanies(result.data);
   };
 
   useEffect(() => {
     if (!search.length > 0) {
       fetchCompanies();
+
+      console.log(companies);
     }
-    // console.log(companies);
   }, [search]);
 
   // const getCompanyInput = (e) => {
@@ -35,7 +34,7 @@ const CompanyStart = () => {
       );
 
       setCompanies(filteredCompanies);
-      console.log(filteredCompanies);
+      // console.log(filteredCompanies);
     }
   }, [search]);
 
@@ -68,11 +67,13 @@ const CompanyStart = () => {
             onChange={(e) => setSearch(e.target.value)}
           ></input>
           {/* <Button color="blue" action={handleGet} title="get" /> */}
-          <div className="companies-results-container">
-            {companies.map((el) => (
-              <p key={el.id}>{el.attributes.name}</p>
-            ))}
-          </div>
+          {companies.length > 0 && (
+            <div className="companies-results-container">
+              {companies.map((el) => (
+                <p key={el.id}>{el.attributes.name}</p>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </>
