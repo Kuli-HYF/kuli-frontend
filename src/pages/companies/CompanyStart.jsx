@@ -24,20 +24,18 @@ const CompanyStart = () => {
     const { checked, value } = e.target;
     console.log(checked, value);
     const badgeId = e.currentTarget.id;
-    console.log("checked: " + checked)
-    console.log("value: " + value)
+    console.log("checked: " + checked);
+    console.log("value: " + value);
     console.log("badge id: " + badgeId);
 
     if (checked) {
-      setFilteredBadges(filteredBadges => [...filteredBadges, value]
-      );
+      setFilteredBadges((filteredBadges) => [...filteredBadges, value]);
+    } else {
+      setFilteredBadges(filteredBadges.filter((e) => e !== value));
+      console.log(badges);
     }
 
-    // else{
-    //   console.log(badges)
-    // }
-
-    console.log(filteredBadges)
+    console.log(filteredBadges);
   };
 
   useEffect(() => {
@@ -52,8 +50,7 @@ const CompanyStart = () => {
     console.log(companies);
     setBadges(badges);
     console.log(badges);
-    console.log(filteredBadges)
-
+    console.log(filteredBadges);
   }, [companies, badges, filteredBadges]);
 
   useEffect(() => {
@@ -62,28 +59,15 @@ const CompanyStart = () => {
     }
   }, [search]);
 
-  // const getCompanyInput = (e) => {
-  //   setSearch(search)
-  //   console.log("search :" + search)
-  // }
-
   useEffect(() => {
     if (search.length > 0) {
       let filteredCompanies = companies.filter((company) =>
         company.attributes.name.toLowerCase().includes(search.toLowerCase())
       );
-
       setCompanies(filteredCompanies);
       // console.log(filteredCompanies);
     }
   }, [search]);
-
-  // const handleGet = async () => {
-  //   const result = await get(search);
-  //   console.log("get", result);
-  //   console.log("search: " + search);
-  //   setCompanies(result.data);
-  // };
 
   return (
     <>
