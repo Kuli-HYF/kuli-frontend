@@ -70,11 +70,11 @@ function App() {
       <div className="main-container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/badges" element={<FormStart />} />
+          <Route path="/badges" element={<AboutBadges />} />
           <Route path="/companies" element={<CompanyStart />} />
           <Route path="/form" element={'form'} />
           <Route path="/sign-up" element={'sign-up'} />
-          <Route path="/about-badges" element={<AboutBadges />} />
+          <Route path="/questionnaire" element={<FormStart />} />
         </Routes>
       </div>
 

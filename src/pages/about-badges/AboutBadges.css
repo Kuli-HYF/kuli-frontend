@@ -1,35 +1,33 @@
 /* About badges intro */
 
 .section {
-    height: 100%;
+  height: 100%;
 }
 
 .about-badges__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: var(--light-blue);
-    padding-top: 12%;
-    padding-bottom: 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 12%;
+  padding-bottom: 4%;
 }
 
 .about-badges__text-container {
-    width: 70%;
-    margin-top: 4%;
+  width: 70%;
+  margin-top: 4%;
 }
 
 .about-badges__body-text {
-    text-align: justify;
+  text-align: justify;
 }
 
 .about-badges__container button {
-    margin-top: auto;
-    background-color: var(--dark-blue);
+  margin-top: auto;
+  background-color: var(--dark-blue);
 }
-
 
 /* Images */
 
@@ -37,36 +35,68 @@
 .badge2__img-container,
 .badge3__img-container,
 .badge4__img-container img {
-    max-width: 40vw;
-    min-width: 220px;
+  max-width: 32vw;
+  min-width: 320px;
 }
 
 .badge-title {
-    text-align: center;
+  text-align: center;
+  padding-top: 80px;
 }
 
+.badge-container {
+  padding-top: 80px;
+}
+
+.badge__text-container {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge__text-container p {
+  margin: 0 0 16px 0;
+  text-align: justify;
+}
+
+.badge__img-container {
+  width: 32%;
+	min-width: 320px;
+}
 
 /* Badge 1 */
 
-.badge1-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding-top: 12%;
-    padding-bottom: 4%;
+.content1-container {
+  display: flex;
+  flex-direction: center;
+  flex-wrap: wrap;
+	margin-top: 20px;
 }
 
-.badge1-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 70%;
+/* Badge 2 */
+
+.content2-container {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+	margin-top: 20px;
 }
 
-.badge-text__container {
-    width: 20%;
+/* Badge 3 */
+
+.content3-container {
+  display: flex;
+  flex-direction: center;
+  flex-wrap: wrap;
+	margin-top: 20px;
+}
+
+/* Badge 4 */
+
+.content4-container {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+	margin-top: 20px;
 }

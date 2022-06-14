@@ -23,34 +23,33 @@ const FormStart = () => {
   console.log(data.badge);
 
   return (
-    <>
+    <div className="container">
       <Navigation />
-      <div className="container">
-        <div className="survey-intro__container fadeIn">
-          <Title title={data.title} />
-          <div className="survey-intro__body-container">
-            <Text text={data.bodyText} />
-            <div className="category-list__container fadeIn">
-              {data ? (
-                data.badge.map((elm) => {
-                  return <Badge badge={elm} key={elm.id} />;
-                })
-              ) : (
-                <p>Try again</p>
-              )}
-            </div>
+      <div className="survey-intro__container fadeIn">
+        <Title title={data.title} />
+        <div className="survey-intro__body-container">
+          <Text text={data.bodyText} />
+          <div className="category-list__container fadeIn">
+            {data ? (
+              data.badge.map((elm) => {
+                return <Badge badge={elm} key={elm.id} />;
+              })
+            ) : (
+              <p>Try again</p>
+            )}
           </div>
-          <div className="buttons fadeIn">
-            <Link to={"/form"}>
+
+        </div>
+        <div className="buttons fadeIn">
+            <Link to={"/form"} className='button'>
               <Button title="To questionnaire" color="dark-blue" />
             </Link>
             <Link to={"/sign-up"}>
-              <Button title="Sign Up" color="dark-blue" />
+              <Button title="Sign Up" color="dark-blue" className='button'/>
             </Link>
           </div>
-        </div>
       </div>
-    </>
+    </div>
   );
 };
 
