@@ -21,13 +21,21 @@ export const Former = () => {
   const toSubmit = useRef(false);
 
   const fetchBadges = async () => {
+    const promiseBadge = await get("badges");
+    const names = promiseBadge.data;
+    // console.log("get badge", names);
+    setBadges(names.map((name) => name.attributes.name)); // 1employ 2work 3health 4 govern
+  };
+
+  /*
+  const fetchBadges = async () => {
     const promiseBadge = await get(
       "intropage?populate[badge][populate]=badge-name"
     );
     const names = promiseBadge.data.attributes.badge;
-    setBadges(names.map((name) => name.badgeName)); // badge names)
+    setBadges(names.map((name) => name.badgeName)); // 1employ 2work 3health 4 govern
   };
-
+*/
   const fetchQuestions = async () => {
     const promiseQuest = await get("testform?populate[questions][populate]=*");
     setQuestions(promiseQuest.data.attributes.questions);
@@ -41,7 +49,7 @@ export const Former = () => {
   const handleBack = () => {
     category > 0 ? setCategory(category - 1) : console.log(category);
   };
-  // console.log("form", toSubmit.current);
+  // console.log("form", badges);
 
   return badges.data && questions.data ? (
     <h1 className="header" key="743">

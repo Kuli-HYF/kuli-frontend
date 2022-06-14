@@ -14,7 +14,7 @@ export const badgeCalc = (toCalc) => {
     groups.push(group);
   }
   const scores = groups.filter((group) => group.length !== 0);
-  console.log("please", scores);
+  // console.log("please", scores);
 
   const totals = [];
 
