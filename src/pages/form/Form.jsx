@@ -38,11 +38,12 @@ export const Former = () => {
   const handleBack = () => {
     category > 0 ? setCategory(category - 1) : console.log(category);
   };
-
   // console.log("form", badges);
 
   return badges.data && questions.data ? (
-    <h1 key="743">Loading...</h1>
+    <h1 className="header" key="743">
+      Loading...
+    </h1>
   ) : (
     <Formik
       initialValues={{
@@ -50,7 +51,7 @@ export const Former = () => {
       }}
       onSubmit={(values) => {
         if (category === badges.length) {
-          console.log("now", values);
+          // console.log("now", values);
           setAnswers(values.checked);
           badgeCalc(answers);
         }
@@ -59,16 +60,23 @@ export const Former = () => {
       {({ values }) => (
         <Form>
           <div className="questionnaire">
-            <h1 key="20">{badges[category]}</h1>
+            {category === badges.length || (!badges && !questions) ? (
+              <h1>Please confirm your choices</h1>
+            ) : (
+              <React.Fragment key="93" />
+            )}
+            <h1 className="header" key="20">
+              {badges[category]}
+            </h1>
             {!badges && !questions ? (
-              <h1 key="30">Load</h1>
+              <h1 key="30">Loading...</h1>
             ) : category === badges.length ? (
               questions.map((quest) =>
                 quest.selections.map((sel) =>
                   answers.includes(sel.score) ? (
                     <div key={sel.id}>
                       <h3>{quest.prompt}</h3>
-                      <p>{sel.answer}</p>
+                      <p className="confirm">{sel.answer}</p>
                     </div>
                   ) : (
                     <React.Fragment key={sel.id} />
@@ -81,15 +89,16 @@ export const Former = () => {
                   <React.Fragment key={question.id} />
                 ) : (
                   <div key={question.id}>
-                    <p>{question.prompt}</p>
+                    <p className="question">{question.prompt}</p>
                     {question.selections.map((answer) => (
-                      <label key={answer.id}>
+                      <label className="batch" key={answer.id}>
                         <Field
+                          // className="box"
                           type="checkbox"
                           name="checked"
                           value={answer.score}
                         />
-                        {answer.answer}
+                        <p className="answer">{answer.answer}</p>
                       </label>
                     ))}
                   </div>

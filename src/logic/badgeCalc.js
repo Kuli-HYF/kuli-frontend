@@ -5,7 +5,7 @@ export const badgeCalc = (toCalc) => {
 
   const groups = [];
 
-  for (let i = 1; i < filtered.length; i++) {
+  for (let i = 1; i < filtered.length + 10; i++) {
     const group = [];
     filtered.map(
       (val) => (Number(val[0]) === i ? group.push(val) : console.log("nope"))

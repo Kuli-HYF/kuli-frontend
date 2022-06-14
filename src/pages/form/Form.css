@@ -1,3 +1,37 @@
-h1 {
+body {
+  background-color: #fce3cf;
+  margin: 40px;
+}
+
+.questionnaire {
+  margin: 20px;
+}
+
+.header {
   color: #302b70;
+}
+
+.question {
+  padding-top: 20px;
+}
+
+.batch {
+  display: flex;
+  margin: 10px;
+}
+
+/* 
+.box {
+  padding: 30px;
+} */
+
+.answer {
+  padding-left: 10px;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.confirm {
+  padding: 10px;
+  font-size: 16px;
 }
