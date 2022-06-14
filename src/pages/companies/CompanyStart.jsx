@@ -47,6 +47,11 @@ const CompanyStart = () => {
   //   setCompanies(filteredCompanies);
   // };
 
+  const handleReset = () => {
+    fetchCompanies();
+    setCompanies(companies);
+  };
+
   const handleFilter = () => {
     let filteredCompanies = companies.filter((company) =>
       company.attributes.badges.data.some((badges) =>
@@ -58,19 +63,15 @@ const CompanyStart = () => {
   };
 
   useEffect(() => {
-    if (filteredBadges.length) {
-      let filteredCompanies = companies.filter((company) =>
-        company.attributes.badges.data.some((badges) =>
-          filteredBadges.includes(badges.id)
-        )
-        
-      );
-      setCompanies(filteredCompanies);
+    let filteredCompanies = companies.filter((company) =>
+      company.attributes.badges.data.some((badges) =>
+        filteredBadges.includes(badges.id)
+      )
+    );
+    // setCompanies(filteredCompanies);
 
-      console.log(filteredCompanies);
-      console.log(companies);
-
-    }
+    console.log(filteredCompanies);
+    console.log(companies);
   }, [filteredBadges]);
 
   useEffect(() => {
@@ -81,17 +82,21 @@ const CompanyStart = () => {
   }, []);
 
   useEffect(() => {
-    if (companies.length !== 0) {
-      setCompanies(companies);
-      // console.log(companies);
-      setBadges(badges);
-      // console.log(badges);
-      // console.log(filteredBadges);
-      // console.log(companies[11].attributes.badges.data[0].attributes.name);
-      // console.log(companies[11].attributes.badges.data[0].id);
-      // console.log(companies.attributes);
-    }
-  }, [companies, badges]);
+    fetchCompanies();
+  }, []);
+
+  // useEffect(() => {
+  //   if (companies.length !== 0) {
+  //     setCompanies(companies);
+  //     // console.log(companies);
+  //     setBadges(badges);
+  //     // console.log(badges);
+  //     // console.log(filteredBadges);
+  //     // console.log(companies[11].attributes.badges.data[0].attributes.name);
+  //     // console.log(companies[11].attributes.badges.data[0].id);
+  //     // console.log(companies.attributes);
+  //   }
+  // }, [companies, badges, filteredBadges]);
 
   useEffect(() => {
     console.log(filteredBadges);
@@ -162,6 +167,7 @@ const CompanyStart = () => {
             )}
           </div>
           <button onClick={handleFilter}>filter</button>
+          <button onClick={handleReset}>reset</button>
         </div>
       </div>
     </>
