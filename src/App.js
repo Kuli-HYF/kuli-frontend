@@ -6,6 +6,7 @@ import CompanyStart from "./pages/companies/CompanyStart";
 import FormStart from "./pages/form/FormStart";
 import { Button } from "./components/button/Button";
 import { Former } from "./pages/form/Form";
+import { Congratulate } from "./pages/congratulate/Congratulate";
 
 /*
 import { Button } from "./components/button/Button";
@@ -72,7 +73,7 @@ function App() {
           <Route path="/companies" element={<CompanyStart />} />
           <Route path="/form" element={<Former />}></Route>
           <Route path="/sign-up" element={"sign-up"} />
-          <Route path="/confirm" element={"confirm"} />
+          <Route path="/confirm" element={<Congratulate />} />
         </Routes>
       </div>
 

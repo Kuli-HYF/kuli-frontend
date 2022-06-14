@@ -34,6 +34,6 @@ export const badgeCalc = (toCalc) => {
   const sort = totals.sort((a, b) => a.average - b.average);
   console.log("sorted", sort);
 
-  const toUpdate = sort[sort.length - 1].badge;
+  const toUpdate = sort.average >= 3 ? sort[sort.length - 1].badge : 0;
   console.log("to update", toUpdate);
 };
