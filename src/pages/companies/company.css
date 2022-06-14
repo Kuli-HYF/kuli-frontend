@@ -1,0 +1,35 @@
+.temp-div {
+  width: 100%;
+  height: calc(100vh);
+  padding-top: 200px;
+  display: flex;
+  flex-direction: column;
+align-items: center;
+  /* justify-content: center; */
+  background-color: var(--light-pink);
+  color: var(--dark-blue);
+  margin: auto;
+}
+
+.temp-div h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+.temp-button {
+  /* position: absolute;
+  top: 300px; */
+  width: 190px;
+  color: white;
+  border-style: none;
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
