@@ -1,0 +1,69 @@
+/* About badges intro */
+
+.section {
+  height: 100%;
+}
+
+.about-badges__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--light-blue);
+  padding-top: 12%;
+  padding-bottom: 4%;
+}
+
+.about-badges__text-container {
+  width: 70%;
+  margin-top: 4%;
+}
+
+.about-badges__body-text {
+  text-align: justify;
+}
+
+.about-badges__container button {
+  margin-top: auto;
+  background-color: var(--dark-blue);
+}
+
+/* Images */
+
+.badge1__img-container,
+.badge2__img-container,
+.badge3__img-container,
+.badge4__img-container img {
+  max-width: 40vw;
+  min-width: 220px;
+}
+
+.badge-title {
+  text-align: center;
+}
+
+/* Badge 1 */
+
+.badge1-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-blue);
+  padding-top: 12%;
+  padding-bottom: 4%;
+}
+
+.badge1-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 70%;
+}
+
+.badge-text__container {
+  width: 20%;
+}
