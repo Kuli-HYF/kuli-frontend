@@ -1,7 +1,7 @@
 import "./Form.css";
 
 import { Formik, Form, Field } from "formik";
-import { array, object, string, yup } from "yup";
+import { array, object, string } from "yup";
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -17,8 +17,17 @@ export const Former = () => {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [category, setCategory] = useState(0);
+  const [companies, setCompanies] = useState([]);
 
   const toSubmit = useRef(false);
+  const companyId = useRef(0);
+
+  const fetchCompanies = async () => {
+    const promiseBadge = await get("companies");
+    setCompanies(promiseBadge.data);
+    // console.log("get badge", names);
+    // setCompanies(names.map((name) => name.attributes.name));
+  };
 
   const fetchBadges = async () => {
     const promiseBadge = await get("badges");
@@ -27,21 +36,13 @@ export const Former = () => {
     setBadges(names.map((name) => name.attributes.name)); // 1employ 2work 3health 4 govern
   };
 
-  /*
-  const fetchBadges = async () => {
-    const promiseBadge = await get(
-      "intropage?populate[badge][populate]=badge-name"
-    );
-    const names = promiseBadge.data.attributes.badge;
-    setBadges(names.map((name) => name.badgeName)); // 1employ 2work 3health 4 govern
-  };
-*/
   const fetchQuestions = async () => {
     const promiseQuest = await get("testform?populate[questions][populate]=*");
     setQuestions(promiseQuest.data.attributes.questions);
   };
 
   useEffect(() => {
+    fetchCompanies();
     fetchBadges();
     fetchQuestions();
   }, []);
@@ -49,12 +50,40 @@ export const Former = () => {
   const handleBack = () => {
     category > 0 ? setCategory(category - 1) : console.log(category);
   };
-  // console.log("form", badges);
+  console.log("company object", companies);
 
-  return badges.data && questions.data ? (
+  const handleSearch = (event) => {
+    console.log("click", event.target.parentElement.children[0].value);
+    const toSearch = event.target.parentElement.children[0].value;
+    companies.map((company) => {
+      console.log("names", company.attributes.name);
+    });
+    event.target.parentElement.children[0].value = "";
+  };
+
+  return companies.data && badges.data && questions.data ? (
     <h1 className="header" key="743">
       Loading...
     </h1>
+  ) : companyId.current === 0 ? (
+    <div key="54" className="company">
+      <h2 className="searchHead">
+        Which company would you like to award a Kuli badge?
+      </h2>
+      <div className="search">
+        <input
+          className="input"
+          type="input"
+          placeholder="Company Name"
+        ></input>
+        <Button
+          kind="button"
+          title="Search"
+          color="dark-pink"
+          action={handleSearch}
+        />
+      </div>
+    </div>
   ) : (
     <Formik
       validationSchema={object({
@@ -180,3 +209,13 @@ export const Former = () => {
     </Formik>
   );
 };
+
+/*
+  const fetchBadges = async () => {
+    const promiseBadge = await get(
+      "intropage?populate[badge][populate]=badge-name"
+    );
+    const names = promiseBadge.data.attributes.badge;
+    setBadges(names.map((name) => name.badgeName)); // 1employ 2work 3health 4 govern
+  };
+*/
