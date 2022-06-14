@@ -1,9 +1,13 @@
+import Navigation from "../../components/navigation/Navigation";
 import Header from "./Header";
 
 const Home = () => {
   return (
     <>
-      <Header />
+      <div className="header-container">
+        <Navigation />
+        <Header />
+      </div>
     </>
   );
 };
