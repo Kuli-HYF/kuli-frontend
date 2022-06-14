@@ -1,6 +1,7 @@
 import "./Form.css";
 
 import { useFormik, Formik, Form, Field } from "formik";
+import { array, object, string, yup } from "yup";
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -16,6 +17,8 @@ export const Former = () => {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [category, setCategory] = useState(0);
+
+  const toSubmit = useRef(false);
 
   const fetchBadges = async () => {
     const promiseBadge = await get(
@@ -38,7 +41,7 @@ export const Former = () => {
   const handleBack = () => {
     category > 0 ? setCategory(category - 1) : console.log(category);
   };
-  // console.log("form", badges);
+  // console.log("form", toSubmit.current);
 
   return badges.data && questions.data ? (
     <h1 className="header" key="743">
@@ -46,18 +49,31 @@ export const Former = () => {
     </h1>
   ) : (
     <Formik
+      validationSchema={object({
+        checked: array(string()),
+      })}
       initialValues={{
         checked: [],
       }}
       onSubmit={(values) => {
-        if (category === badges.length) {
-          // console.log("now", values);
-          setAnswers(values.checked);
-          badgeCalc(answers);
-        }
+        // console.log("now", values);
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            // if (category === badges.length) {
+            setAnswers(values.checked);
+            if (toSubmit.current === true) {
+              badgeCalc(answers);
+              // console.log("ping", toSubmit.current);
+              toSubmit.current = false;
+              // console.log("pong", toSubmit.current);
+              navigate("/confirm");
+            }
+            resolve();
+          }, 500);
+        });
       }}
     >
-      {({ values }) => (
+      {({ values, errors, touched, isSubmitting }) => (
         <Form>
           <div className="questionnaire">
             {category === badges.length || (!badges && !questions) ? (
@@ -96,6 +112,9 @@ export const Former = () => {
                           // className="box"
                           type="checkbox"
                           name="checked"
+                          {...(touched.checked && errors.checked
+                            ? errors.checked
+                            : null)}
                           value={answer.score}
                         />
                         <p className="answer">{answer.answer}</p>
@@ -123,7 +142,8 @@ export const Former = () => {
               title="Submit"
               kind="submit"
               color="dark-blue"
-              action={() => setTimeout(navigate, 1000, "/confirm")}
+              disabled={isSubmitting}
+              action={() => (toSubmit.current = true)}
             />
           ) : category === badges.length - 1 ? (
             <Button
@@ -146,6 +166,7 @@ export const Former = () => {
               }}
             />
           )}
+          <pre>{JSON.stringify(errors, null, 4)}</pre>
         </Form>
       )}
     </Formik>
