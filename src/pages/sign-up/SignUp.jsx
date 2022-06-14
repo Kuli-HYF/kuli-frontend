@@ -13,7 +13,7 @@ const SignUp = () => {
      </div>
 
      <div className="col-md-7 my-auto">
-
+   
      <img  className="img-fluid w-50"  src={wom3} alt="" /> 
 
      </div>

@@ -8,12 +8,14 @@ import { ORIGIN } from "../config";
       "Content-Type": "application/json",
     },
     body: JSON.stringify(value),
+    
   });
   if (!response.ok) {
     throw new Error(`${response.status}: ${response.statusText}`);
   }
   const result = await response.json();
-  // console.log("add", result);
+ console.log("add", result);
+  console.log(post.body);
   return result;
 };
 

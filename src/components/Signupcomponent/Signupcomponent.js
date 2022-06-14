@@ -8,8 +8,10 @@ import * as Yup from 'yup';
 import React from 'react'
 
  export const Signup = () => {
-
-
+  // create the form using Formik
+ // validating the form 
+ //get validation values
+// make the post request 
 
 
 
@@ -37,10 +39,25 @@ import React from 'react'
         }
     )
 
+    const handleAdd = async (values) => {
+        // function takes 'category' ="" 'value'={}
+        // const search = event.target.parentElement.children[0].value;
+        const body = {
+          data: {
+            email: values.email,
+            firstName:values.firstName,
+            lastName: values.lastName,
+            password: values.password
 
+          },
+        };
+        const result = await post("kuli-users", body);
+        console.log("add", result);
+      };
 
 
   return (
+    //validation values
     <Formik
     initialValues={{
 
@@ -51,19 +68,24 @@ import React from 'react'
         confirmPassword: '',
     }}
 
-    //here we make the post request 
+    // make the post request 
 
     validationSchema = {validate} 
     onSubmit = {(values) => {
 
         setTimeout(() => {
-
-         const postVules = post("auth/local/register",values);
-
-
+           
+        //  const postVules = post("kuli-users",values);
+        console.log(values);
+      
+          handleAdd(values);
         }, 1000);
 
-
+        
+        // email: "sdw@yaho.com"
+        // firstName: "Muwa"
+        // lastName: "Hans Mbua"
+        // password: "123456"
 
     }
 
@@ -86,6 +108,7 @@ import React from 'react'
     
     
     >
+        
         {formik => (
 
             <div>
