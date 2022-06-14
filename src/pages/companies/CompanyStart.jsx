@@ -24,19 +24,54 @@ const CompanyStart = () => {
     const { checked, value } = e.target;
     console.log(checked, value);
     const badgeId = e.currentTarget.id;
+    const badgeNumber = parseInt(badgeId, 10);
     console.log("checked: " + checked);
     console.log("value: " + value);
     console.log("badge id: " + badgeId);
+    console.log("badge number: " + badgeNumber);
 
     if (checked) {
-      setFilteredBadges((filteredBadges) => [...filteredBadges, value]);
+      setFilteredBadges((filteredBadges) => [...filteredBadges, badgeNumber]);
     } else {
-      setFilteredBadges(filteredBadges.filter((e) => e !== value));
-      console.log(badges);
+      setFilteredBadges(filteredBadges.filter((e) => e !== badgeNumber));
+      // console.log(badges);
     }
-
-    console.log(filteredBadges);
+    // console.log(filteredBadges);
   };
+
+  // const handleFilter = () => {
+  //   let filteredCompanies = companies.filter((company) =>
+  //     company.attributes.badges.data.some((badges) => (badges.id === 1))
+  //   );
+
+  //   setCompanies(filteredCompanies);
+  // };
+
+  const handleFilter = () => {
+    let filteredCompanies = companies.filter((company) =>
+      company.attributes.badges.data.some((badges) =>
+        filteredBadges.includes(badges.id)
+      )
+    );
+
+    setCompanies(filteredCompanies);
+  };
+
+  useEffect(() => {
+    if (filteredBadges.length) {
+      let filteredCompanies = companies.filter((company) =>
+        company.attributes.badges.data.some((badges) =>
+          filteredBadges.includes(badges.id)
+        )
+        
+      );
+      setCompanies(filteredCompanies);
+
+      console.log(filteredCompanies);
+      console.log(companies);
+
+    }
+  }, [filteredBadges]);
 
   useEffect(() => {
     if (!undefined) {
@@ -46,12 +81,21 @@ const CompanyStart = () => {
   }, []);
 
   useEffect(() => {
-    setCompanies(companies);
-    console.log(companies);
-    setBadges(badges);
-    console.log(badges);
+    if (companies.length !== 0) {
+      setCompanies(companies);
+      // console.log(companies);
+      setBadges(badges);
+      // console.log(badges);
+      // console.log(filteredBadges);
+      // console.log(companies[11].attributes.badges.data[0].attributes.name);
+      // console.log(companies[11].attributes.badges.data[0].id);
+      // console.log(companies.attributes);
+    }
+  }, [companies, badges]);
+
+  useEffect(() => {
     console.log(filteredBadges);
-  }, [companies, badges, filteredBadges]);
+  }, [filteredBadges]);
 
   useEffect(() => {
     if (!search.length > 0) {
@@ -65,7 +109,7 @@ const CompanyStart = () => {
         company.attributes.name.toLowerCase().includes(search.toLowerCase())
       );
       setCompanies(filteredCompanies);
-      // console.log(filteredCompanies);
+      console.log(filteredCompanies);
     }
   }, [search]);
 
@@ -106,7 +150,7 @@ const CompanyStart = () => {
                     <label>
                       <input
                         type="checkbox"
-                        value={el.attributes.name}
+                        value={el.id}
                         id={el.id}
                         onChange={handleOnChange}
                       />
@@ -117,6 +161,7 @@ const CompanyStart = () => {
               </ul>
             )}
           </div>
+          <button onClick={handleFilter}>filter</button>
         </div>
       </div>
     </>
