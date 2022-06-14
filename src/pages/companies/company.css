@@ -41,3 +41,11 @@
   right: 0;
   margin: auto;
 }
+
+.badges-dropdown-container{
+  margin-top: 100px;
+}
+
+.badges-dropdown-container li{
+  list-style-type: none;
+}
