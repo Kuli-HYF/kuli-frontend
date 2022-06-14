@@ -1,6 +1,6 @@
 import "./Form.css";
 
-import { useFormik, Formik, Form, Field } from "formik";
+import { Formik, Form, Field } from "formik";
 import { array, object, string, yup } from "yup";
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -166,7 +166,7 @@ export const Former = () => {
               }}
             />
           )}
-          <pre>{JSON.stringify(errors, null, 4)}</pre>
+          {/* <pre>{JSON.stringify(errors, null, 4)}</pre> */}
         </Form>
       )}
     </Formik>
