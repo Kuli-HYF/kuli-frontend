@@ -31,18 +31,6 @@ function App() {
     console.log("populate", result);
   };
 
-  const handleUpdate = async (event) => {
-    // function takes 'category' ="" 'id'=0 'value'={}
-    const search = event.target.parentElement.children[0].value;
-    const body = {
-      data: {
-        name: search,
-      },
-    };
-    const result = await put("tests", 1, body);
-    console.log("update", result);
-  };
-
   const handleAdd = async (event) => {
     // function takes 'category' ="" 'value'={}
     const search = event.target.parentElement.children[0].value;

@@ -20,11 +20,6 @@ body {
   margin: 10px;
 }
 
-/* 
-.box {
-  padding: 30px;
-} */
-
 .answer {
   padding-left: 10px;
   font-size: 16px;
@@ -49,7 +44,7 @@ body {
 .search {
   display: flex;
   flex-direction: row;
-  margin-top: 40px;
+  margin: 20px;
 }
 
 .input {
@@ -58,4 +53,9 @@ body {
   padding: 8px;
   border-radius: 8px;
   width: 80%;
+}
+
+.warning {
+  margin: 40px;
+  color: #fb5e3e;
 }

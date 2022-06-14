@@ -1,4 +1,6 @@
-export const badgeCalc = (toCalc) => {
+import { put } from "../api/put";
+
+export const badgeCalc = (toCalc, companyId) => {
   console.log("to calculate", toCalc);
   const filtered = toCalc.filter((val) => Number(val[2]) !== 0);
   // console.log("filtered", filtered); // [111, 122, 211, 223]
@@ -29,14 +31,35 @@ export const badgeCalc = (toCalc) => {
     // console.log("total", total);
     totals.push(total);
   });
-  console.log("totals", totals);
+  // console.log("totals", totals);
 
   const sort = totals.sort((a, b) => a.average - b.average);
-  console.log("sorted", sort);
+  // console.log("sorted", sort);
 
   const sorted = sort[sort.length - 1];
 
   let toUpdate = {};
   sorted.average >= 3 ? (toUpdate.badge = sorted.badge) : (toUpdate.badge = 0);
-  console.log("sorted:", sorted, "to update:", toUpdate);
+  // console.log("sorted:", sorted, "to update:", toUpdate);
+
+  const badgeId = toUpdate.badge;
+
+  const awardBadge = async (companyId, badgeId) => {
+    // function takes 'category' ="" 'value'={}
+    // const search = event.target.parentElement.children[0].value;
+    const search = `companies/${companyId}/?populate=badges`;
+    const body = {
+      data: {
+        badges: {
+          id: badgeId,
+        },
+      },
+    };
+    const result = await put(search, body);
+    // console.log("add", result);
+  };
+
+  badgeId === 0
+    ? console.log("no badge to award")
+    : awardBadge(companyId, badgeId);
 };

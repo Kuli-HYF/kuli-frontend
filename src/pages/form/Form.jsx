@@ -9,6 +9,7 @@ import { Button } from "../../components/button/Button";
 import { get } from "../../api/get";
 
 import { badgeCalc } from "../../logic/badgeCalc";
+// import { useForceUpdate } from "framer-motion";
 
 export const Former = () => {
   let navigate = useNavigate();
@@ -18,21 +19,22 @@ export const Former = () => {
   const [answers, setAnswers] = useState([]);
   const [category, setCategory] = useState(0);
   const [companies, setCompanies] = useState([]);
+  const [warning, setWarning] = useState("");
+  const [companyId, setCompanyId] = useState(0);
 
   const toSubmit = useRef(false);
-  const companyId = useRef(0);
+  const toSearch = useRef("");
 
   const fetchCompanies = async () => {
     const promiseBadge = await get("companies");
     setCompanies(promiseBadge.data);
-    // console.log("get badge", names);
     // setCompanies(names.map((name) => name.attributes.name));
   };
 
   const fetchBadges = async () => {
     const promiseBadge = await get("badges");
     const names = promiseBadge.data;
-    // console.log("get badge", names);
+    console.log("get badge", names);
     setBadges(names.map((name) => name.attributes.name)); // 1employ 2work 3health 4 govern
   };
 
@@ -50,26 +52,43 @@ export const Former = () => {
   const handleBack = () => {
     category > 0 ? setCategory(category - 1) : console.log(category);
   };
-  console.log("company object", companies);
+  // console.log("company object", companies);
 
   const handleSearch = (event) => {
-    console.log("click", event.target.parentElement.children[0].value);
-    const toSearch = event.target.parentElement.children[0].value;
-    companies.map((company) => {
-      console.log("names", company.attributes.name);
-    });
+    // console.log("click", event.target.parentElement.children[0].value);
+    setWarning("");
+    setCompanyId(0);
+    toSearch.current = event.target.parentElement.children[0].value;
+    const names = [];
+    companies.map((company) =>
+      names.push([company.attributes.name, company.id])
+    );
+    console.log("name object", names);
+    console.log("begin", toSearch.current, companyId, warning);
+    // console.log(companies);
+
+    names.map((name) =>
+      name[0].toLowerCase() === toSearch.current.toLowerCase()
+        ? setCompanyId(name[1])
+        : setWarning("Company not found. Please check spelling and try again")
+    );
+    toSearch.current = "";
+    // setWarning("");
+    console.log("end", toSearch.current, companyId, warning);
     event.target.parentElement.children[0].value = "";
+    // return;
   };
 
   return companies.data && badges.data && questions.data ? (
     <h1 className="header" key="743">
       Loading...
     </h1>
-  ) : companyId.current === 0 ? (
+  ) : companyId === 0 ? (
     <div key="54" className="company">
       <h2 className="searchHead">
         Which company would you like to award a Kuli badge?
       </h2>
+      <span className="warning">{warning}</span>
       <div className="search">
         <input
           className="input"
@@ -83,6 +102,17 @@ export const Former = () => {
           action={handleSearch}
         />
       </div>
+      {/* <Link to={"/badges"}> */}
+      <Button
+        title="Go Back"
+        kind="button"
+        color="pink-outline"
+        action={() => {
+          setWarning("");
+          // navigate("/badges")
+        }}
+      />
+      {/* </Link> */}
     </div>
   ) : (
     <Formik
@@ -93,16 +123,12 @@ export const Former = () => {
         checked: [],
       }}
       onSubmit={(values) => {
-        // console.log("now", values);
         return new Promise((resolve) => {
           setTimeout(() => {
-            // if (category === badges.length) {
             setAnswers(values.checked);
             if (toSubmit.current === true) {
-              badgeCalc(answers);
-              // console.log("ping", toSubmit.current);
+              badgeCalc(answers, companyId);
               toSubmit.current = false;
-              // console.log("pong", toSubmit.current);
               navigate("/confirm");
             }
             resolve();
@@ -163,8 +189,13 @@ export const Former = () => {
             )}
           </div>
           {category === 0 ? (
-            <Link to={"/badges"}>
-              <Button title="Return" kind="button" color="dark-pink" />
+            <Link to={"/form"}>
+              <Button
+                title="Return"
+                kind="button"
+                color="dark-pink"
+                action={() => setCompanyId(0)}
+              />
             </Link>
           ) : (
             <Button
