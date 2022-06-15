@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import CompanyStart from "./pages/companies/CompanyStart";
 import FormStart from "./pages/form/FormStart";
+import { AboutBadges } from "./pages/about-badges/AboutBadges";
 
 /*
 import { Button } from "./components/button/Button";
@@ -69,10 +70,11 @@ function App() {
       <div className="main-container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/badges" element={<FormStart />} />
+          <Route path="/badges" element={<AboutBadges />} />
           <Route path="/companies" element={<CompanyStart />} />
           <Route path="/form" element={'form'} />
           <Route path="/sign-up" element={'sign-up'} />
+          <Route path="/questionnaire" element={<FormStart />} />
         </Routes>
       </div>
 
