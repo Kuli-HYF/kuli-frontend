@@ -25,6 +25,7 @@ const CompanyStart = () => {
     console.log(checked, value);
     const badgeId = e.currentTarget.id;
     const badgeNumber = parseInt(badgeId, 10);
+    console.log(e.target);
     // console.log("checked: " + checked);
     // console.log("value: " + value);
     // console.log("badge id: " + badgeId);
@@ -114,7 +115,7 @@ const CompanyStart = () => {
       setCompanies(companies);
       console.log(companies);
       setBadges(badges);
-      // console.log(badges);
+      console.log(badges);
       // console.log(filteredBadges);
       // console.log(companies[11].attributes.badges.data[0].attributes.name);
       // console.log(companies[11].attributes.badges.data[0].id);
