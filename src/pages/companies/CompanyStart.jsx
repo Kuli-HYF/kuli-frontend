@@ -77,7 +77,7 @@ const CompanyStart = () => {
         (company) =>
           company.attributes.badges.data.some((badges) =>
             filteredBadges.includes(badges.id)
-          ) && company.attributes.name.toLowerCase().includes("test")
+          )
       );
 
       setCompanies(filteredCompanies);

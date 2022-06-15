@@ -2,8 +2,8 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/home/Home";
-import CompanyStart from "./pages/companies/CompanyStart";
 import FormStart from "./pages/form/FormStart";
+import CompanyHome from "./pages/companies/CompanyHome";
 
 /*
 import { Button } from "./components/button/Button";
@@ -70,9 +70,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/badges" element={<FormStart />} />
-          <Route path="/companies" element={<CompanyStart />} />
+          {/* <Route path="/companies" element={<CompanyStart />} /> */}
           <Route path="/form" element={'form'} />
           <Route path="/sign-up" element={'sign-up'} />
+          <Route path="/company-home" element={<CompanyHome />} />
+
         </Routes>
       </div>
 
