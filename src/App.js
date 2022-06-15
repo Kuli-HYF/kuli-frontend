@@ -7,6 +7,7 @@ import FormStart from "./pages/form/FormStart";
 import { Button } from "./components/button/Button";
 import { Former } from "./pages/form/Form";
 import { Congratulate } from "./pages/congratulate/Congratulate";
+import { AboutBadges } from "./pages/about-badges/AboutBadges";
 
 /*
 import { Button } from "./components/button/Button";
@@ -57,11 +58,17 @@ function App() {
       <div className="main-container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/badges" element={<FormStart />} />
+          <Route path="/badges" element={<AboutBadges />} />
           <Route path="/companies" element={<CompanyStart />} />
+<<<<<<< HEAD
           <Route path="/form" element={<Former />}></Route>
           <Route path="/sign-up" element={"sign-up"} />
           <Route path="/confirm" element={<Congratulate />} />
+=======
+          <Route path="/form" element={'form'} />
+          <Route path="/sign-up" element={'sign-up'} />
+          <Route path="/questionnaire" element={<FormStart />} />
+>>>>>>> d19e0bf1cc2a3a6b1090434d6fdbd4f5c5e025b0
         </Routes>
       </div>
 
