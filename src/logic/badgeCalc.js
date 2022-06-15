@@ -26,6 +26,7 @@ export const badgeCalc = (toCalc, companyId) => {
     const average = sum / score.length;
     total.average = average;
     totals.push(total);
+    return console.log(average)
   });
 
   const sort = totals.sort((a, b) => a.average - b.average);
@@ -47,6 +48,7 @@ export const badgeCalc = (toCalc, companyId) => {
       },
     };
     const result = await put(search, body);
+    console.log(result);
   };
 
   badgeId === 0
