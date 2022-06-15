@@ -25,15 +25,16 @@ const CompanyStart = () => {
     console.log(checked, value);
     const badgeId = e.currentTarget.id;
     const badgeNumber = parseInt(badgeId, 10);
-    console.log("checked: " + checked);
-    console.log("value: " + value);
-    console.log("badge id: " + badgeId);
-    console.log("badge number: " + badgeNumber);
+    // console.log("checked: " + checked);
+    // console.log("value: " + value);
+    // console.log("badge id: " + badgeId);
+    // console.log("badge number: " + badgeNumber);
 
     if (checked) {
       setFilteredBadges((filteredBadges) => [...filteredBadges, badgeNumber]);
     } else {
       setFilteredBadges(filteredBadges.filter((e) => e !== badgeNumber));
+
       // console.log(badges);
     }
     // console.log(filteredBadges);
@@ -52,15 +53,38 @@ const CompanyStart = () => {
     setCompanies(companies);
   };
 
-  const handleFilter = () => {
-    let filteredCompanies = companies.filter((company) =>
-      company.attributes.badges.data.some((badges) =>
-        filteredBadges.includes(badges.id)
-      )
-    );
+  // const handleFilter = () => {
+  //   let filteredCompanies = companies.filter((company) =>
+  //     company.attributes.badges.data.some((badges) =>
+  //       filteredBadges.includes(badges.id)
+  //     ) && company.attributes.name.toLowerCase().includes("test")
+  //   );
+  //   setCompanies(filteredCompanies);
+  // };
 
-    setCompanies(filteredCompanies);
+
+  const handleFilter = () => {
+    if (filteredBadges.length === 0) {
+      let filteredCompanies = companies.filter((company) =>
+        company.attributes.name.toLowerCase().includes("test")
+      );
+      setCompanies(filteredCompanies);
+
+    } else {
+      
+      let filteredCompanies = companies.filter(
+        (company) =>
+          company.attributes.badges.data.some((badges) =>
+            filteredBadges.includes(badges.id)
+          ) && company.attributes.name.toLowerCase().includes("test")
+      );
+
+      setCompanies(filteredCompanies);
+    }
   };
+
+  // filteredBadges.includes(company.attributes.badges.data.length === filteredBadges.length && badges.id)
+
 
   useEffect(() => {
     let filteredCompanies = companies.filter((company) =>
@@ -85,18 +109,18 @@ const CompanyStart = () => {
     fetchCompanies();
   }, []);
 
-  // useEffect(() => {
-  //   if (companies.length !== 0) {
-  //     setCompanies(companies);
-  //     // console.log(companies);
-  //     setBadges(badges);
-  //     // console.log(badges);
-  //     // console.log(filteredBadges);
-  //     // console.log(companies[11].attributes.badges.data[0].attributes.name);
-  //     // console.log(companies[11].attributes.badges.data[0].id);
-  //     // console.log(companies.attributes);
-  //   }
-  // }, [companies, badges, filteredBadges]);
+  useEffect(() => {
+    if (companies.length !== 0) {
+      setCompanies(companies);
+      console.log(companies);
+      setBadges(badges);
+      // console.log(badges);
+      // console.log(filteredBadges);
+      // console.log(companies[11].attributes.badges.data[0].attributes.name);
+      // console.log(companies[11].attributes.badges.data[0].id);
+      // console.log(companies.attributes);
+    }
+  }, [companies, badges, filteredBadges]);
 
   useEffect(() => {
     console.log(filteredBadges);
