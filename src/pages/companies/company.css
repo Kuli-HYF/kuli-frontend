@@ -1,24 +1,32 @@
-.temp-div {
-  width: 100%;
-  height: calc(100vh);
-  padding-top: 200px;
-  display: flex;
-  flex-direction: column;
-align-items: center;
-  /* justify-content: center; */
+.companies-container {
   background-color: var(--light-pink);
-  color: var(--dark-blue);
-  margin: auto;
+  height: 100vh;
+  overflow: scroll;
 }
 
-.temp-div h2 {
+.intro-container {
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+  padding-top: 120px;
+  padding-inline: 48px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-pink);
+  color: var(--dark-blue);
+}
+
+.companies-title {
   font-size: 2.2rem;
   margin-bottom: 40px;
+  color: var(--dark-pink);
+}
+
+.companies-intro-paragraph{
+  color: black;
 }
 
 .temp-button {
-  /* position: absolute;
-  top: 300px; */
   width: 190px;
   color: white;
   border-style: none;
@@ -32,4 +40,12 @@ align-items: center;
   left: 0;
   right: 0;
   margin: auto;
+}
+
+.badges-dropdown-container{
+  margin-top: 100px;
+}
+
+.badges-dropdown-container li{
+  list-style-type: none;
 }
