@@ -9,7 +9,6 @@ import { Button } from "../../components/button/Button";
 import { get } from "../../api/get";
 
 import { badgeCalc } from "../../logic/badgeCalc";
-// import { useForceUpdate } from "framer-motion";
 
 export const Former = () => {
   let navigate = useNavigate();
@@ -28,14 +27,12 @@ export const Former = () => {
   const fetchCompanies = async () => {
     const promiseBadge = await get("companies");
     setCompanies(promiseBadge.data);
-    // setCompanies(names.map((name) => name.attributes.name));
   };
 
   const fetchBadges = async () => {
     const promiseBadge = await get("badges");
     const names = promiseBadge.data;
-    console.log("get badge", names);
-    setBadges(names.map((name) => name.attributes.name)); // 1employ 2work 3health 4 govern
+    setBadges(names.map((name) => name.attributes.name));
   };
 
   const fetchQuestions = async () => {
@@ -52,10 +49,8 @@ export const Former = () => {
   const handleBack = () => {
     category > 0 ? setCategory(category - 1) : console.log(category);
   };
-  // console.log("company object", companies);
 
   const handleSearch = (event) => {
-    // console.log("click", event.target.parentElement.children[0].value);
     setWarning("");
     setCompanyId(0);
     toSearch.current = event.target.parentElement.children[0].value;
@@ -65,7 +60,6 @@ export const Former = () => {
     );
     console.log("name object", names);
     console.log("begin", toSearch.current, companyId, warning);
-    // console.log(companies);
 
     names.map((name) =>
       name[0].toLowerCase() === toSearch.current.toLowerCase()
@@ -73,10 +67,8 @@ export const Former = () => {
         : setWarning("Company not found. Please check spelling and try again")
     );
     toSearch.current = "";
-    // setWarning("");
     console.log("end", toSearch.current, companyId, warning);
     event.target.parentElement.children[0].value = "";
-    // return;
   };
 
   return companies.data && badges.data && questions.data ? (
@@ -109,7 +101,6 @@ export const Former = () => {
           color="pink-outline"
           action={() => {
             setWarning("");
-            // navigate("/badges")
           }}
         />
       </Link>
@@ -172,7 +163,6 @@ export const Former = () => {
                     {question.selections.map((answer) => (
                       <label className="batch" key={answer.id}>
                         <Field
-                          // className="box"
                           type="checkbox"
                           name="checked"
                           {...(touched.checked && errors.checked
@@ -219,7 +209,6 @@ export const Former = () => {
               kind="button"
               color="dark-blue"
               action={() => {
-                // console.log("cat", category);
                 setCategory(category + 1);
               }}
             />
@@ -229,7 +218,6 @@ export const Former = () => {
               kind="button"
               color="dark-blue"
               action={() => {
-                // console.log("cat", category);
                 setCategory(category + 1);
               }}
             />
@@ -240,13 +228,3 @@ export const Former = () => {
     </Formik>
   );
 };
-
-/*
-  const fetchBadges = async () => {
-    const promiseBadge = await get(
-      "intropage?populate[badge][populate]=badge-name"
-    );
-    const names = promiseBadge.data.attributes.badge;
-    setBadges(names.map((name) => name.badgeName)); // 1employ 2work 3health 4 govern
-  };
-*/
