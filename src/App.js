@@ -60,15 +60,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/badges" element={<AboutBadges />} />
           <Route path="/companies" element={<CompanyStart />} />
-<<<<<<< HEAD
           <Route path="/form" element={<Former />}></Route>
           <Route path="/sign-up" element={"sign-up"} />
           <Route path="/confirm" element={<Congratulate />} />
-=======
-          <Route path="/form" element={'form'} />
-          <Route path="/sign-up" element={'sign-up'} />
+          <Route path="/form" element={"form"} />
+          <Route path="/sign-up" element={"sign-up"} />
           <Route path="/questionnaire" element={<FormStart />} />
->>>>>>> d19e0bf1cc2a3a6b1090434d6fdbd4f5c5e025b0
         </Routes>
       </div>
 

@@ -102,17 +102,17 @@ export const Former = () => {
           action={handleSearch}
         />
       </div>
-      {/* <Link to={"/badges"}> */}
-      <Button
-        title="Go Back"
-        kind="button"
-        color="pink-outline"
-        action={() => {
-          setWarning("");
-          // navigate("/badges")
-        }}
-      />
-      {/* </Link> */}
+      <Link to={"/questionnaire"}>
+        <Button
+          title="Go Back"
+          kind="button"
+          color="pink-outline"
+          action={() => {
+            setWarning("");
+            // navigate("/badges")
+          }}
+        />
+      </Link>
     </div>
   ) : (
     <Formik
