@@ -15,6 +15,10 @@
   padding-bottom: 4%;
 }
 
+.about-badges__title-container {
+  margin-top: 80px;
+}
+
 .about-badges__text-container {
   width: 70%;
   margin-top: 4%;
