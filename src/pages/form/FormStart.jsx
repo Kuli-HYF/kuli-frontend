@@ -20,7 +20,7 @@ const FormStart = () => {
     fetchData();
   }, []);
 
-  console.log(data.badge);
+  // console.log(data.badge);
 
   return (
     <div className="container">
