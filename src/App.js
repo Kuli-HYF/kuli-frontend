@@ -8,6 +8,7 @@ import FormStart from "./pages/form/FormStart";
 import { Former } from "./pages/form/Form";
 import { Congratulate } from "./pages/congratulate/Congratulate";
 import { AboutBadges } from "./pages/about-badges/AboutBadges";
+import { AboutUs } from './pages/about-us/AboutUs';
 
 /*
 import { Button } from "./components/button/Button";
@@ -66,6 +67,7 @@ function App() {
           <Route path="/form" element={"form"} />
           <Route path="/sign-up" element={"sign-up"} />
           <Route path="/questionnaire" element={<FormStart />} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
       </div>
 
