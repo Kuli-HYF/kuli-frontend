@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import CompanyStart from "./pages/companies/CompanyStart";
 import FormStart from "./pages/form/FormStart";
-import { Button } from "./components/button/Button";
+// import { Button } from "./components/button/Button";
 import { Former } from "./pages/form/Form";
 import { Congratulate } from "./pages/congratulate/Congratulate";
 import { AboutBadges } from "./pages/about-badges/AboutBadges";
