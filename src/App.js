@@ -2,11 +2,19 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/home/Home";
-import CompanyStart from "./pages/companies/CompanyStart";
 import FormStart from "./pages/form/FormStart";
+
 import SignUp from "./pages/sign-up/SignUp";
 import Login from "./pages/login/Login";
 import {AuthProvider} from "./components/Signin/context/AuthProvider";
+
+import CompanyHome from "./pages/companies/CompanyHome";
+// import { Button } from "./components/button/Button";
+import { Former } from "./pages/form/Form";
+import { Congratulate } from "./pages/congratulate/Congratulate";
+import { AboutBadges } from "./pages/about-badges/AboutBadges";
+import { AboutUs } from './pages/about-us/AboutUs';
+
 
 /*
 import { Button } from "./components/button/Button";
@@ -17,9 +25,7 @@ import { post } from "./api/post";
 import { Delete } from "./api/delete";
 */
 
-
 function App() {
-
   /*
   const handleGet = async (event) => {
     const search = event.target.parentElement.children[0].value;
@@ -31,18 +37,6 @@ function App() {
     const search = event.target.parentElement.children[0].value;
     const result = await populate(search);
     console.log("populate", result);
-  };
-
-  const handleUpdate = async (event) => {
-    // function takes 'category' ="" 'id'=0 'value'={}
-    const search = event.target.parentElement.children[0].value;
-    const body = {
-      data: {
-        name: search,
-      },
-    };
-    const result = await put("tests", 1, body);
-    console.log("update", result);
   };
 
   const handleAdd = async (event) => {
@@ -78,11 +72,22 @@ function App() {
       <div className="main-container">
         <Routes>
           <Route path="/" element={<Home />} />
+
           <Route path="/badges" element={<FormStart />} />
           <Route path="/companies" element={<CompanyStart />} />
           <Route path="/form" element={'form'} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+
+          <Route path="/company-home" element={<CompanyHome />} />
+          <Route path="/badges" element={<AboutBadges />} />
+          <Route path="/form" element={<Former />}></Route>
+          <Route path="/confirm" element={<Congratulate />} />
+          <Route path="/form" element={"form"} />
+          <Route path="/sign-up" element={"sign-up"} />
+          <Route path="/questionnaire" element={<FormStart />} />
+          <Route path="/about" element={<AboutUs />} />
+
         </Routes>
       </div>
 
@@ -94,12 +99,8 @@ function App() {
         <Button color="green" action={handleAdd} title="add" />
         <Button color="red" action={handleDelete} title="delete" />
       </div> */}
-
     </Router>
   );
 }
 
 export default App;
-
-
-

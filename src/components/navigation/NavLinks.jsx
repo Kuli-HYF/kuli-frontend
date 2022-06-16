@@ -1,5 +1,4 @@
 import { navLinks } from "./NavData";
-
 import NavLinkItem from "./NavLinkItem";
 
 const NavLinks = () => {

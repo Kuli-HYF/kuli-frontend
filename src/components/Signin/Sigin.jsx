@@ -53,7 +53,8 @@ const{setAuth} = useContext(AuthContext);
           // .required('Required'),
 
           email: Yup.string()
-          .email('email is invalid'),
+          .email('email is invalid')
+          .required('email is required'),
       
           password: Yup.string()
           .required('passoword is Required'),
@@ -201,7 +202,7 @@ const{setAuth} = useContext(AuthContext);
 
 
 
-          <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg} </p>
+          <p ref={errRef} className={errMsg ? "text-danger" : "offscreen"} aria-live="assertive">{errMsg} </p>
            <h1 className ="my-4 font-weight-bold-display-4">Sign in</h1>
            {console.log(formik)}
            <Form>

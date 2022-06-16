@@ -48,7 +48,7 @@ const Header = () => {
       </motion.div>
 
       <motion.div className="header-buttons-container" variants={item}>
-        <Link to={"/badges"}>
+        <Link to={"/questionnaire"}>
           <Button title="to form" color="home-button dark-pink" />
         </Link>
         <Link to={"/companies"}>

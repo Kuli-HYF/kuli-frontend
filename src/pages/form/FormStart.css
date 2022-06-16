@@ -1,9 +1,7 @@
-
 .container {
-  background-color: var(--light-blue);
   height: 100%;
   width: 100%;
-  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .survey-intro__container {
@@ -12,16 +10,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--light-blue);
   padding-right: 4%;
   padding-left: 4%;
-  padding-top: 4%;
-  padding-bottom: 8%;
+  padding-top: 160px;
+  height: 100vh;
 }
 
 .survey-intro__body-container {
   width: 76%;
-  height: 100%;
   min-width: 240px;
 }
 
@@ -30,14 +26,16 @@
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 8% 0 4% 0;
+  margin: 4% 0 0% 0;
 }
 
 .buttons {
   display: flex;
-  flex-direction: row;
+  gap: 16px;
   align-items: center;
-  gap: 12%;
+  margin: 0 auto;
+  padding-bottom: 6%;
+  
 }
 
 @media (max-width: 460px) {

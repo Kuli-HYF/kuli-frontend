@@ -1,0 +1,85 @@
+.company-container {
+  background-color: var(--light-pink);
+  height: 100vh;
+  overflow: scroll;
+}
+
+.company-content-container {
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+  padding-top: 120px;
+  padding-inline: 48px;
+}
+
+.company-search-container {
+  /* grid-column: span 12; */
+  /* width: 100%; */
+  height: 100px;
+  /* background-color: #D0D0D0; */
+}
+
+.company-filter-and-list-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 60px;
+}
+
+.filters-container {
+  grid-column: span 3;
+}
+.company-filter-container {
+  /* width: 400px; */
+  margin-bottom: 40px;
+}
+
+.badges-dropdown-container {
+}
+
+.badges-dropdown-list {
+  list-style-type: none;
+}
+
+.company-list-container {
+  grid-column: span 9;
+  list-style-type: none;
+}
+
+.badges-container {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  display: flex;
+}
+
+.filter-badge {
+  padding: 6px;
+  margin-bottom: 4px;
+  margin-right: 6px;
+  background-color: var(--light-blue);
+  border-radius: 24px;
+  text-align: center;
+}
+
+.filter-badge p {
+  font-size: 0.8rem;
+}
+
+label {
+  display:flex;
+  font-size: 0.9rem;
+  line-height: 1;
+  /* height: 20px; */
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+input[type='checkbox']{
+  margin-right: 10px;
+}
+
+h4{
+  margin-bottom: 10px;
+}
