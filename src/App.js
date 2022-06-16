@@ -74,7 +74,7 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/badges" element={<FormStart />} />
-          <Route path="/companies" element={<CompanyStart />} />
+          {/* <Route path="/companies" element={<CompanyStart />} /> */}
           <Route path="/form" element={'form'} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
@@ -84,7 +84,7 @@ function App() {
           <Route path="/form" element={<Former />}></Route>
           <Route path="/confirm" element={<Congratulate />} />
           <Route path="/form" element={"form"} />
-          <Route path="/sign-up" element={"sign-up"} />
+          {/* <Route path="/sign-up" element={"sign-up"} /> */}
           <Route path="/questionnaire" element={<FormStart />} />
           <Route path="/about" element={<AboutUs />} />
 

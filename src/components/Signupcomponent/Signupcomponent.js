@@ -4,10 +4,15 @@ import {post} from '../../api/post';
 import {Formik , Form} from "formik";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as Yup from 'yup';
-
+import {Button} from "../../components/button/Button";
 import React from 'react'
+import {useNavigate} from "react-router-dom";
 
- export const Signup = () => {
+
+ 
+export const Signup = () => {
+  let navigate = useNavigate();
+  
   // create the form using Formik
  // validating the form 
  //get validation values
@@ -28,7 +33,7 @@ import React from 'react'
 
             email: Yup.string()
             .email('email is invalid')
-            .max(15, 'Must be 15 characters or less')
+         
             .required('email Required'),
             password: Yup.string()
             .min(6, 'password must be at least 6 characters')
@@ -94,20 +99,6 @@ import React from 'react'
 
     }
 
-        // const data = new FormData();
-        // for (let i = 0; i < values.length; i++) {
-        //     data.append(values[i]);
-
-        // }
-        // data.append('data',JSON.stringify(data));
-
-        // const request = await fetch('https://kuli-strapi.herokuapp.com/api/',{
-        //     method: 'POST',
-        //     body:data,
-      
-
-        // })
-
 
     }
     
@@ -125,7 +116,15 @@ import React from 'react'
              <TextField label ="Email" name ="email" type ="email"/>
              <TextField label ="Password" name ="password" type ="password"/>
              <TextField label ="Confirm Password" name ="confirmPassword" type ="password"/>
-             <button className="btn btn-primary mt-3" type= "submit">Register</button>
+             {/* <button className="btn btn-primary mt-3" type= "submit">Register</button> */}
+          
+             {/* <Link to="login" > */}
+              
+               <Button action={()=>{
+                setTimeout(navigate, 500, "/login" );
+               }} color="btn btn-primary mt-3" kind="submit" title="Register" />
+               
+                {/* </Link> */}
                  
                 
             </Form>

@@ -8,7 +8,7 @@ import {useRef, useState, useEffect, useContext} from 'react';
 import AuthContext from "./context/AuthProvider";
 import axios from '../../api/axios';
  
-const LOGIN_URL = '/kuli-users';
+const LOGIN_URL = 'kuli-users';
 
 
 const Signin = () => {
@@ -28,19 +28,60 @@ const{setAuth} = useContext(AuthContext);
   const[errMsg, setErrMsg] = useState('');
   const[success, setSuccess] = useState(false);
      
+
+  const [users, setUsers] = useState([]);
+
+
+  //get data from database
+ 
+  const fetchUsers = async () => {          
+    // try{
+      const search = LOGIN_URL;
+      const response = await get(search);
+      const names = response.data;
+
+      setUsers(names);
+      // console.log("get results: ", response, names,'userObjects',users);
+      // setAuth({email,pwd});
+      // setEmail('');
+      // setPwd('');
+      // setSuccess(true);
+    
+    // }catch(err){
+    //   if(!err?.response){
+    //     setErrMsg('No server Response');
+    //   }
+    //   // }else if(err.response?.status === 400){
+    //   //   setErrMsg('Missing email or password');
+    //   // }else if(err.response?.status === 401){
+    //   //   setErrMsg('Unauthorized !');
+    //   // }else{
+    
+    //   //   setErrMsg('Login failed');
+    //   // }
+    //   errRef.current.focus();// setting the error so the screen can read it 
+    // } 
+    };
+
+  //   useEffect( () => {
+  // console.log(users);
+
+
+  //   }, [users] );
+
   //set forcus on the first time the component loads
  useEffect( () => {
     //  emailRef.current.focus();
+ fetchUsers();
+//  console.log("usereffectUsers: ",users);
  }, []
-
  )
 // when user changes the use states or password 
- useEffect( () => {
-  errRef.current.focus();
-}, [email,pwd]
-
-)
- 
+//  useEffect( () => {
+//   errRef.current.focus();
+// }, [email,pwd]
+// )
+console.log('userObjects: ',users );
 
     //validating the form 
     const validate = Yup.object(
@@ -62,54 +103,24 @@ const{setAuth} = useContext(AuthContext);
       }
   )
 
-  //get data from database
-  const handleGet = async () => {
-            
-  try{
-
-    const search = LOGIN_URL;
-    const response = await get(search);
-    console.log("get results: ", response);
-    setAuth({email,pwd});
-
-  setEmail('');
-  setPwd('');
-  setSuccess(true);
-
-  }catch(err){
-
-    if(!err?.response){
-      setErrMsg('No server Response');
-    }else if(err.response?.status === 400){
-      setErrMsg('Missing email or password');
-    }else if(err.response?.status === 401){
-      setErrMsg('Unauthorized !');
-    }else{
+  // const get = async (search = "") => {
+  //   const URL = `${ORIGIN}${search}`;
+  //   const encodeURL = encodeURI(URL);
+  //   const searchPromise = await fetch(encodeURL);
+  //   if (!searchPromise.ok) {
+  //     throw new Error(`${searchPromise.status}: ${searchPromise.statusText}`);
+  //   }
+  //   const searchData = await searchPromise.json();
+  //   // console.log("API fetch", searchData);
+  //   return searchData;
+  // };
   
-      setErrMsg('Login failed');
-    }
-  
-    errRef.current.focus();// setting the error so the screen can read it 
-  
-
-  }
-
-   
-  };
-
-
-
-  
-
-  
-
+  // const handleGet = async (event) => {
+  //   const search = event.target.parentElement.children[0].value;
+  //   const result = await get(search);
+  //   console.log("get", result);
+  // };
   return (
-
-   
-
-
-
-
 
   //validation values
   <Formik
@@ -134,8 +145,8 @@ const{setAuth} = useContext(AuthContext);
       setTimeout(() => {
          
       //  const postVules = post("kuli-users",values);
-      
-     handleGet(values);
+      // console.log('values: ',values.email,values.password);
+      fetchUsers(values);
     
        
   }, 1000)

@@ -3,6 +3,6 @@ export const navLinks = [
   { link: "/badges", name: "Our System" },
   { link: "/company-home", name: "Companies" },
   { link: "/about", name: "About Us" },
-  { link: "/signup", name: "Sign Up" },
+  { link: "/sign-up", name: "Sign Up" },
   { link: "/login", name: "Login" },
 ];
