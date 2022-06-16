@@ -5,6 +5,8 @@ import Home from "./pages/home/Home";
 import CompanyStart from "./pages/companies/CompanyStart";
 import FormStart from "./pages/form/FormStart";
 import SignUp from "./pages/sign-up/SignUp";
+import Login from "./pages/login/Login";
+import {AuthProvider} from "./components/Signin/context/AuthProvider";
 
 /*
 import { Button } from "./components/button/Button";
@@ -62,10 +64,16 @@ function App() {
     console.log("delete", result);
   };
 
+  
+<AuthProvider>
+  
+</AuthProvider>
+
   */
 
-
   return (
+
+
     <Router>
       <div className="main-container">
         <Routes>
@@ -74,6 +82,7 @@ function App() {
           <Route path="/companies" element={<CompanyStart />} />
           <Route path="/form" element={'form'} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
 

@@ -44,23 +44,7 @@ import React from 'react'
         // function takes 'category' ="" 'value'={}
         // const search = event.target.parentElement.children[0].value;
 
-        /**
-         * get data from text field
-         * compare the data with the data found in the database
-         * login user 
-         */
-
-        /** 
-         * compare the data with the data found in the database
-         * make a fetch request and get the values avaliable in the database 
-         * make a compare with the data in the textfield
-         * 
-         */
-
-          /** 
-         * login user 
-         * 
-         */
+        
 
 
         const body = {
