@@ -4,7 +4,7 @@ const CompanyFilter = ({ badges, handleOnChange, selectedBadges }) => {
     <>
       <div className="badges-container">
         {selectedBadges.map((el, i) => (
-          <div className="filter-badge"><p key={i}>{el}</p></div>
+          <div className="filter-badge" key={i}><p >{el}</p></div>
         ))}
       </div>
       <div className="badges-dropdown-container">

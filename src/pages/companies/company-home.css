@@ -54,8 +54,9 @@
 }
 
 .filter-badge {
-  padding: 4px;
+  padding: 6px;
   margin-bottom: 4px;
+  margin-right: 6px;
   background-color: var(--light-blue);
   border-radius: 24px;
   text-align: center;
@@ -63,4 +64,22 @@
 
 .filter-badge p {
   font-size: 0.8rem;
+}
+
+label {
+  display:flex;
+  font-size: 0.9rem;
+  line-height: 1;
+  /* height: 20px; */
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+input[type='checkbox']{
+  margin-right: 10px;
+}
+
+h4{
+  margin-bottom: 10px;
 }
