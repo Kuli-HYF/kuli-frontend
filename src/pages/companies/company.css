@@ -1,10 +1,10 @@
-.companies-container {
+/* .companies-container {
   background-color: var(--light-pink);
   height: 100vh;
   overflow: scroll;
-}
+} */
 
-.intro-container {
+/* .intro-container {
   max-width: 1200px;
   height: 100vh;
   margin: 0 auto;
@@ -40,8 +40,8 @@
   left: 0;
   right: 0;
   margin: auto;
-}
-
+} */
+/* 
 .badges-dropdown-container{
   margin-top: 100px;
 }
@@ -54,4 +54,4 @@
   margin-left: 100px;
   list-style-type: none;
 
-}
+} */

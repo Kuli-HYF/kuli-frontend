@@ -1,11 +1,28 @@
-import CompanyFilterBar from "./CompanyFilter";
+import CompanyFilter from "./CompanyFilter";
+import SectorFilter from "./SectorFilter";
 
-const CompanyFilter = ({badges, handleOnChange}) => {
+const CompanyFilterBar = ({
+  badges,
+  sectors,
+  handleOnChange,
+  handleSectors,
+  selectedBadges,
+}) => {
   return (
-    <div className="company-filter-container">
-      company-filter
-      <CompanyFilter badges={badges} handleOnChange={handleOnChange}/>
-    </div>
+    <>
+      <div className="filters-container">
+        <div className="company-filter-container">
+          <CompanyFilter
+            badges={badges}
+            handleOnChange={handleOnChange}
+            selectedBadges={selectedBadges}
+          />
+        </div>
+        <div className="sector-filter-container">
+          <SectorFilter sectors={sectors} handleSectors={handleSectors} />
+        </div>
+      </div>
+    </>
   );
 };
 

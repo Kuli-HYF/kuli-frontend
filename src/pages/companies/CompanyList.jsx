@@ -1,4 +1,4 @@
-const CompanyList = ({ companies, selectedCompanies, selectedBadges, searchInput, resultsFound }) => {
+const CompanyList = ({ companies, selectedCompanies, resultsFound }) => {
   return (
     <>
       <div className="company-list-container">
