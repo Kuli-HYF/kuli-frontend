@@ -51,7 +51,7 @@ const Header = () => {
         <Link to={"/questionnaire"}>
           <Button title="to form" color="home-button dark-pink" />
         </Link>
-        <Link to={"/companies"}>
+        <Link to={"/company-home"}>
           <Button title="to company list" color="home-button dark-pink" />
         </Link>
       </motion.div>

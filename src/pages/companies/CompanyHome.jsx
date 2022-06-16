@@ -58,7 +58,7 @@ const CompanyHome = () => {
     // }
   }, []);
 
-  const handleOnChange = (e) => {
+  const handleBadges = (e) => {
     const { checked, value } = e.target;
     const badgeId = e.currentTarget.id;
     const badgeNumber = parseInt(badgeId, 10);
@@ -93,10 +93,10 @@ const CompanyHome = () => {
     if (checked) {
       setSelectedSectors((selectedSectors) => [
         ...selectedSectors,
-        sectorNumber,
+        value,
       ]);
     } else {
-      setSelectedSectors(selectedSectors.filter((e) => e !== sectorNumber));
+      setSelectedSectors(selectedSectors.filter((e) => e !== value));
     }
     console.log(selectedSectors);
   };
@@ -119,7 +119,7 @@ const CompanyHome = () => {
     if (selectedSectors.length > 0) {
       filteredCompanies = filteredCompanies.filter((sector) =>
         sector.attributes.sectors.data.some((sector) =>
-          selectedSectors.includes(sector.id)
+          selectedSectors.includes(sector.attributes.name)
         )
       );
     }
@@ -157,6 +157,8 @@ const CompanyHome = () => {
       <div className="company-container">
         <div className="company-content-container">
           <CompanySearch
+            selectedBadges={selectedBadges}
+            selectedSectors={selectedSectors}
             value={searchInput}
             getInput={(e) => setSearchInput(e.target.value)}
           />
@@ -164,7 +166,7 @@ const CompanyHome = () => {
             <CompanyFilterBar
               badges={badges}
               sectors={sectors}
-              handleOnChange={handleOnChange}
+              handleBadges={handleBadges}
               handleSectors={handleSectors}
               selectedBadges={selectedBadges}
             />
