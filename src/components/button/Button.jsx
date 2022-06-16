@@ -1,8 +1,8 @@
 import "./Button.css";
 
-export const Button = ({ title, action, color }) => {
+export const Button = ({ title, action, color, kind }) => {
   return (
-    <button onClick={action} className={color}>
+    <button type={kind} onClick={action} className={color}>
       {title}
     </button>
   );

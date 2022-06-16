@@ -1,15 +1,7 @@
 import { ORIGIN } from "../config";
 
-export const put = async (category = "", id = 0, value = {}) => {
-  /*
-  const body = {
-    data: {
-      isLoggedIn: value,
-    },
-  };
-  */
-
-  const path = `${category}/${id}`;
+export const put = async (search = "", value = {}) => {
+  const path = search;
   const body = value;
   const url = encodeURI(`${ORIGIN}${path}`);
   const response = await fetch(url, {

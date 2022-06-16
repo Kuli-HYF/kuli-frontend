@@ -4,8 +4,9 @@ import { DeviceSize } from "./Media";
 import "./navigation.css";
 
 import Logo from "./Logo";
-import NavLinks from "./NavLinks";
+// import NavLinks from "./NavLinks";
 import NavLinksMobile from "./NavLinksMobile";
+import NavLinks from "./NavLinks";
 
 const Navigation = () => {
   const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });

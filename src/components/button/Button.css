@@ -62,3 +62,9 @@ button {
 .dark-blue {
   background-color: var(--dark-blue);
 }
+
+.pink-outline {
+  color: var(--dark-blue);
+  background-color: white;
+  border: 2px solid #ee826c;
+}

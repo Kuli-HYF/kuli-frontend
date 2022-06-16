@@ -22,6 +22,7 @@
   font-weight: 500;
   font-size: 1em;
   background-color: var(--light-pink);
+  z-index: 999;
 }
 
 .nav-logo {
