@@ -62,7 +62,7 @@ h6 {
 }
 
 body {
-  background-color: #fafafa;
+  /* background-color: #fafafa; */
 }
 
 /* Variables */
@@ -71,11 +71,16 @@ body {
   --dark-pink: #ee826c;
   /* --dark-pink-hsl: hsl(10.2, 79.3%, 67.8%); */
   --dark-pink-hsl: hsl(10, 79%, 64%);
-
   --dark-pink-hsl-darker: hsl(10, 79%, 58%);
+  --light-pink-hsl-lighter: hsl(27, 88%, 98%);
+
   --light-pink: #fce3cf;
   --dark-blue: #302b70;
   --light-blue: #edf1f9;
+  --light-blue: #edf1f9;
+  --light-blue-hsl-lighter: hsl(220, 50%, 99%);
+
+
 }
 
 /* .Button {

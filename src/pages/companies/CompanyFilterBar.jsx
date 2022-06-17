@@ -11,17 +11,17 @@ const CompanyFilterBar = ({
   selectedBadges,
   selectedSectors,
   searchInput,
-  checked
+  checked,
 }) => {
   return (
     <>
       <div className="filters-container">
-      <CompanySearch
-            selectedBadges={selectedBadges}
-            selectedSectors={selectedSectors}
-            value={searchInput}
-            handleInput={handleInput}
-          />
+        <CompanySearch
+          selectedBadges={selectedBadges}
+          selectedSectors={selectedSectors}
+          value={searchInput}
+          handleInput={handleInput}
+        />
 
         <List title={"filter badges"}>
           <ListItem
@@ -32,6 +32,8 @@ const CompanyFilterBar = ({
             // selectedBadges={selectedBadges}
           />
         </List>
+
+        <hr className="line"></hr>
 
         <List title={"filter sectors"}>
           <ListItem

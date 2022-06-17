@@ -1,7 +1,12 @@
+.line {
+  border: 1px solid var(--light-blue);
+  margin-bottom: 20px;
+}
+
 .company-container {
-  background-color: var(--light-pink);
-  height: 100vh;
-  overflow: scroll;
+  background-color: white;
+  /* height: 100vh;
+  overflow: scroll; */
 }
 
 .company-header-container {
@@ -14,7 +19,7 @@
 
 .company-content-container {
   max-width: 1200px;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0 auto;
   padding-top: 120px;
   padding-inline: 48px;
@@ -26,13 +31,21 @@
 
 .company-filter-and-list-container {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 60px;
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  /* grid-template-columns: repeat(12, 1fr); */
+  gap: 40px;
 }
 
 .filters-container {
-  grid-column: span 4;
+  /* grid-column: span 4; */
+  align-self: baseline;
+  width: 30%;
+  /* background-color: var(--light-blue); */
+  border: 1px solid var(--light-blue);
+  background-color: hsl(220, 50%, 98%);
+  padding: 16px;
 }
 
 .filterlist-container {
@@ -41,7 +54,7 @@
 
 .filterlist-title {
   margin-bottom: 10px;
-  color: var(--dark-pink)
+  color: var(--dark-blue);
 }
 
 .filterlist {
@@ -49,8 +62,29 @@
 }
 
 .company-list-container {
-  grid-column: span 8;
+  /* grid-column: span 8; */
+
+  /* align-self: baseline; */
+  display: flex;
+  flex-direction: column;
+  width: 70%;
   list-style-type: none;
+  margin-bottom: 40px;
+  background-color: hsl(220, 50%, 98%);
+  padding: 20px;
+  /* display: block; */
+}
+
+.company-list-title{
+  color: var(--dark-blue)
+}
+
+.companies-found{
+  margin-bottom: 24px;
+}
+
+.companies-result-container {
+
 }
 
 .badges-container {
@@ -104,6 +138,8 @@ input[type="checkbox"] {
   margin-bottom: 20px;
   border-radius: 8px;
   padding: 12px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .search-input {
@@ -111,6 +147,8 @@ input[type="checkbox"] {
   height: 40px;
   border: none;
   padding: 4px;
+  margin-top: 20px;
+  border: 1px solid var(--light-blue);
 }
 
 @media (max-width: 800px) {
@@ -122,13 +160,16 @@ input[type="checkbox"] {
     /* position: relative;
     display: grid;
     grid-template-columns: repeat(1, 1fr); */
+    flex-direction: column;
     gap: 12px;
   }
 
   .filters-container {
-    grid-column: span 12;
+    /* grid-column: span 12; */
+    width: 100%;
   }
   .company-list-container {
-    grid-column: span 12;
+    /* grid-column: span 12; */
+    width: 100%;
   }
 }
