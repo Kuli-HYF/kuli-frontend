@@ -33,7 +33,7 @@ const CompanyFilterBar = ({
           />
         </List>
 
-        <hr className="line"></hr>
+        <hr className="filter-line"></hr>
 
         <List title={"filter sectors"}>
           <ListItem

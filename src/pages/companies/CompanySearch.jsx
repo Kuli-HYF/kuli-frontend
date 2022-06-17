@@ -15,7 +15,7 @@ const CompanySearch = ({
           placeholder="search"
         ></input>
 
-        {value && <div className="search-output-container">{`you searched for: ${value}`}</div>}
+        {/* {value && <div className="search-output-container">{`you searched for: ${value}`}</div>} */}
 
         <div className="badges-container">
           {selectedBadges.map((el, i) => (
