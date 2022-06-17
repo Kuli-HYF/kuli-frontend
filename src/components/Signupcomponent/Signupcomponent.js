@@ -5,8 +5,10 @@ import {Formik , Form} from "formik";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as Yup from 'yup';
 import {Button} from "../../components/button/Button";
-import React from 'react'
+import {useEffect,useState,React} from 'react'
 import {useNavigate} from "react-router-dom";
+import {get} from "../../api/get";
+
 
 
  
@@ -18,19 +20,31 @@ export const Signup = () => {
  //get validation values
 // make the post request 
 
+const [users, setUsers] = useState([]);
+const [errMsg, seterrMsg] = useState("");
+
+const LOGIN_URL = 'kuli-users';
+
+const fetchUsers = async () => {          
+  // try{
+    const search = LOGIN_URL;
+    const response = await get(search);
+    const names = response.data;
+
+    setUsers(names);
+    // console.log("email: "+email+"password: "+pwd);
+    console.log("get results: ", response, names,'userObjects',users);
+  
+   
+  }
+   
 
 
 
   //validating the form 
     const validate = Yup.object(
         {
-            // firstName: Yup.string()
-            // .max(15, 'Must be 15 characters or less')
-            // .required('Required'),
-            // lastName: Yup.string()
-            // .max(20, 'Must be 20 characters or less')
-            // .required('Required'),
-
+         
             email: Yup.string()
             .email('email is invalid')
          
@@ -45,6 +59,9 @@ export const Signup = () => {
         }
     )
 
+    useEffect( () => {
+      fetchUsers();
+    },[])
     const handleAdd = async (values) => {
         // function takes 'category' ="" 'value'={}
         // const search = event.target.parentElement.children[0].value;
@@ -79,17 +96,33 @@ export const Signup = () => {
     }}
 
     // make the post request 
-
+   
     validationSchema = {validate} 
     onSubmit = {(values) => {
-
+      return new Promise((resolve) => {
+         
         setTimeout(() => {
            
-        //  const postVules = post("kuli-users",values);
-        console.log(values);
-      
-          handleAdd(values);
-        }, 1000);
+          //  const postVules = post("kuli-users",values);
+          console.log(values);
+               
+          users.map((user) => {
+                if(user.attributes.email === values.email){
+                  console.log("already exist")
+                }else{
+                  console.log("create new ")
+                }
+
+
+            // user.attributes.email === values.email? seterrMsg("user Already exist"): handleAdd(values)
+            // setTimeout(navigate, 500, "/login" );
+            
+           })
+             
+  
+          }, 1000);
+      })
+       
 
         
         // email: "sdw@yaho.com"
@@ -108,6 +141,7 @@ export const Signup = () => {
         {formik => (
 
             <div>
+             <p className={errMsg ? "text-danger" : "offscreen"} aria-live="assertive">{errMsg} </p>
              <h1 className ="my-4 font-weight-bold-display-4">Sign Up</h1>
              {console.log(formik)}
              <Form>
@@ -120,9 +154,7 @@ export const Signup = () => {
           
              {/* <Link to="login" > */}
               
-               <Button action={()=>{
-                setTimeout(navigate, 500, "/login" );
-               }} color="btn btn-primary mt-3" kind="submit" title="Register" />
+               <Button color="btn btn-primary mt-3" kind="submit" title="Register" />
                
                 {/* </Link> */}
                  

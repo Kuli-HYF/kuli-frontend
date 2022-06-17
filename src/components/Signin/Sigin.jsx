@@ -7,6 +7,7 @@ import {TextField} from "../Textfield/TextField";
 import {useRef, useState, useEffect, useContext} from 'react';
 import AuthContext from "./context/AuthProvider";
 import axios from '../../api/axios';
+import {index} from "../../data.js";
  
 const LOGIN_URL = 'kuli-users';
 
@@ -23,8 +24,8 @@ const{setAuth} = useContext(AuthContext);
   const emailRef = useRef();
   const errRef = useRef();
 
-  const[email , setEmail] = useState('');
-  const[pwd, setPwd] = useState('');
+  // const[email , setEmail] = useState('');
+  // const[pwd, setPwd] = useState('');
   const[errMsg, setErrMsg] = useState('');
   const[success, setSuccess] = useState(false);
      
@@ -41,27 +42,34 @@ const{setAuth} = useContext(AuthContext);
       const names = response.data;
 
       setUsers(names);
-      // console.log("get results: ", response, names,'userObjects',users);
+      // console.log("email: "+email+"password: "+pwd);
+      console.log("get results: ", response, names,'userObjects',users);
+      
       // setAuth({email,pwd});
       // setEmail('');
       // setPwd('');
       // setSuccess(true);
     
     // }catch(err){
-    //   if(!err?.response){
-    //     setErrMsg('No server Response');
-    //   }
-    //   // }else if(err.response?.status === 400){
-    //   //   setErrMsg('Missing email or password');
-    //   // }else if(err.response?.status === 401){
-    //   //   setErrMsg('Unauthorized !');
-    //   // }else{
+
+      // if(!err?.response){
+      //   setErrMsg('No server Response');
+      // }
+      // else if(err.response?.status === 400){
+      //   setErrMsg('Missing email or password');
+      // }else if(err.response?.status === 401){
+      //   setErrMsg('Unauthorized !');
+      // }else{
     
-    //   //   setErrMsg('Login failed');
-    //   // }
-    //   errRef.current.focus();// setting the error so the screen can read it 
-    // } 
-    };
+      //   setErrMsg('Login failed');
+      // }
+
+    // }
+      
+      errRef.current.focus();// setting the error so the screen can read it 
+    }
+     
+  
 
   //   useEffect( () => {
   // console.log(users);
@@ -146,58 +154,32 @@ console.log('userObjects: ',users );
          
       //  const postVules = post("kuli-users",values);
       // console.log('values: ',values.email,values.password);
-      fetchUsers(values);
+      // fetchUsers(values);
+
+      const toLogin = users.map((user) =>{
+   
+        if(values.email === user.attributes.email && values.password === user.attributes.password){
+          index.isLogin = user;
+        //  setSuccess(true);
+          
+        }else if(values.email === user.attributes.email && values.password != user.attributes.password){
+          setErrMsg("password dose not match");
+        
+        }
+         !index.isLogin?setErrMsg("No such user"):console.log("success");
+      })
     
        
   }, 1000)
 }
   }
 
-      
-
-      
-      // email: "sdw@yaho.com"
-      // firstName: "Muwa"
-      // lastName: "Hans Mbua"
-      // password: "123456"
-
-  
-
-      // const data = new FormData();
-      // for (let i = 0; i < values.length; i++) {
-      //     data.append(values[i]);
-
-      // }
-      // data.append('data',JSON.stringify(data));
-
-      // const request = await fetch('https://kuli-strapi.herokuapp.com/api/',{
-      //     method: 'POST',
-      //     body:data,
-    
-
-      // })
-
-
-     
-  
   
   >
-
-
-
-
-      {
-        
-      
-      formik => (
-
-        
-        
-
-    
+      {      formik => (
           <div>
            
-           {success ? (
+           {index.isLogin? (
 
             <section>
                  <h1>You are logged in!</h1>
@@ -210,9 +192,6 @@ console.log('userObjects: ',users );
          ) : (
 
                <>
-
-
-
           <p ref={errRef} className={errMsg ? "text-danger" : "offscreen"} aria-live="assertive">{errMsg} </p>
            <h1 className ="my-4 font-weight-bold-display-4">Sign in</h1>
            {console.log(formik)}
@@ -244,33 +223,14 @@ console.log('userObjects: ',users );
 
               <a href="#">Sign Up</a>
             </span>
-
-
-
           </p>
-
               </>
-
-)
-    }
-
-
-
-
+) }
           </div>
-         
-
           //using form from formick
-      )}
-  
-    
-  </Formik>
-
-
-
-
-   
+      )}  
+  </Formik>  
   )
-}
+  }
 
 export default Signin
