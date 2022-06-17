@@ -6,10 +6,10 @@ const CompanyList = ({ companies, selectedCompanies, resultsFound }) => {
       <div className="company-list-container">
         {resultsFound ? (
           <div className="companies-results-container">
-            {selectedCompanies.map((el) => (
-              <div className="company-list-item">
+            {selectedCompanies.map((el, i) => (
+              <div key={i} className="company-list-item">
                 <Link to={`/companies/${el.id}`} state={{ companies }}>
-                  <p key={el.id}>{el.attributes.name}</p>
+                  <p>{el.attributes.name}</p>
                 </Link>
               </div>
             ))}
@@ -17,9 +17,11 @@ const CompanyList = ({ companies, selectedCompanies, resultsFound }) => {
         ) : (
           <div className="companies-results-container">
             {companies.map((el, i) => (
-              <Link key={i} to={`/companies/${el.id}`} state={{ companies }}>
-                <p key={el.id}>{el.attributes.name}</p>
-              </Link>
+              <div key={i} className="company-list-item">
+                <Link to={`/companies/${el.id}`} state={{ companies }}>
+                  <p>{el.attributes.name}</p>
+                </Link>
+              </div>
             ))}
           </div>
         )}
