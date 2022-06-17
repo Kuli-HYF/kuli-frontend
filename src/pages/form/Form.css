@@ -54,3 +54,14 @@
   margin: 40px;
   color: #fb5e3e;
 }
+
+.search-field li {
+  list-style: none;
+  color: #7b78ab;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.search-field li:hover {
+  color: #302b70;
+}

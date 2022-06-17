@@ -26,7 +26,7 @@ export const badgeCalc = (toCalc, companyId) => {
     const average = sum / score.length;
     total.average = average;
     totals.push(total);
-    return console.log(average)
+    return console.log(average);
   });
 
   const sort = totals.sort((a, b) => a.average - b.average);
@@ -55,3 +55,24 @@ export const badgeCalc = (toCalc, companyId) => {
     ? console.log("no badge to award")
     : awardBadge(companyId, badgeId);
 };
+
+/*
+ const post = async (path, value) => {
+  const category = path;
+  const body = value;
+  const url = encodeURI(`${ORIGIN}${category}`);
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) {
+    throw new Error(`${response.status}: ${response.statusText}`);
+  }
+  const result = await response.json();
+  // console.log("add", result);
+  return result;
+};
+ */
