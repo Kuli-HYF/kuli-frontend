@@ -1,5 +1,11 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+  BrowserRouter,
+} from "react-router-dom";
 
 import Home from "./pages/home/Home";
 import FormStart from "./pages/form/FormStart";
@@ -8,9 +14,8 @@ import CompanyHome from "./pages/companies/CompanyHome";
 import { Former } from "./pages/form/Form";
 import { Congratulate } from "./pages/congratulate/Congratulate";
 import { AboutBadges } from "./pages/about-badges/AboutBadges";
-import { AboutUs } from './pages/about-us/AboutUs';
+import { AboutUs } from "./pages/about-us/AboutUs";
 import CompanyDetail from "./pages/companies/CompanyDetail";
-
 
 /*
 import { Button } from "./components/button/Button";
@@ -57,23 +62,23 @@ function App() {
   */
 
   return (
-    <Router>
-      <div className="main-container">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/companies" element={<CompanyHome />} />
-          <Route path="/companies/:id" element={<CompanyDetail />} />
-          <Route path="/badges" element={<AboutBadges />} />
-          <Route path="/form" element={<Former />}></Route>
-          <Route path="/confirm" element={<Congratulate />} />
-          <Route path="/form" element={"form"} />
-          <Route path="/sign-up" element={"sign-up"} />
-          <Route path="/questionnaire" element={<FormStart />} />
-          <Route path="/about" element={<AboutUs />} />
-        </Routes>
-      </div>
+      <Router>
+        <div className="main-container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/companies" element={<CompanyHome />} />
+            <Route path="/companies/:id" element={<CompanyDetail />} />
+            <Route path="/badges" element={<AboutBadges />} />
+            <Route path="/form" element={<Former />}></Route>
+            <Route path="/confirm" element={<Congratulate />} />
+            <Route path="/form" element={"form"} />
+            <Route path="/sign-up" element={"sign-up"} />
+            <Route path="/questionnaire" element={<FormStart />} />
+            <Route path="/about" element={<AboutUs />} />
+          </Routes>
+        </div>
 
-      {/* <div className="test-btn">
+        {/* <div className="test-btn">
         <input type="input"></input>
         <Button color="blue" action={handleGet} title="get" />
         <Button color="orange" action={handlePopulate} title="populate" />
@@ -81,7 +86,7 @@ function App() {
         <Button color="green" action={handleAdd} title="add" />
         <Button color="red" action={handleDelete} title="delete" />
       </div> */}
-    </Router>
+      </Router>
   );
 }
 
