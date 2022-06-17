@@ -1,10 +1,10 @@
 import "./company-home.css";
-import {index} from "../../data.js";
-
+import { index } from "../../data.js";
 
 import { get } from "../../api/get";
 import { useState, useEffect } from "react";
 
+import CompanyHeader from "./CompanyHeader";
 import Navigation from "../../components/navigation/Navigation";
 import CompanySearch from "./CompanySearch";
 import CompanyList from "./CompanyList";
@@ -59,6 +59,10 @@ const CompanyHome = () => {
     // }
   }, []);
 
+  const handleInput = (e) => {
+    setSearchInput(e.target.value);
+  };
+
   const handleBadges = (e) => {
     const { checked, value } = e.target;
     const badgeId = e.currentTarget.id;
@@ -92,10 +96,7 @@ const CompanyHome = () => {
     // console.log("sector number: " + sectorNumber);
 
     if (checked) {
-      setSelectedSectors((selectedSectors) => [
-        ...selectedSectors,
-        value,
-      ]);
+      setSelectedSectors((selectedSectors) => [...selectedSectors, value]);
     } else {
       setSelectedSectors(selectedSectors.filter((e) => e !== value));
     }
@@ -133,14 +134,6 @@ const CompanyHome = () => {
       );
     }
 
-    // if (searchInput) {
-    //   filteredCompanies = filteredCompanies.filter(
-    //     (item) =>
-    //       item.attributes.name.toLowerCase().search(searchInput.toLowerCase().trim()) !==
-    //       -1
-    //   );
-    // }
-
     setSelectedCompanies(filteredCompanies);
 
     !searchInput.length && !selectedBadges.length && !selectedSectors.length
@@ -157,12 +150,16 @@ const CompanyHome = () => {
       <Navigation />
       <div className="company-container">
         <div className="company-content-container">
-          <CompanySearch
+
+          <CompanyHeader />
+
+          {/* <CompanySearch
             selectedBadges={selectedBadges}
             selectedSectors={selectedSectors}
-            value={searchInput}
-            getInput={(e) => setSearchInput(e.target.value)}
-          />
+            searchInput={searchInput}
+            handleInput={handleInput}
+          /> */}
+          
           <div className="company-filter-and-list-container">
             <CompanyFilterBar
               badges={badges}
@@ -170,6 +167,9 @@ const CompanyHome = () => {
               handleBadges={handleBadges}
               handleSectors={handleSectors}
               selectedBadges={selectedBadges}
+              selectedSectors={selectedSectors}
+              handleInput={handleInput}
+              searchInput={searchInput}
             />
 
             <CompanyList

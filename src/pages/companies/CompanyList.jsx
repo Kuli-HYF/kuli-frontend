@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import CompanyListItem from "./CompanyListItem";
 
 const CompanyList = ({ companies, selectedCompanies, resultsFound }) => {
   return (
@@ -6,20 +7,20 @@ const CompanyList = ({ companies, selectedCompanies, resultsFound }) => {
       <div className="company-list-container">
         {resultsFound ? (
           <div className="companies-results-container">
-            {selectedCompanies.map((el, i) => (
-              <div key={i} className="company-list-item">
-                <Link to={`/companies/${el.id}`} state={{ companies }}>
-                  <p>{el.attributes.name}</p>
+            {selectedCompanies.map((company) => (
+              <div key={company.id} className="company-list-item">
+                <Link to={`/companies/${company.id}`} state={{ companies }}>
+                  <CompanyListItem company={company}/>
                 </Link>
               </div>
             ))}
           </div>
         ) : (
           <div className="companies-results-container">
-            {companies.map((el, i) => (
-              <div key={i} className="company-list-item">
-                <Link to={`/companies/${el.id}`} state={{ companies }}>
-                  <p>{el.attributes.name}</p>
+            {companies.map((company) => (
+              <div key={company.id} className="company-list-item">
+                <Link to={`/companies/${company.id}`} state={{ companies }}>
+                  <CompanyListItem company={company}/>
                 </Link>
               </div>
             ))}

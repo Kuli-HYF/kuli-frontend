@@ -1,10 +1,9 @@
 import { useParams, useLocation } from "react-router-dom";
 
 const CompanyDetail = () => {
-
   const params = useParams;
   const companyId = params().id;
-  
+
   let location = useLocation();
   let companies = location.state.companies;
 

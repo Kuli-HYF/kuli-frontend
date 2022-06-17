@@ -1,6 +1,6 @@
 const CompanySearch = ({
+  handleInput,
   search,
-  getInput,
   selectedBadges,
   selectedSectors,
   value
@@ -8,13 +8,15 @@ const CompanySearch = ({
   return (
     <>
       <div className="company-search-container">
-        <input
+        <input className="search-input"
           type="input"
           value={search}
-          onChange={getInput}
+          onChange={handleInput}
           placeholder="search"
         ></input>
+
         {value && <div className="search-output-container">{`you searched for: ${value}`}</div>}
+
         <div className="badges-container">
           {selectedBadges.map((el, i) => (
             <div className="filter-badge" key={i}>
