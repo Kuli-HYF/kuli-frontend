@@ -6,7 +6,7 @@ const CompanyList = ({ companies, selectedCompanies, resultsFound }) => {
     <>
       <div className="company-list-container">
         {resultsFound ? (
-          <div className="companies-results-container">
+          <>
             <div className="companies-found">
               <p>{`Total companies found: ${selectedCompanies.length}`}</p>
             </div>
@@ -17,9 +17,9 @@ const CompanyList = ({ companies, selectedCompanies, resultsFound }) => {
                 </Link>
               </div>
             ))}
-          </div>
+          </>
         ) : (
-          <div className="companies-results-container">
+          <>
             <div className="companies-found">
               <p>{`Total companies found: ${companies.length}`}</p>
             </div>
@@ -30,7 +30,7 @@ const CompanyList = ({ companies, selectedCompanies, resultsFound }) => {
                 </Link>
               </div>
             ))}
-          </div>
+          </>
         )}
       </div>
     </>

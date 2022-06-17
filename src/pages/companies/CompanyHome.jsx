@@ -1,5 +1,4 @@
 import "./company-home.css";
-import { index } from "../../data.js";
 
 import { get } from "../../api/get";
 import { useState, useEffect } from "react";

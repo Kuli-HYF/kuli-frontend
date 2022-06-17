@@ -32,15 +32,14 @@
 .company-filter-and-list-container {
   position: relative;
   display: flex;
-  height: 100%;
-  min-height: 0;
   /* grid-template-columns: repeat(12, 1fr); */
   gap: 40px;
 }
 
 .filters-container {
   /* grid-column: span 4; */
-  align-self: baseline;
+  /* align-self: baseline; */
+  height: fit-content;
   width: 30%;
   /* background-color: var(--light-blue); */
   border: 1px solid var(--light-blue);
@@ -63,33 +62,26 @@
 
 .company-list-container {
   /* grid-column: span 8; */
-
-  /* align-self: baseline; */
   display: flex;
   flex-direction: column;
+  height: fit-content;
   width: 70%;
   list-style-type: none;
   margin-bottom: 40px;
   background-color: hsl(220, 50%, 98%);
   padding: 20px;
-  /* display: block; */
 }
 
-.company-list-title{
-  color: var(--dark-blue)
+.company-list-title {
+  color: var(--dark-blue);
 }
 
-.companies-found{
+.companies-found {
   margin-bottom: 24px;
 }
 
-.companies-result-container {
-
-}
-
 .badges-container {
-  margin-top: 8px;
-
+  margin-top: 24px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -157,8 +149,7 @@ input[type="checkbox"] {
   }
 
   .company-filter-and-list-container {
-    /* position: relative;
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(1, 1fr); */
     flex-direction: column;
     gap: 12px;
