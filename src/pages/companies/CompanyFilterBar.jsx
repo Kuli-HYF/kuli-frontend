@@ -7,6 +7,7 @@ const CompanyFilterBar = ({
   handleBadges,
   handleSectors,
   selectedBadges,
+  checked
 }) => {
   return (
     <>
@@ -15,6 +16,8 @@ const CompanyFilterBar = ({
           <ListItem
             object={badges}
             handleOnChange={handleBadges}
+            checked={checked}
+
             // selectedBadges={selectedBadges}
           />
         </List>

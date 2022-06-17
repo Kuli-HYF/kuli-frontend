@@ -1,4 +1,6 @@
 import "./company-home.css";
+import {index} from "../../data.js";
+
 
 import { get } from "../../api/get";
 import { useState, useEffect } from "react";
@@ -15,10 +17,9 @@ const CompanyHome = () => {
   const [selectedBadges, setSelectedBadges] = useState([]);
   const [sectors, setSectors] = useState([]);
   const [selectedSectors, setSelectedSectors] = useState([]);
-
   const [resultsFound, setResultsFound] = useState(true);
-
   const [selectedCompanies, setSelectedCompanies] = useState(companies);
+  // const [checked, setChecked] = useState(false)
 
   const fetchCompanies = async () => {
     const result = await get("companies?populate=*");
@@ -102,7 +103,7 @@ const CompanyHome = () => {
   };
 
   // const clearFilters = () => {
-  //   setSelectedBadges([]);
+  //   setChecked(false);
   // };
 
   const applyFilters = () => {

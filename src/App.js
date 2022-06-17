@@ -9,6 +9,8 @@ import { Former } from "./pages/form/Form";
 import { Congratulate } from "./pages/congratulate/Congratulate";
 import { AboutBadges } from "./pages/about-badges/AboutBadges";
 import { AboutUs } from './pages/about-us/AboutUs';
+import CompanyDetail from "./pages/companies/CompanyDetail";
+
 
 /*
 import { Button } from "./components/button/Button";
@@ -59,7 +61,8 @@ function App() {
       <div className="main-container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/company-home" element={<CompanyHome />} />
+          <Route path="/companies" element={<CompanyHome />} />
+          <Route path="/companies/:id" element={<CompanyDetail />} />
           <Route path="/badges" element={<AboutBadges />} />
           <Route path="/form" element={<Former />}></Route>
           <Route path="/confirm" element={<Congratulate />} />

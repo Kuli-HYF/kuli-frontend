@@ -1,7 +1,7 @@
 export const navLinks = [
   { link: "/", name: "Home" },
   { link: "/badges", name: "Our System" },
-  { link: "/company-home", name: "Companies" },
+  { link: "/companies", name: "Companies" },
   { link: "/about", name: "About Us" },
   { link: "/signup", name: "Sign Up" },
   { link: "/login", name: "Login" },
