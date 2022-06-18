@@ -1,5 +1,12 @@
-h2 {
+/* h2 {
   color: blueviolet;
+} */
+.load {
+  padding-top: 120px;
+}
+
+.signup {
+  padding-top: 120px;
 }
 
 .input {
