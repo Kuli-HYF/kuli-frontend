@@ -7,7 +7,9 @@ const CompanyDetail = () => {
   let location = useLocation();
   let companies = location.state.companies;
 
-  const company = companies.find((company) => company.id === companyId);
+  const company = companies.find(
+    (company) => Number(company.id) === Number(companyId)
+  );
 
   // console.log(company);
 
@@ -27,7 +29,6 @@ const CompanyDetail = () => {
           </ul>
         ))}
       </div>
-
       <div>
         <h5>Badges:</h5>
         {company.attributes.badges.data.map((el, i) => (
