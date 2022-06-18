@@ -25,7 +25,14 @@ export const LogIn = () => {
 
   console.log("users", users);
 
-  return (
+  return !users ? (
+    <React.Fragment>
+      <Navigation />
+      <div className="login">
+        <h1>Loading...</h1>
+      </div>
+    </React.Fragment>
+  ) : (
     <React.Fragment>
       <Navigation />
       <div className="login">
@@ -34,3 +41,28 @@ export const LogIn = () => {
     </React.Fragment>
   );
 };
+/*
+<Formik
+          validationSchema={object({
+            email: string().required("Required Field"),
+            password: string()
+              .required("Required Field")
+              .min(4, "Password is must be longer than four digits")
+              .max(20, "Password is must be shorter than twenty digits"),
+            passwordConfirmation: string()
+              .oneOf([ref("password"), null], "Passwords must match")
+              .required("Required Field"),
+            isWorking: boolean().oneOf([false, true]),
+          })}
+          initialValues={{
+            email: "",
+            password: "",
+            passwordConfirmation: "",
+            firstName: "",
+            lastName: "",
+            sector: "",
+            gender: "",
+            isWorking: false,
+          }}
+          onSubmit={(values) => 
+*/
