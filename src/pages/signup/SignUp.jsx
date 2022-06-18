@@ -142,21 +142,12 @@ export const SignUp = () => {
                 <h3>Mandatory Fields</h3>
                 <span className="warning">{warning}</span>
                 <div className="input">
-                  <Field
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                    // {...(touched.email && errors.email ? errors.email : null)}
-                    // onChange={formik.handleChange}
-                    // value={formik.values.email}
-                  ></Field>
+                  <Field name="email" type="email" placeholder="Email"></Field>
                   <ErrorMessage className="error" name="email"></ErrorMessage>
                   <Field
                     name="password"
                     type="password"
                     placeholder="Password"
-                    // onChange={formik.handleChange}
-                    // value={formik.values.password}
                   ></Field>
                   <ErrorMessage
                     className="error"

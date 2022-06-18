@@ -2,9 +2,9 @@ import "./LogIn.css";
 
 import { useState, useEffect } from "react";
 import React from "react";
-import { Formik, Form, Field, useFormik, ErrorMessage } from "formik";
-import { ref, object, string, boolean } from "yup";
-import { useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { object, string } from "yup";
+// import { useNavigate } from "react-router-dom";
 
 import Navigation from "../../components/navigation/Navigation";
 import { get } from "../../api/get";
@@ -23,7 +23,7 @@ export const LogIn = () => {
     fetchUsers();
   }, []);
 
-  console.log("users", users);
+  console.log("users", users[0]);
 
   return !users ? (
     <React.Fragment>
@@ -37,32 +37,35 @@ export const LogIn = () => {
       <Navigation />
       <div className="login">
         <h2>Login</h2>
-      </div>
-    </React.Fragment>
-  );
-};
-/*
-<Formik
+        <Formik
           validationSchema={object({
             email: string().required("Required Field"),
-            password: string()
-              .required("Required Field")
-              .min(4, "Password is must be longer than four digits")
-              .max(20, "Password is must be shorter than twenty digits"),
-            passwordConfirmation: string()
-              .oneOf([ref("password"), null], "Passwords must match")
-              .required("Required Field"),
-            isWorking: boolean().oneOf([false, true]),
+            password: string().required("Required Field"),
           })}
           initialValues={{
             email: "",
             password: "",
-            passwordConfirmation: "",
-            firstName: "",
-            lastName: "",
-            sector: "",
-            gender: "",
-            isWorking: false,
           }}
-          onSubmit={(values) => 
-*/
+          onSubmit={(values) => {
+            console.log("values", values);
+          }}
+        >
+          {({ values, errors, touched, isSubmitting }) => (
+            <Form>
+              <Field name="email" type="email" placeholder="Email"></Field>
+              <ErrorMessage className="error" name="email"></ErrorMessage>
+              <Field
+                name="password"
+                type="password"
+                placeholder="Password"
+              ></Field>
+              <ErrorMessage className="error" name="password"></ErrorMessage>
+              <pre>{JSON.stringify(values, null, 4)}</pre>
+              <pre>{JSON.stringify(errors, null, 4)}</pre>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    </React.Fragment>
+  );
+};
