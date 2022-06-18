@@ -21,13 +21,14 @@ export const Former = () => {
   const [warning, setWarning] = useState("");
   const [companyId, setCompanyId] = useState(0);
   const [companySearch, setCompanySearch] = useState("");
+  const [badgeIds, setBadgeIds] = useState([]);
 
   const toSubmit = useRef(false);
   const toSearch = useRef("");
 
   const fetchCompanies = async () => {
-    const promiseBadge = await get("companies");
-    setCompanies(promiseBadge.data);
+    const promiseCompany = await get("companies?populate=badges");
+    setCompanies(promiseCompany.data);
   };
 
   const fetchBadges = async () => {
@@ -64,6 +65,7 @@ export const Former = () => {
         // setTimeout(setCompanyId, 400, name[1]);
         setCompanyId(name[1]);
         setWarning("");
+        setBadgeIds(companies[companyId].attributes.badges.data);
       }
       setWarning("Company not found. Please check spelling and try again");
     });
@@ -83,6 +85,7 @@ export const Former = () => {
     setWarning("");
   };
 
+  // console.log("badge array", badgeIds);
   return companies.data && badges.data && questions.data ? (
     <h1 className="header" key="743">
       Loading...
@@ -154,7 +157,7 @@ export const Former = () => {
           setTimeout(() => {
             setAnswers(values.checked);
             if (toSubmit.current === true) {
-              badgeCalc(answers, companyId);
+              badgeCalc(answers, companyId, badgeIds);
               toSubmit.current = false;
               navigate("/confirm");
             }
