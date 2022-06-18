@@ -7,7 +7,7 @@ const CompanyDetail = () => {
   let location = useLocation();
   let companies = location.state.companies;
 
-  const company = companies.find((company) => company.id == companyId);
+  const company = companies.find((company) => company.id === companyId);
 
   // console.log(company);
 

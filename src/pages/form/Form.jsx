@@ -66,8 +66,11 @@ export const Former = () => {
         setCompanyId(name[1]);
         setWarning("");
         setBadgeIds(companies[companyId].attributes.badges.data);
+        return warning;
       }
-      setWarning("Company not found. Please check spelling and try again");
+      return setWarning(
+        "Company not found. Please check spelling and try again"
+      );
     });
     /*
       name[0].toLowerCase() !== toSearch.current.toLowerCase()

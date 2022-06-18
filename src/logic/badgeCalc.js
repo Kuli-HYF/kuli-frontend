@@ -1,5 +1,4 @@
 import { put } from "../api/put";
-import { get } from "../api/get";
 
 export const badgeCalc = (toCalc, companyId, badgeArray) => {
   // console.log("to calculate", toCalc, companyId, badgeArray);
