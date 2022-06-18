@@ -31,7 +31,7 @@ const Header = () => {
       variants={container}
     >
       <motion.div className="header-logo-container" variants={item}>
-        <motion.img src={logo} className="logo" alt="logo" ></motion.img>
+        <motion.img src={logo} className="logo" alt="logo"></motion.img>
       </motion.div>
       <motion.div className="header-title-container" variants={item}>
         <h1 className="header-title">
@@ -51,7 +51,7 @@ const Header = () => {
         <Link to={"/questionnaire"}>
           <Button title="to form" color="home-button dark-pink" />
         </Link>
-        <Link to={"/companies"}>
+        <Link to={"/company-home"}>
           <Button title="to company list" color="home-button dark-pink" />
         </Link>
       </motion.div>

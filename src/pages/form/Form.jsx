@@ -20,13 +20,15 @@ export const Former = () => {
   const [companies, setCompanies] = useState([]);
   const [warning, setWarning] = useState("");
   const [companyId, setCompanyId] = useState(0);
+  const [companySearch, setCompanySearch] = useState("");
+  const [badgeIds, setBadgeIds] = useState([]);
 
   const toSubmit = useRef(false);
   const toSearch = useRef("");
 
   const fetchCompanies = async () => {
-    const promiseBadge = await get("companies");
-    setCompanies(promiseBadge.data);
+    const promiseCompany = await get("companies?populate=badges");
+    setCompanies(promiseCompany.data);
   };
 
   const fetchBadges = async () => {
@@ -58,19 +60,35 @@ export const Former = () => {
     companies.map((company) =>
       names.push([company.attributes.name, company.id])
     );
-    console.log("name object", names);
-    console.log("begin", toSearch.current, companyId, warning);
-
-    names.map((name) =>
-      name[0].toLowerCase() === toSearch.current.toLowerCase()
-        ? setCompanyId(name[1])
-        : setWarning("Company not found. Please check spelling and try again")
+    names.map((name) => {
+      if (name[0].toLowerCase() === toSearch.current.toLowerCase()) {
+        // setTimeout(setCompanyId, 400, name[1]);
+        setCompanyId(name[1]);
+        setWarning("");
+        setBadgeIds(companies[companyId].attributes.badges.data);
+        return warning;
+      }
+      return setWarning(
+        "Company not found. Please check spelling and try again"
+      );
+    });
+    /*
+      name[0].toLowerCase() !== toSearch.current.toLowerCase()
+        ? setWarning("Company not found. Please check spelling and try again")
+        : setTimeout(setCompanyId, 400, name[1])
     );
+    */
     toSearch.current = "";
-    console.log("end", toSearch.current, companyId, warning);
-    event.target.parentElement.children[0].value = "";
+    // console.log("end", toSearch.current, companyId, warning);
+    setCompanySearch("");
   };
 
+  const handleReturn = (event) => {
+    setTimeout(navigate, 400, "/questionnaire");
+    setWarning("");
+  };
+
+  // console.log("badge array", badgeIds);
   return companies.data && badges.data && questions.data ? (
     <h1 className="header" key="743">
       Loading...
@@ -86,6 +104,10 @@ export const Former = () => {
           className="input"
           type="input"
           placeholder="Company Name"
+          value={companySearch}
+          onChange={(e) => {
+            setCompanySearch(e.target.value);
+          }}
         ></input>
         <Button
           kind="button"
@@ -94,16 +116,36 @@ export const Former = () => {
           action={handleSearch}
         />
       </div>
-      <Link to={"/questionnaire"}>
-        <Button
-          title="Go Back"
-          kind="button"
-          color="pink-outline"
-          action={() => {
-            setWarning("");
-          }}
-        />
-      </Link>
+      <div className="search-field">
+        {" "}
+        <ul>
+          {companies.map((company) =>
+            companySearch.length === 0 ? (
+              <React.Fragment key={company.id}></React.Fragment>
+            ) : company.attributes.name
+                .toLowerCase()
+                .includes(companySearch.toLowerCase()) ? (
+              <li
+                key={company.id}
+                onClick={() => setCompanySearch(company.attributes.name)}
+              >
+                {company.attributes.name}
+              </li>
+            ) : (
+              <React.Fragment key={company.id}></React.Fragment>
+            )
+          )}
+        </ul>
+      </div>
+      {/* <Link to={"/questionnaire"}> */}
+      <Button
+        title="Go Back"
+        kind="button"
+        color="pink-outline"
+        action={handleReturn}
+        // action={() => {setWarning("");}}
+      />
+      {/* </Link> */}
     </div>
   ) : (
     <Formik
@@ -118,7 +160,7 @@ export const Former = () => {
           setTimeout(() => {
             setAnswers(values.checked);
             if (toSubmit.current === true) {
-              badgeCalc(answers, companyId);
+              badgeCalc(answers, companyId, badgeIds);
               toSubmit.current = false;
               navigate("/confirm");
             }
@@ -184,7 +226,10 @@ export const Former = () => {
                 title="Return"
                 kind="button"
                 color="dark-pink"
-                action={() => setCompanyId(0)}
+                action={() => {
+                  setCompanyId(0);
+                  setCompanySearch("");
+                }}
               />
             </Link>
           ) : (
@@ -192,7 +237,7 @@ export const Former = () => {
               color="dark-pink"
               title="Back"
               kind="button"
-              action={() => handleBack()}
+              action={handleBack}
             />
           )}
           {category === badges.length ? (

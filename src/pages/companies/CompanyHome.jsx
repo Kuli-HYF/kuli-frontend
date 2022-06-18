@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 
 import CompanyHeader from "./CompanyHeader";
 import Navigation from "../../components/navigation/Navigation";
-import CompanySearch from "./CompanySearch";
 import CompanyList from "./CompanyList";
 import CompanyFilterBar from "./CompanyFilterBar";
 
@@ -72,7 +71,7 @@ const CompanyHome = () => {
     // console.log("checked: " + checked);
     // console.log("value: " + value);
     // console.log("badge id: " + badgeId);
-    // console.log("badge number: " + badgeNumber);
+    console.log("badge number: " + badgeNumber);
 
     if (checked) {
       setSelectedBadges((selectedBadges) => [...selectedBadges, value]);
@@ -92,7 +91,7 @@ const CompanyHome = () => {
     // console.log("checked: " + checked);
     // console.log("value: " + value);
     // console.log("sector id: " + sectorId);
-    // console.log("sector number: " + sectorNumber);
+    console.log("sector number: " + sectorNumber);
 
     if (checked) {
       setSelectedSectors((selectedSectors) => [...selectedSectors, value]);
@@ -144,12 +143,16 @@ const CompanyHome = () => {
     applyFilters();
   }, [selectedBadges, selectedSectors, searchInput]);
 
+  /*
+  useEffect(() => {
+    applyFilters();
+  }, [selectedBadges, selectedSectors, searchInput]);
+*/
   return (
     <>
       <Navigation />
       <div className="company-container">
         <div className="company-content-container">
-
           <CompanyHeader />
 
           {/* <CompanySearch
@@ -158,7 +161,7 @@ const CompanyHome = () => {
             searchInput={searchInput}
             handleInput={handleInput}
           /> */}
-          
+
           <div className="company-filter-and-list-container">
             <CompanyFilterBar
               badges={badges}
