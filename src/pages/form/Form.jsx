@@ -72,12 +72,14 @@ export const Former = () => {
         "Company not found. Please check spelling and try again"
       );
     });
+
     /*
       name[0].toLowerCase() !== toSearch.current.toLowerCase()
         ? setWarning("Company not found. Please check spelling and try again")
         : setTimeout(setCompanyId, 400, name[1])
     );
     */
+
     toSearch.current = "";
     // console.log("end", toSearch.current, companyId, warning);
     setCompanySearch("");
