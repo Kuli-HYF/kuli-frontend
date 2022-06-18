@@ -1,26 +1,47 @@
-import CompanyFilter from "./CompanyFilter";
-import SectorFilter from "./SectorFilter";
+import List from "./List";
+import ListItem from "./ListItem";
+import CompanySearch from "./CompanySearch";
 
 const CompanyFilterBar = ({
   badges,
   sectors,
-  handleOnChange,
+  handleBadges,
   handleSectors,
+  handleInput,
   selectedBadges,
+  selectedSectors,
+  searchInput,
+  checked,
 }) => {
   return (
     <>
       <div className="filters-container">
-        <div className="company-filter-container">
-          <CompanyFilter
-            badges={badges}
-            handleOnChange={handleOnChange}
-            selectedBadges={selectedBadges}
+        <CompanySearch
+          selectedBadges={selectedBadges}
+          selectedSectors={selectedSectors}
+          value={searchInput}
+          handleInput={handleInput}
+        />
+
+        <List title={"filter badges"}>
+          <ListItem
+            object={badges}
+            handleOnChange={handleBadges}
+            checked={checked}
+
+            // selectedBadges={selectedBadges}
           />
-        </div>
-        <div className="sector-filter-container">
-          <SectorFilter sectors={sectors} handleSectors={handleSectors} />
-        </div>
+        </List>
+
+        <hr className="filter-line"></hr>
+
+        <List title={"filter sectors"}>
+          <ListItem
+            object={sectors}
+            handleOnChange={handleSectors}
+            // selectedBadges={selectedBadges}
+          />
+        </List>
       </div>
     </>
   );
