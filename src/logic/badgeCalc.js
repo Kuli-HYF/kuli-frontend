@@ -1,7 +1,7 @@
 import { put } from "../api/put";
 
-export const badgeCalc = (toCalc, companyId) => {
-  console.log("to calculate", toCalc);
+export const badgeCalc = (toCalc, companyId, badgeArray) => {
+  // console.log("to calculate", toCalc, companyId, badgeArray);
   const filtered = toCalc.filter((val) => Number(val[2]) !== 0);
 
   const groups = [];
@@ -17,6 +17,9 @@ export const badgeCalc = (toCalc, companyId) => {
 
   const totals = [];
 
+  const badges = [];
+  badges.push(badgeArray.map((badge) => badge.id));
+  // console.log("badge array", badges[0]);
   scores.map((score) => {
     const total = {};
     total.badge = score[0][0];
@@ -26,7 +29,7 @@ export const badgeCalc = (toCalc, companyId) => {
     const average = sum / score.length;
     total.average = average;
     totals.push(total);
-    return console.log(average)
+    return console.log(average);
   });
 
   const sort = totals.sort((a, b) => a.average - b.average);
@@ -38,20 +41,34 @@ export const badgeCalc = (toCalc, companyId) => {
 
   const badgeId = toUpdate.badge;
 
-  const awardBadge = async (companyId, badgeId) => {
-    const search = `companies/${companyId}/?populate=badges`;
-    const body = {
-      data: {
-        badges: {
-          id: badgeId,
-        },
-      },
-    };
-    const result = await put(search, body);
-    console.log(result);
-  };
+  const testArray = [];
+  badges[0].map((badge) =>
+    badge === Number(badgeId) ? testArray.push(badge) : console.log("screen")
+  );
+  if (badgeId === 0) {
+    console.log("no badge to award");
+    return;
+  }
+  if (testArray.length !== 0) {
+    console.log("already has badge");
+    return;
+  } else {
+    badges[0].push(Number(badgeId));
+    console.log("doesn't have badge", badgeId, badges[0]);
 
-  badgeId === 0
-    ? console.log("no badge to award")
-    : awardBadge(companyId, badgeId);
+    const awardBadge = async (companyId, badges) => {
+      const idArray = [];
+      badges[0].map((badge) => idArray.push({ id: badge }));
+      // console.log("to send", idArray);
+      const search = `companies/${companyId}/?populate=badges`;
+      const body = {
+        data: {
+          badges: idArray,
+        },
+      };
+      const result = await put(search, body);
+      console.log(result);
+    };
+    awardBadge(companyId, badges);
+  }
 };
