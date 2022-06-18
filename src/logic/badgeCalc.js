@@ -1,7 +1,7 @@
 import { put } from "../api/put";
 
 export const badgeCalc = (toCalc, companyId, badgeArray) => {
-  // console.log("to calculate", toCalc, companyId, badgeArray);
+  // console.log("company id", companyId, "badge array", badgeArray);
   const filtered = toCalc.filter((val) => Number(val[2]) !== 0);
 
   const groups = [];
@@ -14,11 +14,9 @@ export const badgeCalc = (toCalc, companyId, badgeArray) => {
     groups.push(group);
   }
   const scores = groups.filter((group) => group.length !== 0);
-
+  // console.log("filterd", groups, scores);
   const totals = [];
 
-  const badges = [];
-  badges.push(badgeArray.map((badge) => badge.id));
   // console.log("badge array", badges[0]);
   scores.map((score) => {
     const total = {};
@@ -35,16 +33,21 @@ export const badgeCalc = (toCalc, companyId, badgeArray) => {
   const sort = totals.sort((a, b) => a.average - b.average);
 
   const sorted = sort[sort.length - 1];
-
+  // console.log("sorting", sort, sorted);
   let toUpdate = {};
   sorted.average >= 3 ? (toUpdate.badge = sorted.badge) : (toUpdate.badge = 0);
 
   const badgeId = toUpdate.badge;
 
+  // console.log("to update", toUpdate, badgeId);
+  // const existingBadges = [];
+  // existingBadges.push(badgeArray.map((item) => item.id));
   const testArray = [];
-  badges[0].map((badge) =>
-    badge === Number(badgeId) ? testArray.push(badge) : console.log("screen")
+  badgeArray.map((item) =>
+    item === Number(badgeId) ? testArray.push(item) : console.log("screen")
   );
+  // console.log("compare", badgeArray, testArray);
+
   if (badgeId === 0) {
     console.log("no badge to award");
     return;
@@ -53,12 +56,12 @@ export const badgeCalc = (toCalc, companyId, badgeArray) => {
     console.log("already has badge");
     return;
   } else {
-    badges[0].push(Number(badgeId));
-    console.log("doesn't have badge", badgeId, badges[0]);
+    badgeArray.push(Number(badgeId));
+    console.log("award badge", badgeId, badgeArray);
 
-    const awardBadge = async (companyId, badges) => {
+    const awardBadge = async (companyId, badgeArray) => {
       const idArray = [];
-      badges[0].map((badge) => idArray.push({ id: badge }));
+      badgeArray.map((item) => idArray.push({ id: item }));
       // console.log("to send", idArray);
       const search = `companies/${companyId}/?populate=badges`;
       const body = {
@@ -69,6 +72,6 @@ export const badgeCalc = (toCalc, companyId, badgeArray) => {
       const result = await put(search, body);
       console.log(result);
     };
-    awardBadge(companyId, badges);
+    awardBadge(companyId, badgeArray);
   }
 };
