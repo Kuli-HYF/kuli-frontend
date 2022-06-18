@@ -8,7 +8,8 @@ import CompanyHome from "./pages/companies/CompanyHome";
 import { Former } from "./pages/form/Form";
 import { Congratulate } from "./pages/congratulate/Congratulate";
 import { AboutBadges } from "./pages/about-badges/AboutBadges";
-import { AboutUs } from './pages/about-us/AboutUs';
+import { AboutUs } from "./pages/about-us/AboutUs";
+import { SignUp } from "./pages/signup/SignUp.jsx";
 
 /*
 import { Button } from "./components/button/Button";
@@ -64,7 +65,7 @@ function App() {
           <Route path="/form" element={<Former />}></Route>
           <Route path="/confirm" element={<Congratulate />} />
           <Route path="/form" element={"form"} />
-          <Route path="/sign-up" element={"sign-up"} />
+          <Route path="/sign-up" element={<SignUp />} />
           <Route path="/questionnaire" element={<FormStart />} />
           <Route path="/about" element={<AboutUs />} />
         </Routes>

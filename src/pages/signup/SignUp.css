@@ -1,0 +1,16 @@
+h2 {
+  color: blueviolet;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  background-color: antiquewhite;
+  color: aqua;
+}
+.warning {
+  color: rgb(241, 30, 30);
+}

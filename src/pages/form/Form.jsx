@@ -25,8 +25,8 @@ export const Former = () => {
   const toSearch = useRef("");
 
   const fetchCompanies = async () => {
-    const promiseBadge = await get("companies");
-    setCompanies(promiseBadge.data);
+    const promiseCompany = await get("companies");
+    setCompanies(promiseCompany.data);
   };
 
   const fetchBadges = async () => {
