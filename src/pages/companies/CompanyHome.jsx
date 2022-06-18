@@ -3,6 +3,7 @@ import "./company-home.css";
 import { get } from "../../api/get";
 import { useState, useEffect } from "react";
 
+import CompanyHeader from "./CompanyHeader";
 import Navigation from "../../components/navigation/Navigation";
 import CompanySearch from "./CompanySearch";
 import CompanyList from "./CompanyList";
@@ -15,10 +16,9 @@ const CompanyHome = () => {
   const [selectedBadges, setSelectedBadges] = useState([]);
   const [sectors, setSectors] = useState([]);
   const [selectedSectors, setSelectedSectors] = useState([]);
-
   const [resultsFound, setResultsFound] = useState(true);
-
   const [selectedCompanies, setSelectedCompanies] = useState(companies);
+  // const [checked, setChecked] = useState(false)
 
   const fetchCompanies = async () => {
     const result = await get("companies?populate=*");
@@ -58,7 +58,11 @@ const CompanyHome = () => {
     // }
   }, []);
 
-  const handleOnChange = (e) => {
+  const handleInput = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const handleBadges = (e) => {
     const { checked, value } = e.target;
     const badgeId = e.currentTarget.id;
     const badgeNumber = parseInt(badgeId, 10);
@@ -91,18 +95,15 @@ const CompanyHome = () => {
     // console.log("sector number: " + sectorNumber);
 
     if (checked) {
-      setSelectedSectors((selectedSectors) => [
-        ...selectedSectors,
-        sectorNumber,
-      ]);
+      setSelectedSectors((selectedSectors) => [...selectedSectors, value]);
     } else {
-      setSelectedSectors(selectedSectors.filter((e) => e !== sectorNumber));
+      setSelectedSectors(selectedSectors.filter((e) => e !== value));
     }
     console.log(selectedSectors);
   };
 
   // const clearFilters = () => {
-  //   setSelectedBadges([]);
+  //   setChecked(false);
   // };
 
   const applyFilters = () => {
@@ -119,7 +120,7 @@ const CompanyHome = () => {
     if (selectedSectors.length > 0) {
       filteredCompanies = filteredCompanies.filter((sector) =>
         sector.attributes.sectors.data.some((sector) =>
-          selectedSectors.includes(sector.id)
+          selectedSectors.includes(sector.attributes.name)
         )
       );
     }
@@ -131,14 +132,6 @@ const CompanyHome = () => {
           .includes(searchInput.toLowerCase())
       );
     }
-
-    // if (searchInput) {
-    //   filteredCompanies = filteredCompanies.filter(
-    //     (item) =>
-    //       item.attributes.name.toLowerCase().search(searchInput.toLowerCase().trim()) !==
-    //       -1
-    //   );
-    // }
 
     setSelectedCompanies(filteredCompanies);
 
@@ -156,17 +149,26 @@ const CompanyHome = () => {
       <Navigation />
       <div className="company-container">
         <div className="company-content-container">
-          <CompanySearch
-            value={searchInput}
-            getInput={(e) => setSearchInput(e.target.value)}
-          />
+
+          <CompanyHeader />
+
+          {/* <CompanySearch
+            selectedBadges={selectedBadges}
+            selectedSectors={selectedSectors}
+            searchInput={searchInput}
+            handleInput={handleInput}
+          /> */}
+          
           <div className="company-filter-and-list-container">
             <CompanyFilterBar
               badges={badges}
               sectors={sectors}
-              handleOnChange={handleOnChange}
+              handleBadges={handleBadges}
               handleSectors={handleSectors}
               selectedBadges={selectedBadges}
+              selectedSectors={selectedSectors}
+              handleInput={handleInput}
+              searchInput={searchInput}
             />
 
             <CompanyList

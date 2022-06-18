@@ -1,56 +1,111 @@
+.line {
+  border: 1px solid var(--light-blue);
+}
+
+.filter-line {
+  border: 1px solid var(--light-blue);
+  margin-bottom: 24px;
+}
+
 .company-container {
-  background-color: var(--light-pink);
-  height: 100vh;
-  overflow: scroll;
+  background-color: white;
+  /* height: 100vh;
+  overflow: scroll; */
+}
+
+.company-header-container {
+  margin-bottom: 76px;
+}
+
+.company-header-title {
+  color: var(--dark-pink);
 }
 
 .company-content-container {
-  max-width: 1200px;
-  height: 100vh;
+  max-width: 1400px;
+  /* height: 100vh; */
   margin: 0 auto;
   padding-top: 120px;
   padding-inline: 48px;
 }
 
 .company-search-container {
-  /* grid-column: span 12; */
-  /* width: 100%; */
-  height: 100px;
-  /* background-color: #D0D0D0; */
+  margin-bottom: 24px;
 }
 
 .company-filter-and-list-container {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 60px;
+  display: flex;
+  /* grid-template-columns: repeat(12, 1fr); */
+  gap: 40px;
 }
 
 .filters-container {
-  grid-column: span 3;
+  /* grid-column: span 4; */
+  /* align-self: baseline; */
+  height: fit-content;
+  width: 30%;
+  /* background-color: var(--light-blue); */
+  border: 1px solid var(--light-blue);
+  background-color: hsl(220, 50%, 98%);
+  padding: 16px;
 }
-.company-filter-container {
-  /* width: 400px; */
+
+
+.filterlist-container {
   margin-bottom: 40px;
 }
 
-.badges-dropdown-container {
+.filterlist-title {
+  margin-bottom: 10px;
+  color: var(--dark-blue);
 }
 
-.badges-dropdown-list {
+.filterlist {
   list-style-type: none;
 }
 
 .company-list-container {
-  grid-column: span 9;
+  /* grid-column: span 8; */
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 70%;
   list-style-type: none;
+  margin-bottom: 40px;
+  background-color: hsl(220, 50%, 97%);
+  padding: 20px;
+}
+
+.company-list-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark-blue);
+  margin-bottom: 6px;
+}
+
+.company-list-location {
+  font-size: 1rem;
+
+  color: black;
+  margin-top: 20px;
+}
+
+.company-list-website {
+  color: var(--dark-blue);
+  margin-top: 8px;
+}
+
+.companies-found {
+  color: var(--dark-blue);
+  margin-bottom: 24px;
+  font-size: 1rem;
 }
 
 .badges-container {
-  position: absolute;
-  top: -50px;
-  left: 0;
+  margin-top: 24px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .filter-badge {
@@ -67,7 +122,7 @@
 }
 
 label {
-  display:flex;
+  display: flex;
   font-size: 0.9rem;
   line-height: 1;
   /* height: 20px; */
@@ -75,11 +130,59 @@ label {
   margin-bottom: 10px;
 }
 
-
-input[type='checkbox']{
+input[type="checkbox"] {
   margin-right: 10px;
 }
 
-h4{
-  margin-bottom: 10px;
+.company-list-item a,
+.company-list-item a:hover,
+.company-list-item a:focus,
+.company-list-item a:active {
+  text-decoration: none;
+  display: inline-block;
+  background-color: white;
+  height: fit-content;
+  width: 100%;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.company-list-item a:hover{
+  background-color:  hsl(220, 50%, 99%);
+  ;
+}
+
+
+.search-input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  padding: 4px;
+  margin-top: 20px;
+  border: 1px solid var(--light-blue);
+}
+
+@media (max-width: 800px) {
+  .company-content-container {
+    padding-inline: 24px;
+  }
+
+  .company-filter-and-list-container {
+    /* display: grid;
+    grid-template-columns: repeat(1, 1fr); */
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .filters-container {
+    /* grid-column: span 12; */
+    width: 100%;
+  }
+  .company-list-container {
+    /* grid-column: span 12; */
+    width: 100%;
+  }
 }
