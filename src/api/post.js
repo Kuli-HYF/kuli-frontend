@@ -15,6 +15,6 @@ export const post = async (path, value) => {
     throw new Error(`${response.status}: ${response.statusText}`);
   }
   const result = await response.json();
-  // console.log("add", result);
+  //  console.log("add", result);
   return result;
 };
