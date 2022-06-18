@@ -256,6 +256,9 @@ export const SignUp = () => {
             </Form>
           )}
         </Formik>
+        <div className="login-link">
+          <a href="./login">Already a member of Kuli?</a>
+        </div>
       </div>
     </React.Fragment>
   );
