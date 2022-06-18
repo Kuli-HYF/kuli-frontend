@@ -11,7 +11,7 @@ import { AboutBadges } from "./pages/about-badges/AboutBadges";
 import { AboutUs } from "./pages/about-us/AboutUs";
 import { SignUp } from "./pages/signup/SignUp.jsx";
 import { LogIn } from "./pages/login/LogIn";
-import CompanyDetail from "./pages/companies/CompanyDetail";
+import CompanyDetail from "./pages/companies/company-detail/CompanyDetail";
 
 /*
 import { Button } from "./components/button/Button";
