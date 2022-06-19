@@ -7,6 +7,7 @@ import CompanyHeader from "./CompanyHeader";
 import Navigation from "../../components/navigation/Navigation";
 import CompanyList from "./CompanyList";
 import CompanyFilterBar from "./CompanyFilterBar";
+import { useCallback } from "react";
 
 const CompanyHome = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -105,7 +106,7 @@ const CompanyHome = () => {
   //   setChecked(false);
   // };
 
-  const applyFilters = () => {
+  const applyFilters = useCallback(() => {
     let filteredCompanies = companies;
 
     if (selectedBadges.length > 0) {
@@ -137,11 +138,11 @@ const CompanyHome = () => {
     !searchInput.length && !selectedBadges.length && !selectedSectors.length
       ? setResultsFound(false)
       : setResultsFound(true);
-  };
+  });
 
   useEffect(() => {
     applyFilters();
-  }, [selectedBadges, selectedSectors, searchInput]);
+  }, [selectedBadges, selectedSectors, searchInput, applyFilters]);
 
   /*
   useEffect(() => {
