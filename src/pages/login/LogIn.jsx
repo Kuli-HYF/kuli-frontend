@@ -47,8 +47,12 @@ export const LogIn = () => {
   ) : login[0].id ? (
     <React.Fragment>
       <Navigation />
+
       <div className="login">
-        <h2>Logout</h2>
+        <div className="congrats">
+          <h2>Welcome Back!</h2>
+        </div>
+        <h3>Logout</h3>
       </div>
       <div className="btn">
         <Button
@@ -128,8 +132,8 @@ export const LogIn = () => {
               <div className="btn">
                 <Button kind="submit" color="dark-blue" title="Login"></Button>
               </div>
-              <pre>{JSON.stringify(values, null, 4)}</pre>
-              <pre>{JSON.stringify(errors, null, 4)}</pre>
+              {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
+              {/* <pre>{JSON.stringify(errors, null, 4)}</pre> */}
             </Form>
           )}
         </Formik>
