@@ -90,14 +90,21 @@ export const LogIn = () => {
           {({ values, errors, isSubmitting }) => (
             <Form>
               <div className="field">
-                <Field name="email" type="email" placeholder="Email"></Field>
-                <ErrorMessage className="error" name="email"></ErrorMessage>
-                <Field
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                ></Field>
-                <ErrorMessage className="error" name="password"></ErrorMessage>
+                <div>
+                  <Field name="email" type="email" placeholder="Email"></Field>
+                  <ErrorMessage className="error" name="email"></ErrorMessage>
+                </div>
+                <div>
+                  <Field
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                  ></Field>
+                  <ErrorMessage
+                    className="error"
+                    name="password"
+                  ></ErrorMessage>
+                </div>
               </div>
               <div className="btn">
                 <Button kind="submit" color="dark-blue" title="Login"></Button>
