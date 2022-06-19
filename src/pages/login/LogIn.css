@@ -1,6 +1,12 @@
-/* h1 {
-  color: aqua;
-} */
 .login {
-  padding-top: 80px;
+  padding-top: 100px;
+}
+
+.warning {
+  color: rgb(241, 30, 30);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
 }

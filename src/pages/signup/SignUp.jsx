@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Formik, Form, Field, useFormik, ErrorMessage } from "formik";
 import { ref, object, string, boolean } from "yup";
 import { useNavigate } from "react-router-dom";
+import { setGlobalState, useGlobalState } from "../../global";
 
 import "./SignUp.css";
 
@@ -12,6 +13,8 @@ import { Button } from "../../components/button/Button";
 import Navigation from "../../components/navigation/Navigation";
 
 export const SignUp = () => {
+  const login = useGlobalState("userLoggedIn");
+  console.log("sign", login[0]);
   let navigate = useNavigate();
 
   const [users, setUsers] = useState({});
