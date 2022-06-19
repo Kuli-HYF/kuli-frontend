@@ -18,16 +18,19 @@ export const Former = () => {
   const [answers, setAnswers] = useState([]);
   const [category, setCategory] = useState(0);
   const [companies, setCompanies] = useState([]);
-  const [warning, setWarning] = useState("");
+  // const [warning, setWarning] = useState("");
   const [companyId, setCompanyId] = useState(0);
   const [companySearch, setCompanySearch] = useState("");
-  const [badgeIds, setBadgeIds] = useState([]);
+  // const [badgeIds, setBadgeIds] = useState([]);
 
   const toSubmit = useRef(false);
   const toSearch = useRef("");
+  const badgeId = useRef([]);
+  const warning = useRef("");
 
   const fetchCompanies = async () => {
     const promiseCompany = await get("companies?populate=badges");
+    // console.log("fetch badges", promiseCompany.data);
     setCompanies(promiseCompany.data);
   };
 
@@ -53,32 +56,26 @@ export const Former = () => {
   };
 
   const handleSearch = (event) => {
-    setWarning("");
+    warning.current = "";
     setCompanyId(0);
     toSearch.current = event.target.parentElement.children[0].value;
     const names = [];
     companies.map((company) =>
       names.push([company.attributes.name, company.id])
     );
+    // console.log("names", names[0], names[1], names[4]);
     names.map((name) => {
       if (name[0].toLowerCase() === toSearch.current.toLowerCase()) {
         // setTimeout(setCompanyId, 400, name[1]);
         setCompanyId(name[1]);
-        setWarning("");
-        setBadgeIds(companies[companyId].attributes.badges.data);
+        warning.current = "";
         return warning;
+      } else {
+        return (warning.current =
+          "Company not found. Please check spelling and try again");
       }
-      return setWarning(
-        "Company not found. Please check spelling and try again"
-      );
     });
-
-    /*
-      name[0].toLowerCase() !== toSearch.current.toLowerCase()
-        ? setWarning("Company not found. Please check spelling and try again")
-        : setTimeout(setCompanyId, 400, name[1])
-    );
-    */
+    // console.log("test", companyId);
 
     toSearch.current = "";
     // console.log("end", toSearch.current, companyId, warning);
@@ -87,10 +84,26 @@ export const Former = () => {
 
   const handleReturn = (event) => {
     setTimeout(navigate, 400, "/questionnaire");
-    setWarning("");
+    warning.current = "";
   };
 
-  // console.log("badge array", badgeIds);
+  const badgesArray = [];
+  if (companyId !== 0) {
+    companies.map((com) => {
+      if (com.id === companyId) {
+        badgesArray.push(com.attributes.badges.data);
+        // console.log("adding", badgesArray);
+      }
+      return (warning.current = "");
+    });
+
+    badgesArray[0].length !== 0
+      ? (badgeId.current = badgesArray[0].map((one) => one.id))
+      : console.log("NO badges", badgeId.current);
+    // console.log("set badges", badgeId.current, badgesArray);
+  }
+
+  // console.log("before", badgeId.current, companyId);
   return companies.data && badges.data && questions.data ? (
     <h1 className="header" key="743">
       Loading...
@@ -100,7 +113,7 @@ export const Former = () => {
       <h2 className="searchHead">
         Which company would you like to award a Kuli badge?
       </h2>
-      <span className="warning">{warning}</span>
+      <span className="warning">{warning.current}</span>
       <div className="search">
         <input
           className="input"
@@ -162,7 +175,9 @@ export const Former = () => {
           setTimeout(() => {
             setAnswers(values.checked);
             if (toSubmit.current === true) {
-              badgeCalc(answers, companyId, badgeIds);
+              console.log("submitting", answers, companyId, badgeId.current);
+              // badgeId.current= companies[companyId].attributes.badges.data;
+              badgeCalc(answers, companyId, badgeId.current);
               toSubmit.current = false;
               navigate("/confirm");
             }
