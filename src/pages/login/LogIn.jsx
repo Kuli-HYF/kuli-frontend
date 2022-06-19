@@ -87,13 +87,12 @@ export const LogIn = () => {
             const loginUser = [];
             users[0].map((user) =>
               user.attributes.email !== values.email
-                ? console.log("No such user")
+                ? setWarning("No Such User")
                 : user.attributes.email === values.email &&
                   user.attributes.password !== values.password
                 ? loginUser.push(user.attributes.email)
                 : loginUser.push(user)
             );
-            console.log("test login", loginUser[0]);
             loginUser.length === 0
               ? setWarning("No Such User")
               : loginUser[0].attributes

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { ref, object, string, boolean } from "yup";
 import { useNavigate } from "react-router-dom";
-import { useGlobalState } from "../../global";
 
 import "./SignUp.css";
 
@@ -13,14 +12,10 @@ import { Button } from "../../components/button/Button";
 import Navigation from "../../components/navigation/Navigation";
 
 export const SignUp = () => {
-  const login = useGlobalState("userLoggedIn");
-  console.log("sign", login[0]);
   let navigate = useNavigate();
 
   const [users, setUsers] = useState({});
   const [warning, setWarning] = useState("");
-
-  // const warn = useRef("")
 
   const fetchUsers = async () => {
     const promiseUsers = await get("kuli-users");
@@ -32,9 +27,6 @@ export const SignUp = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
-
-  // console.log("users", users);
-  // console.log("input", formik.values.sector);
 
   return !users ? (
     <React.Fragment>
@@ -111,8 +103,7 @@ export const SignUp = () => {
               return new Promise((resolve) => {
                 setWarning("");
                 post("kuli-users", toPost);
-                navigate("/login");
-                // console.log("values", toPost);
+                navigate("/login"); // need congrats page
                 resolve();
               }, 500);
             }
@@ -141,8 +132,6 @@ export const SignUp = () => {
                     name="passwordConfirmation"
                     type="password"
                     placeholder="Confirm Password"
-                    // onChange={formik.handleChange}
-                    // value={formik.values.passwordConfirmation}
                   ></Field>
                   <ErrorMessage
                     className="error"
@@ -155,24 +144,13 @@ export const SignUp = () => {
                     name="firstName"
                     type="text"
                     placeholder="First Name"
-                    // onChange={formik.handleChange}
-                    // value={formik.values.firstName}
                   ></Field>
                   <Field
                     name="lastName"
                     type="text"
                     placeholder="Last Name"
-                    // onChange={formik.handleChange}
-                    // value={formik.values.lastName}
                   ></Field>
-                  <Field
-                    as="select"
-                    name="sector"
-                    // type="sector"
-                    // placeholder="Select Sector"
-                    // onChange={formik.handleChange}
-                    // value={formik.values.sector}
-                  >
+                  <Field as="select" name="sector">
                     <option className="option" name="sector" value="">
                       Select Sector
                     </option>
@@ -192,14 +170,7 @@ export const SignUp = () => {
                       Tech
                     </option>
                   </Field>
-                  <Field
-                    as="select"
-                    name="gender"
-                    // type="sector"
-                    // placeholder="Select Sector"
-                    // onChange={formik.handleChange}
-                    // value={formik.values.sector}
-                  >
+                  <Field as="select" name="gender">
                     <option className="option" name="sector" value="">
                       Gender
                     </option>
@@ -216,7 +187,6 @@ export const SignUp = () => {
                   <p>Unemployed</p>
                   <Field name="isWorking" value="false" type="radio"></Field>
                   <p>Employed</p>
-
                   <Field name="isWorking" value="true" type="radio"></Field>
                   <Button
                     kind="submit"
