@@ -51,7 +51,11 @@ export const LogIn = () => {
 
       <div className="login">
         <div className="congrats">
-          <h2>Welcome Back!</h2>
+          {login[0].attributes.firstName ? (
+            <h2>Welcome Back {login[0].attributes.firstName}!</h2>
+          ) : (
+            <h2>Welcome Back {login[0].attributes.email}!</h2>
+          )}
         </div>
         <div className="btn">
           <Link to="/">
