@@ -103,22 +103,22 @@ export const LogIn = () => {
                 user.attributes.email === values.email &&
                 user.attributes.password !== values.password
               ) {
-                warning.current = "Incorrect Password";
                 console.log(
                   "Incorrect Password",
                   values.password,
                   user.attributes.password
                 );
+                return (warning.current = "Incorrect Password");
               } else {
-                warning.current = "No such user";
                 console.log(
                   "User not Found",
                   user.attributes.email,
                   values.email
                 );
+                return (warning.current = "No such user");
               }
             });
-            console.log("values", values, login[0]);
+            // console.log("values", values, login[0]);
           }}
         >
           {({ values, errors, isSubmitting }) => (

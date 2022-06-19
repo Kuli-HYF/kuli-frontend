@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Formik, Form, Field, useFormik, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { ref, object, string, boolean } from "yup";
 import { useNavigate } from "react-router-dom";
-import { setGlobalState, useGlobalState } from "../../global";
+import { useGlobalState } from "../../global";
 
 import "./SignUp.css";
 
