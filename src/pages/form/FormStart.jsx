@@ -6,10 +6,14 @@ import Navigation from "../../components/navigation/Navigation";
 import { Title } from "./title/Title.jsx";
 import { Text } from "./text/Text.jsx";
 import { Badge } from "./badge/Badge.jsx";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { get } from "../../api/get.js";
 
+import { useGlobalState } from "../../global";
+
 const FormStart = () => {
+  const login = useGlobalState("userLoggedIn");
+
   const [data, setData] = useState("");
   const fetchData = async () => {
     const result = await get("intropage?populate[badge][populate]=badgeImg");
@@ -38,16 +42,19 @@ const FormStart = () => {
               <p>Try again</p>
             )}
           </div>
-
         </div>
         <div className="buttons fadeIn">
-            <Link to={"/form"} className='button'>
-              <Button title="To questionnaire" color="dark-blue" />
-            </Link>
+          <Link to={"/form"} className="button">
+            <Button title="To questionnaire" color="dark-blue" />
+          </Link>
+          {!login[0].id ? (
             <Link to={"/sign-up"}>
-              <Button title="Sign Up" color="dark-blue" className='button'/>
+              <Button title="Sign Up" color="dark-blue" className="button" />
             </Link>
-          </div>
+          ) : (
+            <React.Fragment></React.Fragment>
+          )}
+        </div>
       </div>
     </div>
   );

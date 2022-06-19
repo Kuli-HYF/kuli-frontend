@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Formik, Form, Field, useFormik, ErrorMessage } from "formik";
 import { ref, object, string, boolean } from "yup";
 import { useNavigate } from "react-router-dom";
+import { setGlobalState, useGlobalState } from "../../global";
 
 import "./SignUp.css";
 
@@ -12,6 +13,8 @@ import { Button } from "../../components/button/Button";
 import Navigation from "../../components/navigation/Navigation";
 
 export const SignUp = () => {
+  const login = useGlobalState("userLoggedIn");
+  console.log("sign", login[0]);
   let navigate = useNavigate();
 
   const [users, setUsers] = useState({});
@@ -30,7 +33,7 @@ export const SignUp = () => {
     fetchUsers();
   }, []);
 
-  console.log("users", users);
+  // console.log("users", users);
   // console.log("input", formik.values.sector);
 
   return !users ? (
@@ -142,21 +145,12 @@ export const SignUp = () => {
                 <h3>Mandatory Fields</h3>
                 <span className="warning">{warning}</span>
                 <div className="input">
-                  <Field
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                    // {...(touched.email && errors.email ? errors.email : null)}
-                    // onChange={formik.handleChange}
-                    // value={formik.values.email}
-                  ></Field>
+                  <Field name="email" type="email" placeholder="Email"></Field>
                   <ErrorMessage className="error" name="email"></ErrorMessage>
                   <Field
                     name="password"
                     type="password"
                     placeholder="Password"
-                    // onChange={formik.handleChange}
-                    // value={formik.values.password}
                   ></Field>
                   <ErrorMessage
                     className="error"
