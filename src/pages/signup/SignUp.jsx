@@ -36,7 +36,7 @@ export const SignUp = () => {
   ) : (
     <React.Fragment>
       <Navigation />
-      <div className="signup">
+      <div className="sign-up">
         <Formik
           validationSchema={object({
             email: string().required("Required Field"),
@@ -113,10 +113,10 @@ export const SignUp = () => {
           {({ values, errors, touched, isSubmitting }) => (
             <Form>
               <div className="envelope">
-                <h2>Sign Up to Kuli</h2>
-                <h3>Mandatory Fields</h3>
+                <h2 className="head-up">Join the Kuli Community</h2>
+                <h3 className="sub-up">Mandatory Fields</h3>
                 <span className="warning">{warning}</span>
-                <div className="input">
+                <div className="input-up">
                   <Field name="email" type="email" placeholder="Email"></Field>
                   <ErrorMessage className="error" name="email"></ErrorMessage>
                   <Field
@@ -138,8 +138,8 @@ export const SignUp = () => {
                     name="passwordConfirmation"
                   ></ErrorMessage>
                 </div>
-                <h3>Optional Fields</h3>
-                <div className="input">
+                <h3 className="sub-up">Optional Fields</h3>
+                <div className="input-up">
                   <Field
                     name="firstName"
                     type="text"
