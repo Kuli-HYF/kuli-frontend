@@ -138,7 +138,7 @@ const CompanyHome = () => {
     !searchInput.length && !selectedBadges.length && !selectedSectors.length
       ? setResultsFound(false)
       : setResultsFound(true);
-  });
+  }, [companies, searchInput, selectedBadges, selectedSectors]);
 
   useEffect(() => {
     applyFilters();
