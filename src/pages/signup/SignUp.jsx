@@ -33,7 +33,7 @@ export const SignUp = () => {
     fetchUsers();
   }, []);
 
-  console.log("users", users);
+  // console.log("users", users);
   // console.log("input", formik.values.sector);
 
   return !users ? (
