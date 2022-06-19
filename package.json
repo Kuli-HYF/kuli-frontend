@@ -3,13 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fullpage/react-fullpage": "^0.1.26",
+    "@strapi/provider-upload-aws-s3": "^4.1.12",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "formik": "^2.2.9",
+    "framer-motion": "^6.3.11",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-hooks-global-state": "^2.0.0-rc.0",
+    "react-responsive": "^9.0.0-beta.10",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",

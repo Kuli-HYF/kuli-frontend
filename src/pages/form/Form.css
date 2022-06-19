@@ -1,0 +1,67 @@
+.questionnaire {
+  margin: 20px;
+}
+
+.header {
+  color: #302b70;
+}
+
+.question {
+  padding-top: 20px;
+}
+
+.batch {
+  display: flex;
+  margin: 10px;
+}
+
+.answer {
+  padding-left: 10px;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.confirm {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.searchHead {
+  color: #302b70;
+}
+
+.company {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.input {
+  margin: 10px;
+  border: 2px solid #302b70;
+  padding: 8px;
+  border-radius: 8px;
+  width: 80%;
+}
+
+.warning {
+  margin: 40px;
+  color: #fb5e3e;
+}
+
+.search-field li {
+  list-style: none;
+  color: #7b78ab;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.search-field li:hover {
+  color: #302b70;
+}
