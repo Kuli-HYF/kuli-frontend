@@ -5,21 +5,17 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { object, string } from "yup";
 import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
 
 import { useGlobalState, setGlobalState } from "../../global";
 import Navigation from "../../components/navigation/Navigation";
 import { get } from "../../api/get";
 import { Button } from "../../components/button/Button";
-import { useRef } from "react";
 
 export const LogIn = () => {
   const login = useGlobalState("userLoggedIn");
 
   const [users, setUsers] = useState({});
   const [warning, setWarning] = useState("");
-
-  // const warning = useRef("");
 
   const fetchUsers = async () => {
     const promiseUsers = await get("kuli-users");
@@ -37,8 +33,6 @@ export const LogIn = () => {
     setWarning("");
   };
 
-  // console.log("users", users[0]);
-
   return !users ? (
     <React.Fragment>
       <Navigation />
@@ -49,7 +43,6 @@ export const LogIn = () => {
   ) : login[0].id ? (
     <React.Fragment>
       <Navigation />
-
       <div className="login">
         <div className="congrats">
           {login[0].attributes.firstName ? (
