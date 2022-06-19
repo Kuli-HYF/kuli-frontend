@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { object, string } from "yup";
+import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 import { useGlobalState, setGlobalState } from "../../global";
@@ -52,15 +53,21 @@ export const LogIn = () => {
         <div className="congrats">
           <h2>Welcome Back!</h2>
         </div>
-        <h3>Logout</h3>
-      </div>
-      <div className="btn">
-        <Button
-          kind="button"
-          color="dark-pink"
-          action={handleLogOut}
-          title="Logout"
-        ></Button>
+        <div className="btn">
+          <Link to="/">
+            <Button
+              kind="button"
+              color="dark-blue"
+              title="Continue to Kuli"
+            ></Button>
+          </Link>
+          <Button
+            kind="button"
+            color="pink-outline"
+            action={handleLogOut}
+            title="Logout"
+          ></Button>
+        </div>
       </div>
     </React.Fragment>
   ) : (
@@ -114,16 +121,27 @@ export const LogIn = () => {
             <Form>
               <div className="field">
                 <div>
-                  <Field name="email" type="email" placeholder="Email"></Field>
-                  <ErrorMessage className="error" name="email"></ErrorMessage>
+                  <Field
+                    className="user-input"
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                  ></Field>
+                  <ErrorMessage
+                    component="div"
+                    className="error"
+                    name="email"
+                  ></ErrorMessage>
                 </div>
                 <div>
                   <Field
+                    className="user-input"
                     name="password"
                     type="password"
                     placeholder="Password"
                   ></Field>
                   <ErrorMessage
+                    component="div"
                     className="error"
                     name="password"
                   ></ErrorMessage>
