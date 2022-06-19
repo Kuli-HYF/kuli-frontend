@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { Button } from "../../components/button/Button";
 import Navigation from "../../components/navigation/Navigation";
-import { useGlobalState, setGlobalState } from "../../global";
+import { useGlobalState } from "../../global";
 import React from "react";
 
 export const Congratulate = () => {
