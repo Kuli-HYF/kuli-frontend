@@ -117,23 +117,36 @@ export const SignUp = () => {
                 <h3 className="sub-up">Mandatory Fields</h3>
                 <span className="warning">{warning}</span>
                 <div className="input-up">
-                  <Field name="email" type="email" placeholder="Email"></Field>
-                  <ErrorMessage className="error" name="email"></ErrorMessage>
                   <Field
+                    className="field-up"
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                  ></Field>
+                  <ErrorMessage
+                    component="div"
+                    className="error"
+                    name="email"
+                  ></ErrorMessage>
+                  <Field
+                    className="field-up"
                     name="password"
                     type="password"
                     placeholder="Password"
                   ></Field>
                   <ErrorMessage
+                    component="div"
                     className="error"
                     name="password"
                   ></ErrorMessage>
                   <Field
+                    className="field-up"
                     name="passwordConfirmation"
                     type="password"
                     placeholder="Confirm Password"
                   ></Field>
                   <ErrorMessage
+                    component="div"
                     className="error"
                     name="passwordConfirmation"
                   ></ErrorMessage>
@@ -141,18 +154,25 @@ export const SignUp = () => {
                 <h3 className="sub-up">Optional Fields</h3>
                 <div className="input-up">
                   <Field
+                    className="field-up"
                     name="firstName"
                     type="text"
                     placeholder="First Name"
                   ></Field>
                   <Field
+                    className="field-up"
                     name="lastName"
                     type="text"
                     placeholder="Last Name"
                   ></Field>
-                  <Field as="select" name="sector">
+                  <Field
+                    className="drop-up"
+                    component="select"
+                    as="select"
+                    name="sector"
+                  >
                     <option className="option" name="sector" value="">
-                      Select Sector
+                      Sector
                     </option>
                     <option name="sector" value="creative">
                       Creative
@@ -170,7 +190,12 @@ export const SignUp = () => {
                       Tech
                     </option>
                   </Field>
-                  <Field as="select" name="gender">
+                  <Field
+                    className="drop-up"
+                    component="select"
+                    as="select"
+                    name="gender"
+                  >
                     <option className="option" name="sector" value="">
                       Gender
                     </option>
@@ -184,14 +209,30 @@ export const SignUp = () => {
                       Other
                     </option>
                   </Field>
-                  <p>Unemployed</p>
-                  <Field name="isWorking" value="false" type="radio"></Field>
-                  <p>Employed</p>
-                  <Field name="isWorking" value="true" type="radio"></Field>
+                  <div className="check-section">
+                    <Field
+                      className="check-up"
+                      component="input"
+                      name="isWorking"
+                      value="false"
+                      type="radio"
+                    ></Field>
+                    <p className="p-up">Unemployed</p>
+                  </div>
+                  <div className="check-section">
+                    <Field
+                      className="check-up"
+                      component="input"
+                      name="isWorking"
+                      value="true"
+                      type="radio"
+                    ></Field>
+                    <p className="p-up">Employed</p>
+                  </div>
                   <Button
                     kind="submit"
                     title="Sign Up"
-                    color="dark-blue"
+                    color="dark-blue-up"
                     disabled={isSubmitting}
                   />
                 </div>
