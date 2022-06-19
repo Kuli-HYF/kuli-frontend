@@ -17,9 +17,9 @@ export const LogIn = () => {
   const login = useGlobalState("userLoggedIn");
 
   const [users, setUsers] = useState({});
-  // const [warning, setWarning] = useState("")
+  const [warning, setWarning] = useState("");
 
-  const warning = useRef("");
+  // const warning = useRef("");
 
   const fetchUsers = async () => {
     const promiseUsers = await get("kuli-users");
@@ -34,6 +34,7 @@ export const LogIn = () => {
 
   const handleLogOut = () => {
     setGlobalState("userLoggedIn", {});
+    setWarning("");
   };
 
   // console.log("users", users[0]);
@@ -79,7 +80,7 @@ export const LogIn = () => {
       <Navigation />
       <div className="login">
         <h2>Login</h2>
-        <span className="warning">{warning.current}</span>
+        <span className="warning">{warning}</span>
         <Formik
           validationSchema={object({
             email: string().required("Required Field"),
@@ -89,36 +90,23 @@ export const LogIn = () => {
             email: "",
             password: "",
           }}
-          onSubmit={(values) => {
-            users[0].map((user) => {
-              if (
-                user.attributes.email === values.email &&
-                user.attributes.password === values.password
-              ) {
-                setGlobalState("userLoggedIn", user);
-                warning.current = "";
-                console.log("success", login[0]);
-                return user;
-              } else if (
-                user.attributes.email === values.email &&
-                user.attributes.password !== values.password
-              ) {
-                console.log(
-                  "Incorrect Password",
-                  values.password,
-                  user.attributes.password
-                );
-                return (warning.current = "Incorrect Password");
-              } else {
-                console.log(
-                  "User not Found",
-                  user.attributes.email,
-                  values.email
-                );
-                return (warning.current = "No such user");
-              }
-            });
-            // console.log("values", values, login[0]);
+          onSubmit={(values, onSubmitProps) => {
+            const loginUser = [];
+            users[0].map((user) =>
+              user.attributes.email !== values.email
+                ? console.log("No such user")
+                : user.attributes.email === values.email &&
+                  user.attributes.password !== values.password
+                ? loginUser.push(user.attributes.email)
+                : loginUser.push(user)
+            );
+            console.log("test login", loginUser[0]);
+            loginUser.length === 0
+              ? setWarning("No Such User")
+              : loginUser[0].attributes
+              ? setGlobalState("userLoggedIn", loginUser[0])
+              : setWarning("Incorrect Password");
+            onSubmitProps.resetForm();
           }}
         >
           {({ values, errors, isSubmitting }) => (
