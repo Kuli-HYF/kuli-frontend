@@ -31,6 +31,10 @@ export const LogIn = () => {
     fetchUsers();
   }, []);
 
+  const handleLogOut = () => {
+    setGlobalState("userLoggedIn", {});
+  };
+
   // console.log("users", users[0]);
 
   return !users ? (
@@ -38,6 +42,21 @@ export const LogIn = () => {
       <Navigation />
       <div className="login">
         <h1>Loading...</h1>
+      </div>
+    </React.Fragment>
+  ) : login[0].id ? (
+    <React.Fragment>
+      <Navigation />
+      <div className="login">
+        <h2>Logout</h2>
+      </div>
+      <div className="btn">
+        <Button
+          kind="button"
+          color="dark-pink"
+          action={handleLogOut}
+          title="Logout"
+        ></Button>
       </div>
     </React.Fragment>
   ) : (
