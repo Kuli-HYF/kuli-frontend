@@ -67,7 +67,7 @@ export const SignUp = () => {
             gender: "",
             isWorking: false,
           }}
-          onSubmit={(values) => {
+          onSubmit={(values, onSubmitProps) => {
             const mailCheck = values.email;
             const emails = [];
             let toPost = {
@@ -111,31 +111,12 @@ export const SignUp = () => {
               return new Promise((resolve) => {
                 setWarning("");
                 post("kuli-users", toPost);
-                values = {
-                  email: "",
-                  password: "",
-                  passwordConfirmation: "",
-                  firstName: "",
-                  lastName: "",
-                  sector: "",
-                  gender: "",
-                  isWorking: false,
-                };
                 navigate("/login");
                 // console.log("values", toPost);
                 resolve();
               }, 500);
             }
-
-            // emails.includes(mailCheck) ? setWarning("in") : setWarning("out");
-
-            /*
-          return new Promise((resolve) => {
-            setWarning("");
-            console.log("values", values);
-            resolve();
-          }, 500);
-          */
+            onSubmitProps.resetForm();
           }}
         >
           {({ values, errors, touched, isSubmitting }) => (
