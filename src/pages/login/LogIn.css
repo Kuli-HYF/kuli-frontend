@@ -4,7 +4,7 @@
   align-items: center;
   /* justify-content: center;  */
  
-  padding-top: 10rem;
+  padding-top: 7.2rem;
   color: hsl(60, 9%, 2%);
 }
 .warning{
@@ -15,9 +15,9 @@
 /* Hans */
 .loginForm {
   width: 40rem;
-  height: 30rem;
-  margin: 3rem auto;
-  background-color: rgb(221, 210, 210);
+  height: 28rem;
+  margin: 0 auto;
+  background-color:  hsl(225, 32%, 93%);
   padding: 1rem;
   border-radius: 6px;
 
@@ -69,6 +69,7 @@ p{
   font-size: 0.7rem;
   color:red;
 }
+
 .textField{
   color: rgb(61, 58, 58);
   width: 100%;
@@ -90,11 +91,125 @@ textarea:focus {
   margin-left:2rem;
 }
 
-.controler-inline{
-  display: flex;
+@media screen and (max-width: 600px) {
+  .loginForm {
+    width: 27rem;
+    height: 23rem;
+    margin: 0 auto;
+    background-color:  hsl(225, 32%, 93%);
+    padding: 1rem;
+    border-radius: 6px;
+  
+    
+  }
+  p{
+    padding-left: 1rem;
+  }
+
+  h1{
+    margin: 0 0;
+    font-size: 1rem;
+  }
+  h2{
+    margin:1px 1px;
+    
+    }
+    .field{
+      height: 2rem;
+      border-radius: 4px;
+    }
+
 }
 
-.controler-inline input{
-  width: auto;
-  margin-right: 0.5rem;
+@media screen and (max-width: 360px) {
+  .loginForm {
+    width: 20rem;
+    height: 23rem;
+    margin: 0 auto;
+    background-color:  hsl(225, 32%, 93%);
+    padding: 1rem;
+    border-radius: 6px;
+  
+    
+  }
+  p{
+    margin:0 0;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  h1{
+    margin: 0 0;
+    font-size: 1.5rem;
+  }
+  h2{
+    margin:1px 1px;
+    
+    }
+    .field{
+      height: 2rem;
+      border-radius: 4px;
+    }
+ 
+}
+@media screen and (max-width: 500px) {
+  .loginForm {
+    width: 27rem;
+    height: 23rem;
+    margin: 0 auto;
+    background-color:  hsl(225, 32%, 93%);
+    padding: 1rem;
+    border-radius: 6px;
+  
+    
+  }
+  p{
+    padding-left: 1rem;
+  }
+
+  h1{
+    margin: 0 0;
+    font-size: 1rem;
+  }
+  h2{
+    margin:1px 1px;
+    
+    }
+    .field{
+      height: 2rem;
+      border-radius: 4px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+  .loginForm {
+    width: 20rem;
+    height: 23rem;
+    margin: 0 auto;
+    background-color:  hsl(225, 32%, 93%);
+    padding: 1rem;
+    border-radius: 6px;
+  
+    
+  }
+  p{
+    margin:0 0;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  h1{
+    margin: 0 0;
+    font-size: 1.5rem;
+  }
+  h2{
+    margin:1px 1px;
+    
+    }
+    .field{
+      height: 2rem;
+      border-radius: 4px;
+    }
+
+
 }

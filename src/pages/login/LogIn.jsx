@@ -13,6 +13,7 @@ import Navigation from "../../components/navigation/Navigation";
 import { get } from "../../api/get";
 import { Button } from "../../components/button/Button";
 
+
 export const LogIn = () => {
   const login = useGlobalState("userLoggedIn");
 
@@ -146,7 +147,9 @@ export const LogIn = () => {
                     type="password"
                     placeholder="Password"
                     className ="field"
-                  ></Field>
+                  >
+                    
+                  </Field>
                   <ErrorMessage
                     component="div"
                     className="error"
