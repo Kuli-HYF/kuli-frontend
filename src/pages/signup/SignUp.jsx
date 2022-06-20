@@ -114,7 +114,7 @@ export const SignUp = () => {
             <Form>
               <div className="envelope">
                 <h2 className="head-up">Join the Kuli Community</h2>
-                <h3 className="sub-up">Mandatory Fields</h3>
+                <h3 className="sub-up-1">Mandatory Fields</h3>
                 <span className="warning">{warning}</span>
                 <div className="input-up">
                   <Field
@@ -151,7 +151,7 @@ export const SignUp = () => {
                     name="passwordConfirmation"
                   ></ErrorMessage>
                 </div>
-                <h3 className="sub-up">Optional Fields</h3>
+                <h3 className="sub-up-2">Optional Fields</h3>
                 <div className="input-up">
                   <Field
                     className="field-up"
@@ -210,23 +210,28 @@ export const SignUp = () => {
                     </option>
                   </Field>
                   <div className="check-section">
-                    <Field
-                      className="check-up"
-                      component="input"
-                      name="isWorking"
-                      value="false"
-                      type="radio"
-                    ></Field>
+                    <label className="check-up">
+                      <Field
+                        className="check-up"
+                        component="input"
+                        name="isWorking"
+                        value="false"
+                        type="radio"
+                      ></Field>
+                      <span className="circle"></span>
+                    </label>
                     <p className="p-up">Unemployed</p>
                   </div>
                   <div className="check-section">
-                    <Field
-                      className="check-up"
-                      component="input"
-                      name="isWorking"
-                      value="true"
-                      type="radio"
-                    ></Field>
+                    <label className="check-up">
+                      <Field
+                        component="input"
+                        name="isWorking"
+                        value="true"
+                        type="radio"
+                      ></Field>
+                      <span className="circle"></span>
+                    </label>
                     <p className="p-up">Employed</p>
                   </div>
                   <Button
