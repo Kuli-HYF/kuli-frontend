@@ -79,10 +79,10 @@ const CompanyDetail = () => {
             <div className="company-badges">
               <h2>Badges:</h2>
               <div className="company-badges__container">
-                {badge ? (
+                {badge && badge.length > 0 ? (
                   badge.map((el, i) => <CompanyBadge badge={el} key={i} />)
                 ) : (
-                  <p>Loading</p>
+                  <p>No badges have been awarded yet</p>
                 )}
               </div>
             </div>
