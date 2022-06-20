@@ -37,7 +37,7 @@ export const SignUp = () => {
     <React.Fragment>
       <Navigation />
       <div className="sign-up">
-        <Formik
+        <Formik className="formik-body"
           validationSchema={object({
             email: string().required("Required Field"),
             password: string()
@@ -111,145 +111,228 @@ export const SignUp = () => {
           }}
         >
           {({ values, errors, touched, isSubmitting }) => (
-            <Form>
-              <div className="envelope">
-                <h2 className="head-up">Join the Kuli Community</h2>
-                <h3 className="sub-up-1">Mandatory Fields</h3>
-                <span className="warning">{warning}</span>
-                <div className="input-up">
-                  <Field
-                    className="field-up"
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                  ></Field>
-                  <ErrorMessage
-                    component="div"
-                    className="error"
-                    name="email"
-                  ></ErrorMessage>
-                  <Field
-                    className="field-up"
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                  ></Field>
-                  <ErrorMessage
-                    component="div"
-                    className="error"
-                    name="password"
-                  ></ErrorMessage>
-                  <Field
-                    className="field-up"
-                    name="passwordConfirmation"
-                    type="password"
-                    placeholder="Confirm Password"
-                  ></Field>
-                  <ErrorMessage
-                    component="div"
-                    className="error"
-                    name="passwordConfirmation"
-                  ></ErrorMessage>
-                </div>
-                <h3 className="sub-up-2">Optional Fields</h3>
-                <div className="input-up">
-                  <Field
-                    className="field-up"
-                    name="firstName"
-                    type="text"
-                    placeholder="First Name"
-                  ></Field>
-                  <Field
-                    className="field-up"
-                    name="lastName"
-                    type="text"
-                    placeholder="Last Name"
-                  ></Field>
-                  <Field
-                    className="drop-up"
-                    component="select"
-                    as="select"
-                    name="sector"
-                  >
-                    <option className="option" name="sector" value="">
-                      Sector
-                    </option>
-                    <option name="sector" value="creative">
-                      Creative
-                    </option>
-                    <option name="sector" value="education">
-                      Education
-                    </option>
-                    <option name="sector" value="finance">
-                      Finance
-                    </option>
-                    <option name="sector" value="service">
-                      Service
-                    </option>
-                    <option name="sector" value="tech">
-                      Tech
-                    </option>
-                  </Field>
-                  <Field
-                    className="drop-up"
-                    component="select"
-                    as="select"
-                    name="gender"
-                  >
-                    <option className="option" name="sector" value="">
-                      Gender
-                    </option>
-                    <option name="sector" value="female">
-                      Female
-                    </option>
-                    <option name="sector" value="male">
-                      Male
-                    </option>
-                    <option name="sector" value="other">
-                      Other
-                    </option>
-                  </Field>
-                  <div className="check-section">
-                    <label className="check-up">
-                      <Field
-                        className="check-up"
-                        component="input"
-                        name="isWorking"
-                        value="false"
-                        type="radio"
-                      ></Field>
-                      <span className="circle"></span>
-                    </label>
-                    <p className="p-up">Unemployed</p>
-                  </div>
-                  <div className="check-section">
-                    <label className="check-up">
-                      <Field
-                        component="input"
-                        name="isWorking"
-                        value="true"
-                        type="radio"
-                      ></Field>
-                      <span className="circle"></span>
-                    </label>
-                    <p className="p-up">Employed</p>
-                  </div>
-                  <Button
-                    kind="submit"
-                    title="Sign Up"
-                    color="dark-blue-up"
-                    disabled={isSubmitting}
-                  />
-                </div>
-              </div>
+               <body id="formBody">
+                <header>
+                <h1 className="head-up">Join The Kuli Community</h1>
+                </header>
+                <main>
+                <Form>
+           <section>
+           <span className="warning">{warning}</span>
+          </section>
+
+            <section>
+
+            <ul>
+     
+     <h2>Your personal details</h2>
+      <li>
+      <label for="username">First Name:</label>
+     <Field
+    className="textField"
+    name="firstName"
+    type="text"
+    placeholder="First Name"
+  ></Field>
+      </li>
+
+    <li>
+
+    <label for="username">Last Name:</label>
+  <Field
+    className="textField"
+    name="lastName"
+    type="text"
+    placeholder="Last Name"
+  ></Field>
+    </li>
+    
+    <li>
+    <label for="username">Email <span class="star">*</span>  </label>
+     <Field
+    className="textField"
+    name="email"
+    type="email"
+    placeholder="John@yahoo.com"
+  ></Field>
+  <ErrorMessage
+    component="div"
+    className="error"
+    name="email"
+  ></ErrorMessage>
+
+    </li>
+
+<li>
+
+<label for="username">Password <span class="star">*</span></label>
+    <Field
+    className="textField"
+    name="password"
+    type="password"
+    placeholder="Password"
+  ></Field>
+  <ErrorMessage
+    component="div"
+    className="error"
+    name="password"
+  ></ErrorMessage>
+</li>
+
+<li>
+
+<label for="username">Confirm Password <span class="star">*</span></label>
+    <Field
+    className="textField"
+    name="passwordConfirmation"
+    type="password"
+    placeholder="Confirm Password"
+  ></Field>
+  <ErrorMessage
+    component="div"
+    className="error"
+    name="passwordConfirmation"
+  ></ErrorMessage>
+
+</li>
+
+
+     </ul>
+
+     </section>
+
+     <section>
+     <ul>
+     <h2>More details</h2>
+
+     <li>
+     <label> Your Sector of Work</label>
+  {/* <Field
+    className="drop-up"
+    component="select"
+    as="select"
+    name="sector"
+  > */}
+    <select>
+    <option className="option" name="sector" value="">
+      Doctor
+    </option>
+    <option name="sector" value="creative">
+      Creative
+    </option>
+    <option name="sector" value="education">
+      Education
+    </option>
+    <option name="sector" value="finance">
+      Finance
+    </option>
+    <option name="sector" value="service">
+      Service
+    </option>
+    <option name="sector" value="tech">
+      Tech
+    </option>
+
+    </select>
+  
+    
+  {/* </Field> */}
+
+     </li>
+
+     <li>
+{/* <Field
+    className="drop-up"
+    component="select"
+    as="select"
+    name="gender"
+  > */}
+<label>Gender</label>
+<select>
+    <option name="sector" value="female">
+      Female
+    </option>
+    <option name="sector" value="male">
+      Male
+    </option>
+    <option name="sector" value="other">
+      Other
+    </option>
+
+    </select>
+    
+  {/* </Field> */}
+
+     </li>
+
+     <li>
+
+     <div className="check-section">
+    <label className="check-up">
+      <Field
+        className="check-up"
+        component="input"
+        name="isWorking"
+        value="false"
+        type="radio"
+      ></Field>
+      <span className="circle"></span>
+    </label>
+    <p className="p-up">Unemployed</p>
+  </div>
+
+     </li>
+
+     <li>
+     <div className="check-section">
+    <label className="check-up">
+      <Field
+        component="input"
+        name="isWorking"
+        value="true"
+        type="radio"
+      ></Field>
+      <span className="circle"></span>
+    </label>
+    <p className="p-up">Employed</p>
+  </div>
+
+     </li>
+
+     </ul>
+     </section>
+
+     <section>
+
+     <Button
+    kind="submit"
+    title="Sign Up"
+    color="dark-blue-up"
+    disabled={isSubmitting}
+  />
+     </section>
+     <section>
+     <div className="login-link">
+          <a href="./login">Already a member of Kuli?</a>
+        </div>
+              
+
+     </section>
+     
+    
+
+
               {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
               {/* <pre>{JSON.stringify(errors, null, 4)}</pre> */}
             </Form>
+
+           </main>
+   
+            </body>
+              
           )}
         </Formik>
-        <div className="login-link">
-          <a href="./login">Already a member of Kuli?</a>
-        </div>
+        
       </div>
     </React.Fragment>
   );

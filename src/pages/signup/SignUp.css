@@ -15,11 +15,6 @@
   text-align: center;
 }
 
-.head-up {
-  font-size: 140%;
-  color: hsl(10, 79%, 58%);
-  padding: 40px;
-}
 
 .sub-up-1 {
   font-size: 120%;
@@ -70,8 +65,9 @@
 
 .p-up {
   font-weight: 500;
-  margin-left: 40px;
+  padding: 0 0;
   color: #302b70;
+  margin-left: 1rem;
 }
 
 .check-up {
@@ -133,3 +129,110 @@ input[type="radio"] .circle:before {
   cursor: pointer;
   background-color: var(--dark-blue);
 }
+
+
+
+.body {
+  background-color: rgb(159, 145, 145);
+  font-family: 'Roboto', sans-serif;
+}
+
+form {
+  width: 30rem;
+  margin: 3rem auto;
+  background-color: rgb(221, 210, 210);
+  padding: 1rem;
+  border-radius: 6px;
+}
+h1{
+  text-align: center;
+  color: rgb(79, 76, 103);
+  font-size: 2rem;
+}
+
+h2{
+margin:2px 2px;
+
+}
+ul{
+
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+
+label {
+  margin-bottom: 0.5rem;
+  display: block;
+}
+textarea {
+  resize: none;
+}
+
+input ,
+textarea,
+select {
+color: rgb(61, 58, 58);
+  width: 100%;
+  margin-bottom: .5rem;
+  display: block;
+  box-sizing: border-box;
+  font: inherit;
+  border: 1px solid rgb(184, 184, 184);
+  padding: 0.25rem;
+
+  /*arrang box in the middle of the its parents  */
+}
+
+.textField{
+  color: rgb(61, 58, 58);
+  width: 100%;
+  margin-bottom: .5rem;
+  display: block;
+  box-sizing: border-box;
+  font: inherit;
+  border: 1px solid rgb(184, 184, 184);
+  border-radius: 4px;
+  padding: 0.25rem;
+}
+input:focus,
+textarea:focus {
+  background-color: rgb(219, 190, 253);
+  color: rgb(73, 7, 148);
+  border-color: rgb(219, 190,253);
+}
+
+.error{
+  margin-left:2rem;
+}
+.star{
+  color: red;
+}
+
+/* button {
+  display: block;
+  font: inherit;
+  background-color: rgb(73, 7, 148);
+  color: white;
+  border: 1px solid rgb(73, 7, 148);
+  padding: 0.5rem 1.5rem;
+  border-radius:4px;
+  cursor: pointer;
+
+}
+button:hover{
+  background-color: rgb(108, 35, 192);
+  border-color: rgb(112, 64, 167);
+} */
+
+
+.controler-inline{
+  display: flex;
+}
+
+.controler-inline input{
+  width: auto;
+  margin-right: 0.5rem;
+}
+
