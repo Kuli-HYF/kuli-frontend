@@ -3,7 +3,7 @@ import "./company-home.css";
 import { get } from "../../api/get";
 import { useState, useEffect } from "react";
 
-import CompanyHeader from "./CompanyHeader";
+// import CompanyHeader from "./CompanyHeader";
 import Navigation from "../../components/navigation/Navigation";
 import CompanyList from "./CompanyList";
 import CompanyFilterBar from "./CompanyFilterBar";
@@ -154,7 +154,7 @@ const CompanyHome = () => {
       <Navigation />
       <div className="company-container">
         <div className="company-content-container">
-          <CompanyHeader />
+          {/* <CompanyHeader /> */}
 
           {/* <CompanySearch
             selectedBadges={selectedBadges}
