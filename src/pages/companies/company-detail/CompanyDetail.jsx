@@ -45,42 +45,47 @@ const CompanyDetail = () => {
     <div className="main-container">
       <Navigation />
       <div className="company-container">
-        <div className="company-header__container">
-          <div className="company-title__container">
-            <h1 className="company-title">
-              {company ? company.name : "Please, try again"}
-            </h1>
-          </div>
-          <div>
-            <a href={company ? company.webpage : "#"}>
-              <p>
-                {company ? company.webpage : "Error loading. Please, try again"}
-              </p>
-            </a>
-          </div>
-        </div>
-
-        <div className="company-info__container">
-          <div className="company-sector__container">
-            <h5>Sectors:</h5>
-            {company ? (
-              company.sectors.data.map((el, i) => (
-                <ul key={i} className="company-sector__list">
-                  <li>{el.attributes.name}</li>
-                </ul>
-              ))
-            ) : (
-              <p>Try again</p>
-            )}
+        <div className="company-card">
+          <div className="company-header__container">
+            <div className="company-title__container">
+              <h1 className="company-title">
+                {company ? company.name : "Loading"}
+              </h1>
+            </div>
+            <div>
+              <a href={company ? company.webpage : "#"}>
+                <p>
+                  {company
+                    ? company.webpage
+                    : "Loading"}
+                </p>
+              </a>
+            </div>
           </div>
 
-          <div className="company-badges__container">
-            <h2>Badges:</h2>
-            {badge ? (
-              badge.map((el, i) => <CompanyBadge badge={el} key={i} />)
-            ) : (
-              <p>Please, try again</p>
-            )}
+          <div className="company-info__container">
+            <div className="company-sector__container">
+              <h3>Sectors:</h3>
+              {company ? (
+                company.sectors.data.map((el, i) => (
+                  <div key={i} className="company-sector__list">
+                    <p>{el.attributes.name}</p>
+                  </div>
+                ))
+              ) : (
+                <p>Try again</p>
+              )}
+            </div>
+            <div className="company-badges">
+              <h2>Badges:</h2>
+              <div className="company-badges__container">
+                {badge ? (
+                  badge.map((el, i) => <CompanyBadge badge={el} key={i} />)
+                ) : (
+                  <p>Loading</p>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
