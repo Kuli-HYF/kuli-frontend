@@ -1,5 +1,5 @@
 .about-us__main-container {
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
   padding-bottom: 100px;
 }
@@ -19,6 +19,7 @@
   font-weight: 300;
 }
 
+/* about us card styles */
 .about-us__container {
   margin-left: 8%;
   margin-right: 8%;
@@ -36,4 +37,52 @@
 .about-us__body-text {
   text-align: justify;
   margin-top: 8%;
+}
+
+.about-us__body-text__container {
+  margin-bottom: 40px;
+}
+
+.about-us__row-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.about-us__card-container {
+  padding: 24px;
+  width: 240px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.about-us__card-picture__container {
+  display: flex;
+  justify-content: center;
+}
+
+.about-us__card-picture {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 12px;
+  background-color: bisque;
+  border: 0;
+  border-style: none;
+  border-radius: 50%;
+}
+
+.about-us__card-link-container {
+  display: flex;
+}
+
+.about-us-line {
+  width: 80%;
+  border: 1px solid var(--light-blue);
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
