@@ -14,18 +14,19 @@
 }
 
 .company-header-container {
-  margin-bottom: 76px;
+  margin-bottom: 56px;
 }
 
 .company-header-title {
   color: var(--dark-pink);
+  font-size: 2.4rem;
 }
 
 .company-content-container {
   max-width: 1400px;
   /* height: 100vh; */
   margin: 0 auto;
-  padding-top: 120px;
+  /* padding-top: 120px; */
   padding-inline: 48px;
 }
 

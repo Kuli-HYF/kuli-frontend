@@ -131,15 +131,8 @@ input[type="radio"] .circle:before {
 }
 
 
-
-.body {
-  background-color: rgb(159, 145, 145);
-  font-family: 'Roboto', sans-serif;
-}
-
 form {
   width: 30rem;
-  margin: 3rem auto;
   background-color: rgb(221, 210, 210);
   padding: 1rem;
   border-radius: 6px;
@@ -148,6 +141,7 @@ h1{
   text-align: center;
   color: rgb(79, 76, 103);
   font-size: 2rem;
+
 }
 
 h2{

@@ -112,11 +112,12 @@ export const SignUp = () => {
         >
           {({ values, errors, touched, isSubmitting }) => (
                <body id="formBody">
-                <header>
-                <h1 className="head-up">Join The Kuli Community</h1>
-                </header>
+               
                 <main>
                 <Form>
+                
+                <h1 className="head-up">Join The Kuli Community</h1>
+                
            <section>
            <span className="warning">{warning}</span>
           </section>
@@ -207,16 +208,11 @@ export const SignUp = () => {
 
      <li>
      <label> Your Sector of Work</label>
-  {/* <Field
-    className="drop-up"
+  <Field
     component="select"
     as="select"
     name="sector"
-  > */}
-    <select>
-    <option className="option" name="sector" value="">
-      Doctor
-    </option>
+  >
     <option name="sector" value="creative">
       Creative
     </option>
@@ -233,22 +229,22 @@ export const SignUp = () => {
       Tech
     </option>
 
-    </select>
+  
   
     
-  {/* </Field> */}
+  </Field>
 
      </li>
 
      <li>
-{/* <Field
-    className="drop-up"
+     <label>Gender</label>
+<Field
     component="select"
     as="select"
     name="gender"
-  > */}
-<label>Gender</label>
-<select>
+  >
+
+
     <option name="sector" value="female">
       Female
     </option>
@@ -259,9 +255,9 @@ export const SignUp = () => {
       Other
     </option>
 
-    </select>
+ 
     
-  {/* </Field> */}
+  </Field>
 
      </li>
 
@@ -270,7 +266,6 @@ export const SignUp = () => {
      <div className="check-section">
     <label className="check-up">
       <Field
-        className="check-up"
         component="input"
         name="isWorking"
         value="false"
