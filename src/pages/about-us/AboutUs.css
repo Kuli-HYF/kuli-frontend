@@ -4,6 +4,21 @@
   padding-bottom: 100px;
 }
 
+.about-us__main-container h2 {
+  margin-bottom: 24px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--dark-blue);
+  font-family: "Mulish", sans-serif;
+}
+
+.about-us__main-container p {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
 .about-us__container {
   margin-left: 8%;
   margin-right: 8%;
