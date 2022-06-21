@@ -10,7 +10,6 @@ import NavLinks from "./NavLinks";
 
 const Navigation = () => {
   const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
-
   return (
     <nav className="navigation-container">
       <Logo />

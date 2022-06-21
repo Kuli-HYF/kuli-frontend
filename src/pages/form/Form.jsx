@@ -202,7 +202,7 @@ export const Former = () => {
               ) : (
                 <React.Fragment key="93" />
               )}
-              <h1 className="header" key="20">
+              <h1 className="head-quest" key="20">
                 {badges[category]}
               </h1>
               {!badges && !questions ? (
