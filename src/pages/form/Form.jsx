@@ -7,6 +7,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 import { Button } from "../../components/button/Button";
 import { get } from "../../api/get";
+import Navigation from "../../components/navigation/Navigation";
 
 import { badgeCalc } from "../../logic/badgeCalc";
 
@@ -103,65 +104,72 @@ export const Former = () => {
     // console.log("set badges", badgeId.current, badgesArray);
   }
 
-  console.log("before", badgeId.current, companyId);
+  // console.log("before", badgeId.current, companyId);
   return companies.data && badges.data && questions.data ? (
-    <h1 className="header" key="743">
-      Loading...
-    </h1>
+    <React.Fragment>
+      <Navigation />
+      <h1 className="header" key="743">
+        Loading...
+      </h1>
+    </React.Fragment>
   ) : companyId === 0 ? (
-    <div key="54" className="company">
-      <h2 className="searchHead">
-        Which company would you like to award a Kuli badge?
-      </h2>
-      <span className="warning">{warning.current}</span>
-      <div className="search">
-        <input
-          className="input"
-          type="input"
-          placeholder="Company Name"
-          value={companySearch}
-          onChange={(e) => {
-            setCompanySearch(e.target.value);
-          }}
-        ></input>
+    <React.Fragment>
+      <Navigation></Navigation>
+
+      <div key="54" className="company">
+        <h2 className="searchHead">
+          Which company would you like to award a Kuli badge?
+        </h2>
+        <span className="warning">{warning.current}</span>
+        <div className="search">
+          <input
+            className="input"
+            type="input"
+            placeholder="Company Name"
+            value={companySearch}
+            onChange={(e) => {
+              setCompanySearch(e.target.value);
+            }}
+          ></input>
+          <Button
+            kind="button"
+            title="Search"
+            color="dark-pink"
+            action={handleSearch}
+          />
+        </div>
+        <div className="search-field">
+          {" "}
+          <ul>
+            {companies.map((company) =>
+              companySearch.length === 0 ? (
+                <React.Fragment key={company.id}></React.Fragment>
+              ) : company.attributes.name
+                  .toLowerCase()
+                  .includes(companySearch.toLowerCase()) ? (
+                <li
+                  key={company.id}
+                  onClick={() => setCompanySearch(company.attributes.name)}
+                >
+                  {company.attributes.name}
+                </li>
+              ) : (
+                <React.Fragment key={company.id}></React.Fragment>
+              )
+            )}
+          </ul>
+        </div>
+        {/* <Link to={"/questionnaire"}> */}
         <Button
+          title="Go Back"
           kind="button"
-          title="Search"
-          color="dark-pink"
-          action={handleSearch}
+          color="pink-outline"
+          action={handleReturn}
+          // action={() => {setWarning("");}}
         />
+        {/* </Link> */}
       </div>
-      <div className="search-field">
-        {" "}
-        <ul>
-          {companies.map((company) =>
-            companySearch.length === 0 ? (
-              <React.Fragment key={company.id}></React.Fragment>
-            ) : company.attributes.name
-                .toLowerCase()
-                .includes(companySearch.toLowerCase()) ? (
-              <li
-                key={company.id}
-                onClick={() => setCompanySearch(company.attributes.name)}
-              >
-                {company.attributes.name}
-              </li>
-            ) : (
-              <React.Fragment key={company.id}></React.Fragment>
-            )
-          )}
-        </ul>
-      </div>
-      {/* <Link to={"/questionnaire"}> */}
-      <Button
-        title="Go Back"
-        kind="button"
-        color="pink-outline"
-        action={handleReturn}
-        // action={() => {setWarning("");}}
-      />
-      {/* </Link> */}
-    </div>
+    </React.Fragment>
   ) : (
     <Formik
       validationSchema={object({

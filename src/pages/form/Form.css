@@ -3,6 +3,7 @@
 }
 
 .header {
+  padding: 120px;
   color: #302b70;
 }
 
@@ -32,6 +33,7 @@
 }
 
 .company {
+  padding: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
