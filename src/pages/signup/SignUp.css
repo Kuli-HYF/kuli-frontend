@@ -131,7 +131,7 @@ input[type="radio"] .circle:before {
 form {
   width: 30rem;
   background-color:  hsl(225, 32%, 93%);
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 6px;
 }
 h1{
@@ -142,7 +142,7 @@ h1{
 }
 
 h2{
-margin:2px 2px;
+margin:2rem 2px;
 
 }
 ul{

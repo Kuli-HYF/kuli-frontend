@@ -154,7 +154,7 @@ export const SignUp = () => {
     className="textField"
     name="email"
     type="email"
-    placeholder="John@yahoo.com"
+    placeholder="Jean@yahoo.com"
   ></Field>
   <ErrorMessage
     component="div"
@@ -204,7 +204,7 @@ export const SignUp = () => {
 
      <section>
      <ul>
-     <h2>More details</h2>
+     <h2 >More details</h2>
 
      <li>
      <label> Your Sector of Work</label>
