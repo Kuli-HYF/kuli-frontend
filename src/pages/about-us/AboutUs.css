@@ -43,10 +43,6 @@
   margin-bottom: 40px;
 }
 
-.card-background {
-  
-}
-
 .about-us__row-container {
   display: flex;
   flex-wrap: wrap;
@@ -69,7 +65,7 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     margin: 8px;
-    background-color: rgba(255, 255, 255, 0.795);
+    background-color: rgba(255, 255, 255);
     gap: 8px;
     margin-top: -32px;
 }

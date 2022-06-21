@@ -43,16 +43,15 @@ export const AboutUs = () => {
               {teamMembers.attributes.bodyText}
             </p>
           </div>
-          <div className="card-background">
-            <div className="about-us__row-container">
-              {teamMembers ? (
-                teamMembers.attributes.teamMembers.map((teamMember) => (
-                  <AboutUsCard key={teamMember.id} teamMember={teamMember} />
-                ))
-              ) : (
-                <div>loading</div>
-              )}
-            </div>
+
+          <div className="about-us__row-container">
+            {teamMembers ? (
+              teamMembers.attributes.teamMembers.map((teamMember) => (
+                <AboutUsCard key={teamMember.id} teamMember={teamMember} />
+              ))
+            ) : (
+              <div>loading</div>
+            )}
           </div>
         </div>
       ) : (
