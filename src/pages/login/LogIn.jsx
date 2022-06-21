@@ -116,8 +116,8 @@ export const LogIn = () => {
                 <section>
                   <ul>
                     <li>
-                      <label for="email">
-                        Email <span class="star">*</span>{" "}
+                      <label>
+                        Email <span className="star">*</span>{" "}
                       </label>
                       <Field
                         name="email"
@@ -132,8 +132,8 @@ export const LogIn = () => {
                       ></ErrorMessage>
                     </li>
                     <li>
-                      <label for="username">
-                        Password <span class="star">*</span>{" "}
+                      <label>
+                        Password <span className="star">*</span>
                       </label>
                       <Field
                         name="password"

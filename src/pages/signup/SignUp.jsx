@@ -276,7 +276,7 @@ export const SignUp = () => {
                   <a href="./login">Already a member of Kuli?</a>
                 </div>
               </section>
-              <pre>{JSON.stringify(values, null, 4)}</pre>
+              {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
               {/* <pre>{JSON.stringify(errors, null, 4)}</pre> */}
             </Form>
           )}
