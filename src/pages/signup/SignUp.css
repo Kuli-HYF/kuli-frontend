@@ -126,12 +126,13 @@ input[type="radio"] .circle:before {
   background-color: var(--dark-blue);
 }
 
-form {
+.form {
   width: 30rem;
   background-color: hsl(225, 32%, 93%);
   padding: 2rem;
   border-radius: 6px;
 }
+
 h1 {
   text-align: center;
   color: rgb(79, 76, 103);

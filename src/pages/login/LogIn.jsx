@@ -122,7 +122,7 @@ export const LogIn = () => {
                       <Field
                         name="email"
                         type="email"
-                        placeholder="John@yahoo.com"
+                        placeholder="Jean@yahoo.com"
                         className="field"
                       ></Field>
                       <ErrorMessage
