@@ -1,5 +1,7 @@
 import "./LogIn.css";
 
+import logo from "../../assets/logo.png";
+
 import { useState, useEffect } from "react";
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -10,6 +12,7 @@ import { useGlobalState, setGlobalState } from "../../global";
 import Navigation from "../../components/navigation/Navigation";
 import { get } from "../../api/get";
 import { Button } from "../../components/button/Button";
+
 
 export const LogIn = () => {
   const login = useGlobalState("userLoggedIn");
@@ -72,7 +75,10 @@ export const LogIn = () => {
     <React.Fragment>
       <Navigation />
       <div className="login">
-        <h2>Login</h2>
+         <header>
+         
+         </header>
+
         <span className="warning">{warning}</span>
         <Formik
           validationSchema={object({
@@ -101,35 +107,60 @@ export const LogIn = () => {
             onSubmitProps.resetForm();
           }}
         >
+          
           {({ values, errors, isSubmitting }) => (
-            <Form>
-              <div className="field">
-                <div>
-                  <Field
-                    className="user-input"
+            
+            <Form className="loginForm">
+              
+              <img src={logo} className="logo" alt="Kuli logo"></img>
+              <div className="welcome">
+              <h1>Welcome to Kuli!</h1>
+              <p>Log in to your Account</p>
+              </div>
+              
+              <div className="">
+                <section>
+                
+                  <ul>
+
+                    <li>
+                    <label for="email">Email <span class="star">*</span> </label>
+                    <Field
+                    
                     name="email"
                     type="email"
-                    placeholder="Email"
+                    placeholder="John@yahoo.com"
+                    className ="field"
                   ></Field>
                   <ErrorMessage
                     component="div"
                     className="error"
                     name="email"
                   ></ErrorMessage>
-                </div>
-                <div>
-                  <Field
-                    className="user-input"
+
+                    </li>
+                    <li>
+                    <label for="username">Password <span class="star">*</span> </label>
+                    <Field
+                    
                     name="password"
                     type="password"
                     placeholder="Password"
-                  ></Field>
+                    className ="field"
+                  >
+                    
+                  </Field>
                   <ErrorMessage
                     component="div"
                     className="error"
                     name="password"
                   ></ErrorMessage>
-                </div>
+
+                    </li>
+                  </ul>
+
+
+                </section>
               </div>
               <div className="btn">
                 <Button kind="submit" color="dark-blue" title="Login"></Button>
