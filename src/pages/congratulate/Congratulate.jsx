@@ -11,9 +11,8 @@ export const Congratulate = () => {
   const login = useGlobalState("userLoggedIn");
   // console.log(login[0], Boolean(login[0].id));
   return (
-    <>
+    <React.Fragment>
       <Navigation />
-
       <div className="wrap">
         <div>
           <h1 className="header">Thank You!</h1>
@@ -44,6 +43,6 @@ export const Congratulate = () => {
           </div>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 };

@@ -115,7 +115,6 @@ export const Former = () => {
   ) : companyId === 0 ? (
     <React.Fragment>
       <Navigation></Navigation>
-
       <div key="54" className="company">
         <h2 className="searchHead">
           Which company would you like to award a Kuli badge?
@@ -139,7 +138,6 @@ export const Former = () => {
           />
         </div>
         <div className="search-field">
-          {" "}
           <ul>
             {companies.map((company) =>
               companySearch.length === 0 ? (
@@ -195,105 +193,108 @@ export const Former = () => {
       }}
     >
       {({ values, errors, touched, isSubmitting }) => (
-        <Form>
-          <div className="questionnaire">
-            {category === badges.length || (!badges && !questions) ? (
-              <h1>Please confirm your choices</h1>
-            ) : (
-              <React.Fragment key="93" />
-            )}
-            <h1 className="header" key="20">
-              {badges[category]}
-            </h1>
-            {!badges && !questions ? (
-              <h1 key="30">Loading...</h1>
-            ) : category === badges.length ? (
-              questions.map((quest) =>
-                quest.selections.map((sel) =>
-                  answers.includes(sel.score) ? (
-                    <div key={sel.id}>
-                      <h3>{quest.prompt}</h3>
-                      <p className="confirm">{sel.answer}</p>
-                    </div>
-                  ) : (
-                    <React.Fragment key={sel.id} />
+        <React.Fragment>
+          <Navigation></Navigation>
+          <Form>
+            <div className="questionnaire">
+              {category === badges.length || (!badges && !questions) ? (
+                <h1>Please confirm your choices</h1>
+              ) : (
+                <React.Fragment key="93" />
+              )}
+              <h1 className="header" key="20">
+                {badges[category]}
+              </h1>
+              {!badges && !questions ? (
+                <h1 key="30">Loading...</h1>
+              ) : category === badges.length ? (
+                questions.map((quest) =>
+                  quest.selections.map((sel) =>
+                    answers.includes(sel.score) ? (
+                      <div key={sel.id}>
+                        <h3>{quest.prompt}</h3>
+                        <p className="confirm">{sel.answer}</p>
+                      </div>
+                    ) : (
+                      <React.Fragment key={sel.id} />
+                    )
                   )
                 )
-              )
-            ) : (
-              questions.map((question) =>
-                question.badge !== badges[category] ? (
-                  <React.Fragment key={question.id} />
-                ) : (
-                  <div key={question.id}>
-                    <p className="question">{question.prompt}</p>
-                    {question.selections.map((answer) => (
-                      <label className="batch" key={answer.id}>
-                        <Field
-                          type="checkbox"
-                          name="checked"
-                          {...(touched.checked && errors.checked
-                            ? errors.checked
-                            : null)}
-                          value={answer.score}
-                        />
-                        <p className="answer">{answer.answer}</p>
-                      </label>
-                    ))}
-                  </div>
+              ) : (
+                questions.map((question) =>
+                  question.badge !== badges[category] ? (
+                    <React.Fragment key={question.id} />
+                  ) : (
+                    <div key={question.id}>
+                      <p className="question">{question.prompt}</p>
+                      {question.selections.map((answer) => (
+                        <label className="batch" key={answer.id}>
+                          <Field
+                            type="checkbox"
+                            name="checked"
+                            {...(touched.checked && errors.checked
+                              ? errors.checked
+                              : null)}
+                            value={answer.score}
+                          />
+                          <p className="answer">{answer.answer}</p>
+                        </label>
+                      ))}
+                    </div>
+                  )
                 )
-              )
-            )}
-          </div>
-          {category === 0 ? (
-            <Link to={"/form"}>
+              )}
+            </div>
+            {category === 0 ? (
+              <Link to={"/form"}>
+                <Button
+                  title="Return"
+                  kind="button"
+                  color="dark-pink"
+                  action={() => {
+                    setCompanyId(0);
+                    setCompanySearch("");
+                  }}
+                />
+              </Link>
+            ) : (
               <Button
-                title="Return"
-                kind="button"
                 color="dark-pink"
+                title="Back"
+                kind="button"
+                action={handleBack}
+              />
+            )}
+            {category === badges.length ? (
+              <Button
+                title="Submit"
+                kind="submit"
+                color="dark-blue"
+                disabled={isSubmitting}
+                action={() => (toSubmit.current = true)}
+              />
+            ) : category === badges.length - 1 ? (
+              <Button
+                title="Confirm"
+                kind="button"
+                color="dark-blue"
                 action={() => {
-                  setCompanyId(0);
-                  setCompanySearch("");
+                  setCategory(category + 1);
                 }}
               />
-            </Link>
-          ) : (
-            <Button
-              color="dark-pink"
-              title="Back"
-              kind="button"
-              action={handleBack}
-            />
-          )}
-          {category === badges.length ? (
-            <Button
-              title="Submit"
-              kind="submit"
-              color="dark-blue"
-              disabled={isSubmitting}
-              action={() => (toSubmit.current = true)}
-            />
-          ) : category === badges.length - 1 ? (
-            <Button
-              title="Confirm"
-              kind="button"
-              color="dark-blue"
-              action={() => {
-                setCategory(category + 1);
-              }}
-            />
-          ) : (
-            <Button
-              title="Next"
-              kind="button"
-              color="dark-blue"
-              action={() => {
-                setCategory(category + 1);
-              }}
-            />
-          )}
-          {/* <pre>{JSON.stringify(errors, null, 4)}</pre> */}
-        </Form>
+            ) : (
+              <Button
+                title="Next"
+                kind="button"
+                color="dark-blue"
+                action={() => {
+                  setCategory(category + 1);
+                }}
+              />
+            )}
+            {/* <pre>{JSON.stringify(errors, null, 4)}</pre> */}
+          </Form>
+        </React.Fragment>
       )}
     </Formik>
   );
