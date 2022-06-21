@@ -36,8 +36,9 @@ export const SignUp = () => {
   ) : (
     <React.Fragment>
       <Navigation />
-      <div className="sign-up">
-        <Formik className="formik-body"
+      <div className="sign-up-container">
+        <Formik
+          className="formik-body"
           validationSchema={object({
             email: string().required("Required Field"),
             password: string()
@@ -111,223 +112,188 @@ export const SignUp = () => {
           }}
         >
           {({ values, errors, touched, isSubmitting }) => (
-               <body id="formBody">
-               
-                <main>
-                <Form>
-                
-                <h2 className="head-up">Join The Kuli Community</h2>
-                
-           <section>
-           <span className="warning">{warning}</span>
-          </section>
+            <Form className="sign-up-form-container">
+              <h2 className="sign-up-form-title">Join The Kuli Community</h2>
 
-            <section>
+              <section>
+                <span className="warning">{warning}</span>
+              </section>
 
-            <ul>
-     
-     <h2>Your personal details</h2>
-      <li>
-      <label htmlFor="username">First Name:</label>
-     <Field
-    className="textField"
-    name="firstName"
-    type="text"
-    placeholder="First Name"
-  ></Field>
-      </li>
+              <section>
+                <div className="sign-up-form-list">
+                  <h3 className="sign-up-form-subtitle">
+                    Your info:
+                  </h3>
+                  <div className="sign-up-name-input-container">
+                    <div className="sign-up-name-input">
+                      <label htmlFor="username">First Name:</label>
+                      <Field
+                        className="textField"
+                        name="firstName"
+                        type="text"
+                        placeholder="First Name"
+                      ></Field>
+                    </div>
 
-    <li>
+                    <div className="sign-up-name-input">
+                      <label htmlFor="username">Last Name:</label>
+                      <Field
+                        className="textField"
+                        name="lastName"
+                        type="text"
+                        placeholder="Last Name"
+                      ></Field>
+                    </div>
+                  </div>
 
-    <label htmlFor="username">Last Name:</label>
-  <Field
-    className="textField"
-    name="lastName"
-    type="text"
-    placeholder="Last Name"
-  ></Field>
-    </li>
-    
-    <li>
-    <label htmlFor="username">Email <span className="star">*</span>  </label>
-     <Field
-    className="textField"
-    name="email"
-    type="email"
-    placeholder="Jean@yahoo.com"
-  ></Field>
-  <ErrorMessage
-    component="div"
-    className="error"
-    name="email"
-  ></ErrorMessage>
+                  <div className="sign-up-password-container">
+                    <label htmlFor="username">
+                      Email <span className="star">*</span>{" "}
+                    </label>
+                    <Field
+                      className="textField"
+                      name="email"
+                      type="email"
+                      placeholder="Jean@yahoo.com"
+                    ></Field>
+                    <ErrorMessage
+                      component="div"
+                      className="error"
+                      name="email"
+                    ></ErrorMessage>
+                  </div>
 
-    </li>
+                  <div className="sign-up-name-input-container">
+                    <div className="sign-up-name-input">
+                      <label htmlFor="username">
+                        Password <span className="star">*</span>
+                      </label>
+                      <Field
+                        className="textField"
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                      ></Field>
+                      <ErrorMessage
+                        component="div"
+                        className="error"
+                        name="password"
+                      ></ErrorMessage>
+                    </div>
 
-<li>
+                    <div className="sign-up-name-input">
+                      <label htmlFor="username">
+                        Confirm Password <span className="star">*</span>
+                      </label>
+                      <Field
+                        className="textField"
+                        name="passwordConfirmation"
+                        type="password"
+                        placeholder="Confirm Password"
+                      ></Field>
+                      <ErrorMessage
+                        component="div"
+                        className="error"
+                        name="passwordConfirmation"
+                      ></ErrorMessage>
+                    </div>
+                  </div>
+                </div>
+              </section>
 
-<label htmlFor="username">Password <span className="star">*</span></label>
-    <Field
-    className="textField"
-    name="password"
-    type="password"
-    placeholder="Password"
-  ></Field>
-  <ErrorMessage
-    component="div"
-    className="error"
-    name="password"
-  ></ErrorMessage>
-</li>
+              <hr className="sign-up-line"></hr>
 
-<li>
+              <div className="sign-up-more-details-container">
+                <h3 className="sign-up-form-subtitle">Additional info:</h3>
+                <div className="sign-up-more-details-items-container">
+                  <div className="sign-up-more-details-item">
+                    <label> Your Sector of Work</label>
+                    <Field component="select" as="select" name="sector">
+                      <option name="sector" value="creative">
+                        Creative
+                      </option>
+                      <option name="sector" value="education">
+                        Education
+                      </option>
+                      <option name="sector" value="finance">
+                        Finance
+                      </option>
+                      <option name="sector" value="service">
+                        Service
+                      </option>
+                      <option name="sector" value="tech">
+                        Tech
+                      </option>
+                    </Field>
+                  </div>
 
-<label htmlFor="username">Confirm Password <span className="star">*</span></label>
-    <Field
-    className="textField"
-    name="passwordConfirmation"
-    type="password"
-    placeholder="Confirm Password"
-  ></Field>
-  <ErrorMessage
-    component="div"
-    className="error"
-    name="passwordConfirmation"
-  ></ErrorMessage>
+                  <div className="sign-up-more-details-item">
+                    <label>Gender</label>
+                    <Field component="select" as="select" name="gender">
+                      <option name="sector" value="female">
+                        Female
+                      </option>
+                      <option name="sector" value="male">
+                        Male
+                      </option>
+                      <option name="sector" value="other">
+                        Other
+                      </option>
+                    </Field>
+                  </div>
 
-</li>
+                  <div className="sign-up-more-details-item">
+                    <label> Employment status</label>
+                    <div className="employed-container">
+                      <div className="employed-container-item">
+                        <label className="check-up">
+                          <Field
+                            component="input"
+                            name="isWorking"
+                            value="false"
+                            type="radio"
+                          ></Field>
+                          <span className="circle"></span>
+                        </label>
+                        <p className="p-up">Unemployed</p>
+                      </div>
 
+                      <div className="employed-container-item">
+                        <label className="check-up">
+                          <Field
+                            component="input"
+                            name="isWorking"
+                            value="true"
+                            type="radio"
+                          ></Field>
+                          <span className="circle"></span>
+                        </label>
+                        <p className="p-up">Employed</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-     </ul>
+              <hr className="sign-up-line"></hr>
 
-     </section>
-
-     <section>
-     <ul>
-     <h2 >More details</h2>
-
-     <li>
-     <label> Your Sector of Work</label>
-  <Field
-    component="select"
-    as="select"
-    name="sector"
-  >
-    <option name="sector" value="creative">
-      Creative
-    </option>
-    <option name="sector" value="education">
-      Education
-    </option>
-    <option name="sector" value="finance">
-      Finance
-    </option>
-    <option name="sector" value="service">
-      Service
-    </option>
-    <option name="sector" value="tech">
-      Tech
-    </option>
-
-  
-  
-    
-  </Field>
-
-     </li>
-
-     <li>
-     <label>Gender</label>
-<Field
-    component="select"
-    as="select"
-    name="gender"
-  >
-
-
-    <option name="sector" value="female">
-      Female
-    </option>
-    <option name="sector" value="male">
-      Male
-    </option>
-    <option name="sector" value="other">
-      Other
-    </option>
-
- 
-    
-  </Field>
-
-     </li>
-
-     <li>
-
-     <div className="check-section">
-    <label className="check-up">
-      <Field
-        component="input"
-        name="isWorking"
-        value="false"
-        type="radio"
-      ></Field>
-      <span className="circle"></span>
-    </label>
-    <p className="p-up">Unemployed</p>
-  </div>
-
-     </li>
-
-     <li>
-     <div className="check-section">
-    <label className="check-up">
-      <Field
-        component="input"
-        name="isWorking"
-        value="true"
-        type="radio"
-      ></Field>
-      <span className="circle"></span>
-    </label>
-    <p className="p-up">Employed</p>
-  </div>
-
-     </li>
-
-     </ul>
-     </section>
-
-     <section>
-
-     <Button
-    kind="submit"
-    title="Sign Up"
-    color="dark-blue-up"
-    disabled={isSubmitting}
-  />
-     </section>
-     <section>
-     <div className="login-link">
-          <a href="./login">Already a member of Kuli?</a>
-        </div>
-              
-
-     </section>
-     
-    
-
+              <div className="sign-up-submit-container">
+                <Button
+                  kind="submit"
+                  title="Sign Up"
+                  color="dark-blue sign-up-submit-button"
+                  disabled={isSubmitting}
+                />
+                <div className="login-link">
+                  <a href="./login">Already a member of Kuli?</a>
+                </div>
+              </div>
 
               {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
               {/* <pre>{JSON.stringify(errors, null, 4)}</pre> */}
             </Form>
-
-           </main>
-   
-            </body>
-              
           )}
         </Formik>
-        
       </div>
     </React.Fragment>
   );

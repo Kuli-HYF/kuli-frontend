@@ -153,8 +153,6 @@ export const LogIn = () => {
               <div className="login-button-container">
                 <Button kind="submit" color="dark-blue login-submit-button" title="Login"></Button>
               </div>
-              {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
-              {/* <pre>{JSON.stringify(errors, null, 4)}</pre> */}
             </Form>
           )}
         </Formik>

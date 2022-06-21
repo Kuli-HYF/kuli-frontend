@@ -101,16 +101,15 @@ textarea {
   margin-top: 8px;
 }
 
-.textField {
+/* .textField {
   color: rgb(61, 58, 58);
-  /* width: 100%; */
   margin-bottom: 0.5rem;
   display: block;
   box-sizing: border-box;
   font: inherit;
   border: 1px solid rgb(184, 184, 184);
   padding: 0.25rem;
-}
+} */
 /* input:focus,
 textarea:focus {
   background-color: rgb(219, 190, 253);
@@ -118,32 +117,6 @@ textarea:focus {
   border-color: rgb(219, 190,253);
 } */
 
-@media screen and (max-width: 600px) {
-  .loginForm {
-    width: 27rem;
-    height: 23rem;
-    margin: 0 auto;
-    background-color: hsl(225, 32%, 93%);
-    padding: 1rem;
-    border-radius: 6px;
-  }
-  /* p{
-    padding-left: 1rem;
-  }
-
-  h1{
-    margin: 0 0;
-    font-size: 1rem;
-  }
-  h2{
-    margin:1px 1px;
-    
-    }
-    .field{
-      height: 2rem;
-      border-radius: 4px;
-    } */
-}
 
 @media (max-width: 1324px) {
 }
