@@ -18,6 +18,7 @@ const AboutUsCard = ({ teamMember }) => {
         <img
           className="about-us__card-picture"
           src={teamMember.picture.data.attributes.formats.thumbnail.url}
+          alt='profile'
         ></img>
       </div>
 
@@ -28,8 +29,21 @@ const AboutUsCard = ({ teamMember }) => {
       <div className="about-us__card-description">{teamMember.description}</div>
 
       <div className="about-us__card-link-container">
-        <div className="about-us__link">linkedin</div>
-        <div className="about-us__link">github</div>
+        <div className="about-us__link">
+          <a href={teamMember.socialMedia1}>
+            <img src="https://res.cloudinary.com/doz3koti5/image/upload/v1655796248/icons8_github_ccfb07920f.svg?updated_at=2022-06-21T07:24:09.863Z" alt="github" />
+          </a>
+        </div>
+        <div className="about-us__link">
+          <a href={teamMember.socialMedia2}>
+            <img src="https://res.cloudinary.com/doz3koti5/image/upload/v1655796248/icons8_linkedin_b269338d36.svg?updated_at=2022-06-21T07:24:09.975Z" alt="linkedIn" />
+          </a>
+        </div>
+        <div className="about-us__link">
+          <a href={teamMember.socialMedia3}>
+            <img src="https://res.cloudinary.com/doz3koti5/image/upload/v1655796248/icons8_developer_96_e407e3f0e7.png?updated_at=2022-06-21T07:24:08.381Z" alt="personal page" />
+          </a>
+        </div>
       </div>
     </div>
   );
