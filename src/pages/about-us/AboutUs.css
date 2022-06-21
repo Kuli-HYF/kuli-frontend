@@ -43,10 +43,19 @@
   margin-bottom: 40px;
 }
 
+.card-background {
+  
+}
+
 .about-us__row-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 40px;
+  margin-top: 40px;
+  background-color: var(--light-blue);
+  padding: 12px 24px 24px 24px;
+  gap: 8px;
 }
 
 .about-us__card-container {
@@ -59,6 +68,10 @@
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    margin: 8px;
+    background-color: rgba(255, 255, 255, 0.795);
+    gap: 8px;
+    margin-top: -32px;
 }
 
 .about-us__card-picture__container {
@@ -78,6 +91,7 @@
 
 .about-us__card-link-container {
   display: flex;
+  margin-top: 12px;
 }
 
 .about-us-line {
@@ -85,4 +99,10 @@
   border: 1px solid var(--light-blue);
   margin-top: 12px;
   margin-bottom: 12px;
+}
+
+.about-us__link {
+  width: 50px;
+  height: 50px;
+  margin: 4px 4px 4px 4px;
 }
