@@ -51,7 +51,8 @@
   margin-top: 40px;
   background-color: var(--light-blue);
   padding: 12px 24px 24px 24px;
-  gap: 8px;
+  gap: 32px;
+  width: 100%;
 }
 
 .about-us__card-container {
