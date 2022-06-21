@@ -103,7 +103,7 @@ export const Former = () => {
     // console.log("set badges", badgeId.current, badgesArray);
   }
 
-  // console.log("before", badgeId.current, companyId);
+  console.log("before", badgeId.current, companyId);
   return companies.data && badges.data && questions.data ? (
     <h1 className="header" key="743">
       Loading...
