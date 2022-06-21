@@ -43,6 +43,7 @@ export const AboutUs = () => {
               {teamMembers.attributes.bodyText}
             </p>
           </div>
+
           <div className="about-us__row-container">
             {teamMembers ? (
               teamMembers.attributes.teamMembers.map((teamMember) => (

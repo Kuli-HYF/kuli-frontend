@@ -15,7 +15,7 @@
 
 .about-us__main-container p {
   font-family: "Work Sans", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
 }
 
@@ -36,7 +36,10 @@
 
 .about-us__body-text {
   text-align: justify;
-  margin-top: 8%;
+  margin-top: 4%;
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
 }
 
 .about-us__body-text__container {
@@ -46,7 +49,13 @@
 .about-us__row-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 40px;
+  margin-top: 40px;
+  background-color: var(--light-blue);
+  padding: 12px 24px 24px 24px;
+  gap: 44px;
+  width: 100%;
 }
 
 .about-us__card-container {
@@ -59,6 +68,10 @@
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  margin: 8px;
+  background-color: rgba(255, 255, 255);
+  gap: 8px;
+  margin-top: -32px;
 }
 
 .about-us__card-picture__container {
@@ -78,6 +91,7 @@
 
 .about-us__card-link-container {
   display: flex;
+  margin-top: 12px;
 }
 
 .about-us-line {
@@ -85,4 +99,10 @@
   border: 1px solid var(--light-blue);
   margin-top: 12px;
   margin-bottom: 12px;
+}
+
+.about-us__link {
+  width: 50px;
+  height: 50px;
+  margin: 4px 4px 4px 4px;
 }
