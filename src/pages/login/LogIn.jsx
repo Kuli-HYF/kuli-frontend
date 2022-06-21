@@ -1,6 +1,6 @@
 import "./LogIn.css";
 
-import logo from "../../assets/logo.png";
+// import logo from "../../assets/logo.png";
 
 import { useState, useEffect } from "react";
 import React from "react";

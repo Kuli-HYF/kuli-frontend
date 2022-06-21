@@ -17,6 +17,7 @@
 
 .sign-up-form-container label {
   font-weight: 500;
+  opacity: 0.8;
 }
 
 .sign-up-form-list input {
@@ -41,10 +42,16 @@
 
 .sign-up-form-list input {
   height: 2.8rem;
-  border-radius: 16px;
-  border: none;
+  border-radius: 8px;
+  border: 1px solid hsla(244, 45%, 30%, 0.2);
   padding: 4px;
+  padding-inline: 8px;
   width: 100%;
+}
+
+.sign-up-form-list ::placeholder {
+  opacity: 0.4;
+  font-size: 0.9rem;
 }
 
 .sign-up-form-title {
@@ -335,5 +342,15 @@ textarea:focus {
 
   .sign-up-form-title {
     text-align: center;
+  }
+
+  .sign-up-submit-container {
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 40px;
+  }
+
+  .sign-up-submit-button {
+    width: 100%;
   }
 }
