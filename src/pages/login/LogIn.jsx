@@ -13,7 +13,6 @@ import Navigation from "../../components/navigation/Navigation";
 import { get } from "../../api/get";
 import { Button } from "../../components/button/Button";
 
-
 export const LogIn = () => {
   const login = useGlobalState("userLoggedIn");
 
@@ -75,9 +74,7 @@ export const LogIn = () => {
     <React.Fragment>
       <Navigation />
       <div className="login">
-         <header>
-         
-         </header>
+        <header></header>
 
         <span className="warning">{warning}</span>
         <Formik
@@ -107,59 +104,50 @@ export const LogIn = () => {
             onSubmitProps.resetForm();
           }}
         >
-          
           {({ values, errors, isSubmitting }) => (
-            
             <Form className="loginForm">
-              
               <img src={logo} className="logo" alt="Kuli logo"></img>
               <div className="welcome">
-              <h1>Welcome to Kuli!</h1>
-              <p>Log in to your Account</p>
+                <h1>Welcome to Kuli!</h1>
+                <p>Log in to your Account</p>
               </div>
-              
+
               <div className="">
                 <section>
-                
                   <ul>
-
                     <li>
-                    <label for="email">Email <span class="star">*</span> </label>
-                    <Field
-                    
-                    name="email"
-                    type="email"
-                    placeholder="John@yahoo.com"
-                    className ="field"
-                  ></Field>
-                  <ErrorMessage
-                    component="div"
-                    className="error"
-                    name="email"
-                  ></ErrorMessage>
-
+                      <label for="email">
+                        Email <span class="star">*</span>{" "}
+                      </label>
+                      <Field
+                        name="email"
+                        type="email"
+                        placeholder="John@yahoo.com"
+                        className="field"
+                      ></Field>
+                      <ErrorMessage
+                        component="div"
+                        className="error"
+                        name="email"
+                      ></ErrorMessage>
                     </li>
                     <li>
-                    <label for="username">Password <span class="star">*</span> </label>
-                    <Field
-                    
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    className ="field"
-                  >
-                    
-                  </Field>
-                  <ErrorMessage
-                    component="div"
-                    className="error"
-                    name="password"
-                  ></ErrorMessage>
-
+                      <label for="username">
+                        Password <span class="star">*</span>{" "}
+                      </label>
+                      <Field
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        className="field"
+                      ></Field>
+                      <ErrorMessage
+                        component="div"
+                        className="error"
+                        name="password"
+                      ></ErrorMessage>
                     </li>
                   </ul>
-
-
                 </section>
               </div>
               <div className="btn">

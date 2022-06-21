@@ -15,7 +15,6 @@
   text-align: center;
 }
 
-
 .sub-up-1 {
   font-size: 120%;
   color: #302b70;
@@ -127,31 +126,26 @@ input[type="radio"] .circle:before {
   background-color: var(--dark-blue);
 }
 
-
 form {
   width: 30rem;
-  background-color:  hsl(225, 32%, 93%);
+  background-color: hsl(225, 32%, 93%);
   padding: 2rem;
   border-radius: 6px;
 }
-h1{
+h1 {
   text-align: center;
   color: rgb(79, 76, 103);
   font-size: 2rem;
-
 }
 
-h2{
-margin:2rem 2px;
-
+h2 {
+  margin: 2rem 2px;
 }
-ul{
-
-list-style: none;
-margin: 0;
-padding: 0;
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
 
 label {
   margin-bottom: 0.5rem;
@@ -161,12 +155,12 @@ textarea {
   resize: none;
 }
 
-input ,
+input,
 textarea,
 select {
-color: rgb(61, 58, 58);
+  color: rgb(61, 58, 58);
   width: 100%;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   display: block;
   box-sizing: border-box;
   font: inherit;
@@ -176,10 +170,10 @@ color: rgb(61, 58, 58);
   /*arrang box in the middle of the its parents  */
 }
 
-.textField{
+.textField {
   color: rgb(61, 58, 58);
   width: 100%;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   display: block;
   box-sizing: border-box;
   font: inherit;
@@ -191,13 +185,12 @@ input:focus,
 textarea:focus {
   background-color: rgb(219, 190, 253);
   color: rgb(73, 7, 148);
-  border-color: rgb(219, 190,253);
+  border-color: rgb(219, 190, 253);
 }
 
-.error{
-  margin-left:2rem;
+.error {
+  margin-left: 2rem;
 }
-.star{
+.star {
   color: red;
 }
-
