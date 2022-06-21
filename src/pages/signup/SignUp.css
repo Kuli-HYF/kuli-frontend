@@ -128,17 +128,16 @@ input[type="radio"] .circle:before {
 }
 
 
-form {
+/* form {
   width: 30rem;
   background-color:  hsl(225, 32%, 93%);
   padding: 2rem;
   border-radius: 6px;
 }
-h1{
+.head-up h1{
   text-align: center;
   color: rgb(79, 76, 103);
   font-size: 2rem;
-
 }
 
 h2{
@@ -150,18 +149,19 @@ ul{
 list-style: none;
 margin: 0;
 padding: 0;
-}
+} */
 
 
-label {
+/* label {
   margin-bottom: 0.5rem;
   display: block;
-}
+} */
+
 textarea {
   resize: none;
 }
 
-input ,
+/* input ,
 textarea,
 select {
 color: rgb(61, 58, 58);
@@ -174,7 +174,7 @@ color: rgb(61, 58, 58);
   padding: 0.25rem;
 
   /*arrang box in the middle of the its parents  */
-}
+/* } */ */
 
 .textField{
   color: rgb(61, 58, 58);
@@ -194,10 +194,7 @@ textarea:focus {
   border-color: rgb(219, 190,253);
 }
 
-.error{
-  margin-left:2rem;
-}
-.star{
+/* .star{
   color: red;
-}
+} */
 

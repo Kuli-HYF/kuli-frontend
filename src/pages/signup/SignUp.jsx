@@ -31,7 +31,7 @@ export const SignUp = () => {
   return !users ? (
     <React.Fragment>
       <Navigation />
-      <h1 className="load">Loading...</h1>
+      <h2 className="load">Loading...</h2>
     </React.Fragment>
   ) : (
     <React.Fragment>
@@ -116,7 +116,7 @@ export const SignUp = () => {
                 <main>
                 <Form>
                 
-                <h1 className="head-up">Join The Kuli Community</h1>
+                <h2 className="head-up">Join The Kuli Community</h2>
                 
            <section>
            <span className="warning">{warning}</span>
@@ -128,7 +128,7 @@ export const SignUp = () => {
      
      <h2>Your personal details</h2>
       <li>
-      <label for="username">First Name:</label>
+      <label htmlFor="username">First Name:</label>
      <Field
     className="textField"
     name="firstName"
@@ -139,7 +139,7 @@ export const SignUp = () => {
 
     <li>
 
-    <label for="username">Last Name:</label>
+    <label htmlFor="username">Last Name:</label>
   <Field
     className="textField"
     name="lastName"
@@ -149,7 +149,7 @@ export const SignUp = () => {
     </li>
     
     <li>
-    <label for="username">Email <span class="star">*</span>  </label>
+    <label htmlFor="username">Email <span className="star">*</span>  </label>
      <Field
     className="textField"
     name="email"
@@ -166,7 +166,7 @@ export const SignUp = () => {
 
 <li>
 
-<label for="username">Password <span class="star">*</span></label>
+<label htmlFor="username">Password <span className="star">*</span></label>
     <Field
     className="textField"
     name="password"
@@ -182,7 +182,7 @@ export const SignUp = () => {
 
 <li>
 
-<label for="username">Confirm Password <span class="star">*</span></label>
+<label htmlFor="username">Confirm Password <span className="star">*</span></label>
     <Field
     className="textField"
     name="passwordConfirmation"

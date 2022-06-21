@@ -2,7 +2,7 @@
   height: 100%;
 }
 
-.company-container {
+.company-detail-container {
   padding-top: 100px;
   display: flex;
   flex-direction: column;
