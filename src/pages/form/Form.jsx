@@ -181,7 +181,7 @@ export const Former = () => {
           setTimeout(() => {
             setAnswers(values.checked);
             if (toSubmit.current === true) {
-              console.log("submitting", answers, companyId, badgeId.current);
+              // console.log("submitting", answers, companyId, badgeId.current);
               // badgeId.current= companies[companyId].attributes.badges.data;
               badgeCalc(answers, companyId, badgeId.current);
               toSubmit.current = false;
