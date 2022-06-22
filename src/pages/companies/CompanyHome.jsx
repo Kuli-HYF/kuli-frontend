@@ -21,12 +21,15 @@ const CompanyHome = () => {
   // const [checked, setChecked] = useState(false)
 
   const fetchCompanies = async () => {
-    const result = await get("companies?populate=*");
+    const result = await get(
+      "companies?populate[badges][populate]=*&populate[location][populate]=*&populate[sectors][populate]=* "
+    );
     setCompanies(result.data);
+    console.log(result.data);
   };
 
   const fetchBadges = async () => {
-    const result = await get("badges");
+    const result = await get("badges?populate=*");
     setBadges(result.data);
   };
 
@@ -92,14 +95,14 @@ const CompanyHome = () => {
     // console.log("checked: " + checked);
     // console.log("value: " + value);
     // console.log("sector id: " + sectorId);
-    console.log("sector number: " + sectorNumber);
+    // console.log("sector number: " + sectorNumber);
 
     if (checked) {
       setSelectedSectors((selectedSectors) => [...selectedSectors, value]);
     } else {
       setSelectedSectors(selectedSectors.filter((e) => e !== value));
     }
-    console.log(selectedSectors);
+    // console.log(selectedSectors);
   };
 
   // const clearFilters = () => {
