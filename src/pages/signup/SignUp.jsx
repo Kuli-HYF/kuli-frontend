@@ -121,9 +121,7 @@ export const SignUp = () => {
 
               <section>
                 <div className="sign-up-form-list">
-                  <h3 className="sign-up-form-subtitle">
-                    Your info:
-                  </h3>
+                  <h3 className="sign-up-form-subtitle">Your info:</h3>
                   <div className="sign-up-name-input-container">
                     <div className="sign-up-name-input">
                       <label htmlFor="username">First Name:</label>

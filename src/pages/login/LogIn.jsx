@@ -45,15 +45,19 @@ export const LogIn = () => {
   ) : login[0].id ? (
     <React.Fragment>
       <Navigation />
-      <div className="login-container">
-        <div className="congrats">
+      <div className="congrats-login">
+        <div>
           {login[0].attributes.firstName ? (
-            <h2>Welcome Back {login[0].attributes.firstName}!</h2>
+            <h2 className="greeting-congrats">
+              Welcome Back {login[0].attributes.firstName}!
+            </h2>
           ) : (
-            <h2>Welcome Back {login[0].attributes.email}!</h2>
+            <h2 className="greeting-congrats">
+              Welcome Back {login[0].attributes.email}!
+            </h2>
           )}
         </div>
-        <div className="login-button-container">
+        <div className="btn">
           <Link to="/">
             <Button
               kind="button"
@@ -151,7 +155,11 @@ export const LogIn = () => {
                 </section>
               </div>
               <div className="login-button-container">
-                <Button kind="submit" color="dark-blue login-submit-button" title="Login"></Button>
+                <Button
+                  kind="submit"
+                  color="dark-blue login-submit-button"
+                  title="Login"
+                ></Button>
               </div>
             </Form>
           )}
