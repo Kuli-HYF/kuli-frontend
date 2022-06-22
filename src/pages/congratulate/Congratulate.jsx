@@ -13,7 +13,7 @@ export const Congratulate = () => {
   return (
     <React.Fragment>
       <Navigation />
-      <div className="wrap">
+      <div className="congrats-wrap">
         <div>
           <h1 className="header">Thank You!</h1>
           <h3 className="sub-head">Your feedback was submitted successfully</h3>
