@@ -1,25 +1,23 @@
 import "./LogIn.css";
 
+// import logo from "../../assets/logo.png";
+
 import { useState, useEffect } from "react";
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { object, string } from "yup";
 import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
 
 import { useGlobalState, setGlobalState } from "../../global";
 import Navigation from "../../components/navigation/Navigation";
 import { get } from "../../api/get";
 import { Button } from "../../components/button/Button";
-import { useRef } from "react";
 
 export const LogIn = () => {
   const login = useGlobalState("userLoggedIn");
 
   const [users, setUsers] = useState({});
-  // const [warning, setWarning] = useState("")
-
-  const warning = useRef("");
+  const [warning, setWarning] = useState("");
 
   const fetchUsers = async () => {
     const promiseUsers = await get("kuli-users");
@@ -34,22 +32,20 @@ export const LogIn = () => {
 
   const handleLogOut = () => {
     setGlobalState("userLoggedIn", {});
+    setWarning("");
   };
-
-  // console.log("users", users[0]);
 
   return !users ? (
     <React.Fragment>
       <Navigation />
-      <div className="login">
-        <h1>Loading...</h1>
+      <div className="login-container">
+        <h2>Loading...</h2>
       </div>
     </React.Fragment>
   ) : login[0].id ? (
     <React.Fragment>
       <Navigation />
-
-      <div className="login">
+      <div className="login-container">
         <div className="congrats">
           {login[0].attributes.firstName ? (
             <h2>Welcome Back {login[0].attributes.firstName}!</h2>
@@ -57,7 +53,7 @@ export const LogIn = () => {
             <h2>Welcome Back {login[0].attributes.email}!</h2>
           )}
         </div>
-        <div className="btn">
+        <div className="login-button-container">
           <Link to="/">
             <Button
               kind="button"
@@ -77,9 +73,10 @@ export const LogIn = () => {
   ) : (
     <React.Fragment>
       <Navigation />
-      <div className="login">
-        <h2>Login</h2>
-        <span className="warning">{warning.current}</span>
+      <div className="login-container">
+        <header></header>
+
+        <span className="warning">{warning}</span>
         <Formik
           validationSchema={object({
             email: string().required("Required Field"),
@@ -89,73 +86,73 @@ export const LogIn = () => {
             email: "",
             password: "",
           }}
-          onSubmit={(values) => {
-            users[0].map((user) => {
-              if (
-                user.attributes.email === values.email &&
-                user.attributes.password === values.password
-              ) {
-                setGlobalState("userLoggedIn", user);
-                warning.current = "";
-                console.log("success", login[0]);
-                return user;
-              } else if (
-                user.attributes.email === values.email &&
-                user.attributes.password !== values.password
-              ) {
-                console.log(
-                  "Incorrect Password",
-                  values.password,
-                  user.attributes.password
-                );
-                return (warning.current = "Incorrect Password");
-              } else {
-                console.log(
-                  "User not Found",
-                  user.attributes.email,
-                  values.email
-                );
-                return (warning.current = "No such user");
-              }
-            });
-            // console.log("values", values, login[0]);
+          onSubmit={(values, onSubmitProps) => {
+            const loginUser = [];
+            users[0].map((user) =>
+              user.attributes.email !== values.email
+                ? setWarning("No Such User")
+                : user.attributes.email === values.email &&
+                  user.attributes.password !== values.password
+                ? loginUser.push(user.attributes.email)
+                : loginUser.push(user)
+            );
+            loginUser.length === 0
+              ? setWarning("No Such User")
+              : loginUser[0].attributes
+              ? setGlobalState("userLoggedIn", loginUser[0])
+              : setWarning("Incorrect Password");
+            onSubmitProps.resetForm();
           }}
         >
           {({ values, errors, isSubmitting }) => (
-            <Form>
-              <div className="field">
-                <div>
-                  <Field
-                    className="user-input"
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                  ></Field>
-                  <ErrorMessage
-                    component="div"
-                    className="error"
-                    name="email"
-                  ></ErrorMessage>
-                </div>
-                <div>
-                  <Field
-                    className="user-input"
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                  ></Field>
-                  <ErrorMessage
-                    component="div"
-                    className="error"
-                    name="password"
-                  ></ErrorMessage>
-                </div>
+            <Form className="loginForm-container">
+              {/* <img src={logo} className="logo" alt="Kuli logo"></img> */}
+              <div className="login-title-container">
+                <h1 className="login-title">Welcome to Kuli!</h1>
+                <p className="login-subtitle">Log in to your Account</p>
               </div>
-              <div className="btn">
-                <Button kind="submit" color="dark-blue" title="Login"></Button>
+
+              <div className="login-input-container">
+                <section>
+                  <ul className="login-fields-container">
+                    <li>
+                      <label htmlFor="email">
+                        Email <span className="star">*</span>{" "}
+                      </label>
+                      <Field
+                        name="email"
+                        type="email"
+                        placeholder="Jean@yahoo.com"
+                        className="login-field"
+                      ></Field>
+                      <ErrorMessage
+                        component="div"
+                        className="error"
+                        name="email"
+                      ></ErrorMessage>
+                    </li>
+                    <li>
+                      <label htmlFor="username">
+                        Password <span className="star">*</span>{" "}
+                      </label>
+                      <Field
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        className="login-field"
+                      ></Field>
+                      <ErrorMessage
+                        component="div"
+                        className="error"
+                        name="password"
+                      ></ErrorMessage>
+                    </li>
+                  </ul>
+                </section>
               </div>
-              {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
-              {/* <pre>{JSON.stringify(errors, null, 4)}</pre> */}
+              <div className="login-button-container">
+                <Button kind="submit" color="dark-blue login-submit-button" title="Login"></Button>
+              </div>
             </Form>
           )}
         </Formik>
