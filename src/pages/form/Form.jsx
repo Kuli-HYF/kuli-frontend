@@ -198,7 +198,7 @@ export const Former = () => {
           <Form>
             <div className="questionnaire">
               {category === badges.length || (!badges && !questions) ? (
-                <h1>Please confirm your choices</h1>
+                <h1 className="head-confirm">Please confirm your choices</h1>
               ) : (
                 <React.Fragment key="93" />
               )}
@@ -206,14 +206,16 @@ export const Former = () => {
                 {badges[category]}
               </h1>
               {!badges && !questions ? (
-                <h1 key="30">Loading...</h1>
+                <h1 className="head-confirm" key="30">
+                  Loading...
+                </h1>
               ) : category === badges.length ? (
                 questions.map((quest) =>
                   quest.selections.map((sel) =>
                     answers.includes(sel.score) ? (
-                      <div key={sel.id}>
-                        <h3>{quest.prompt}</h3>
-                        <p className="confirm">{sel.answer}</p>
+                      <div className="confirm-section" key={sel.id}>
+                        <h4 className="h-quest">{quest.prompt}</h4>
+                        <p className="confirm-p">{sel.answer}</p>
                       </div>
                     ) : (
                       <React.Fragment key={sel.id} />

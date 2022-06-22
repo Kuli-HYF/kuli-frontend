@@ -115,3 +115,26 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.head-confirm {
+  color: #302b70;
+  padding-bottom: 40px;
+}
+/* 
+.confirm-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+} */
+
+.h-quest {
+  color: hsl(10, 79%, 58%);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.confirm-p {
+  margin-left: -80px;
+  color: #302b70;
+}
