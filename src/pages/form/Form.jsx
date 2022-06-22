@@ -225,73 +225,84 @@ export const Former = () => {
                   question.badge !== badges[category] ? (
                     <React.Fragment key={question.id} />
                   ) : (
-                    <div key={question.id}>
-                      <p className="question">{question.prompt}</p>
-                      {question.selections.map((answer) => (
-                        <label className="batch" key={answer.id}>
-                          <Field
-                            type="checkbox"
-                            name="checked"
-                            {...(touched.checked && errors.checked
-                              ? errors.checked
-                              : null)}
-                            value={answer.score}
-                          />
-                          <p className="answer">{answer.answer}</p>
-                        </label>
-                      ))}
-                    </div>
+                    <React.Fragment key={question.id}>
+                      <h4 className="h-up">{question.prompt}</h4>
+                      <div className="check-section-q">
+                        {question.selections.map((answer) => (
+                          <React.Fragment key={answer.id}>
+                            <div className="row">
+                              <label className="check-up-q">
+                                <Field
+                                  component="input"
+                                  type="checkbox"
+                                  name="checked"
+                                  {...(touched.checked && errors.checked
+                                    ? errors.checked
+                                    : null)}
+                                  value={answer.score}
+                                />
+                                <span className="circle-q"></span>
+                              </label>
+                              <p className="p-quest">{answer.answer}</p>
+                            </div>
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    </React.Fragment>
                   )
                 )
               )}
             </div>
-            {category === 0 ? (
-              <Link to={"/form"}>
+            <div className="btn-quest">
+              {category === 0 ? (
+                <Link to={"/form"}>
+                  <Button
+                    title="Return"
+                    kind="button"
+                    color="dark-pink"
+                    action={() => {
+                      setCompanyId(0);
+                      setCompanySearch("");
+                    }}
+                  />
+                </Link>
+              ) : (
                 <Button
-                  title="Return"
-                  kind="button"
                   color="dark-pink"
+                  title="Back"
+                  kind="button"
+                  action={handleBack}
+                />
+              )}
+              {category === badges.length ? (
+                <Button
+                  title="Submit"
+                  kind="submit"
+                  color="dark-blue"
+                  disabled={isSubmitting}
+                  action={() => (toSubmit.current = true)}
+                />
+              ) : category === badges.length - 1 ? (
+                <Button
+                  title="Confirm"
+                  kind="button"
+                  color="dark-blue"
                   action={() => {
-                    setCompanyId(0);
-                    setCompanySearch("");
+                    setCategory(category + 1);
                   }}
                 />
-              </Link>
-            ) : (
-              <Button
-                color="dark-pink"
-                title="Back"
-                kind="button"
-                action={handleBack}
-              />
-            )}
-            {category === badges.length ? (
-              <Button
-                title="Submit"
-                kind="submit"
-                color="dark-blue"
-                disabled={isSubmitting}
-                action={() => (toSubmit.current = true)}
-              />
-            ) : category === badges.length - 1 ? (
-              <Button
-                title="Confirm"
-                kind="button"
-                color="dark-blue"
-                action={() => {
-                  setCategory(category + 1);
-                }}
-              />
-            ) : (
-              <Button
-                title="Next"
-                kind="button"
-                color="dark-blue"
-                action={() => {
-                  setCategory(category + 1);
-                }}
-              />
-            )}
+              ) : (
+                <Button
+                  title="Next"
+                  kind="button"
+                  color="dark-blue"
+                  action={() => {
+                    setCategory(category + 1);
+                  }}
+                />
+              )}
+            </div>
+            {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
             {/* <pre>{JSON.stringify(errors, null, 4)}</pre> */}
           </Form>
         </React.Fragment>

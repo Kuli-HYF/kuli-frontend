@@ -231,7 +231,6 @@ export const SignUp = () => {
                       </option>
                     </Field>
                   </li>
-
                   <li>
                     <div className="check-section">
                       <label className="check-up">
