@@ -1,6 +1,6 @@
 import "./LogIn.css";
 
-import logo from "../../assets/logo.png";
+// import logo from "../../assets/logo.png";
 
 import { useState, useEffect } from "react";
 import React from "react";
@@ -38,14 +38,14 @@ export const LogIn = () => {
   return !users ? (
     <React.Fragment>
       <Navigation />
-      <div className="login">
-        <h1>Loading...</h1>
+      <div className="login-container">
+        <h2>Loading...</h2>
       </div>
     </React.Fragment>
   ) : login[0].id ? (
     <React.Fragment>
       <Navigation />
-      <div className="login">
+      <div className="login-container">
         <div className="congrats">
           {login[0].attributes.firstName ? (
             <h2>Welcome Back {login[0].attributes.firstName}!</h2>
@@ -53,7 +53,7 @@ export const LogIn = () => {
             <h2>Welcome Back {login[0].attributes.email}!</h2>
           )}
         </div>
-        <div className="btn">
+        <div className="login-button-container">
           <Link to="/">
             <Button
               kind="button"
@@ -73,7 +73,7 @@ export const LogIn = () => {
   ) : (
     <React.Fragment>
       <Navigation />
-      <div className="login">
+      <div className="login-container">
         <header></header>
 
         <span className="warning">{warning}</span>
@@ -105,25 +105,25 @@ export const LogIn = () => {
           }}
         >
           {({ values, errors, isSubmitting }) => (
-            <Form className="loginForm">
-              <img src={logo} className="logo" alt="Kuli logo"></img>
-              <div className="welcome">
-                <h1>Welcome to Kuli!</h1>
-                <p>Log in to your Account</p>
+            <Form className="loginForm-container">
+              {/* <img src={logo} className="logo" alt="Kuli logo"></img> */}
+              <div className="login-title-container">
+                <h1 className="login-title">Welcome to Kuli!</h1>
+                <p className="login-subtitle">Log in to your Account</p>
               </div>
 
-              <div className="">
+              <div className="login-input-container">
                 <section>
-                  <ul>
+                  <ul className="login-fields-container">
                     <li>
-                      <label>
+                      <label htmlFor="email">
                         Email <span className="star">*</span>{" "}
                       </label>
                       <Field
                         name="email"
                         type="email"
                         placeholder="Jean@yahoo.com"
-                        className="field"
+                        className="login-field"
                       ></Field>
                       <ErrorMessage
                         component="div"
@@ -132,14 +132,14 @@ export const LogIn = () => {
                       ></ErrorMessage>
                     </li>
                     <li>
-                      <label>
-                        Password <span className="star">*</span>
+                      <label htmlFor="username">
+                        Password <span className="star">*</span>{" "}
                       </label>
                       <Field
                         name="password"
                         type="password"
                         placeholder="Password"
-                        className="field"
+                        className="login-field"
                       ></Field>
                       <ErrorMessage
                         component="div"
@@ -150,11 +150,13 @@ export const LogIn = () => {
                   </ul>
                 </section>
               </div>
-              <div className="btn">
-                <Button kind="submit" color="dark-blue" title="Login"></Button>
+              <div className="login-button-container">
+                <Button
+                  kind="submit"
+                  color="dark-blue login-submit-button"
+                  title="Login"
+                ></Button>
               </div>
-              {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
-              {/* <pre>{JSON.stringify(errors, null, 4)}</pre> */}
             </Form>
           )}
         </Formik>

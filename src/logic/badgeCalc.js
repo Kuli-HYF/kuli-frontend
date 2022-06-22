@@ -3,7 +3,6 @@ import { put } from "../api/put";
 export const badgeCalc = (toCalc, companyId, badgeArray) => {
   // console.log("company id", companyId, "badge array", badgeArray);
   const filtered = toCalc.filter((val) => Number(val[2]) !== 0);
-
   const groups = [];
 
   for (let i = 1; i < filtered.length + 10; i++) {
@@ -35,7 +34,12 @@ export const badgeCalc = (toCalc, companyId, badgeArray) => {
   const sorted = sort[sort.length - 1];
   // console.log("sorting", sort, sorted);
   let toUpdate = {};
-  sorted.average >= 3 ? (toUpdate.badge = sorted.badge) : (toUpdate.badge = 0);
+
+  filtered.length !== 0
+    ? sorted.average >= 3
+      ? (toUpdate.badge = sorted.badge)
+      : (toUpdate.badge = 0)
+    : console.log("empty form");
 
   const badgeId = toUpdate.badge;
 
@@ -43,12 +47,13 @@ export const badgeCalc = (toCalc, companyId, badgeArray) => {
   // const existingBadges = [];
   // existingBadges.push(badgeArray.map((item) => item.id));
   const testArray = [];
+
   badgeArray.map((item) =>
     item === Number(badgeId) ? testArray.push(item) : console.log("screen")
   );
   // console.log("compare", badgeArray, testArray);
 
-  if (badgeId === 0) {
+  if (badgeId === 0 || filtered.length === 0) {
     console.log("no badge to award");
     return;
   }
