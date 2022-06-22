@@ -7,7 +7,6 @@ import { useNavigate, Link } from "react-router-dom";
 
 import { Button } from "../../components/button/Button";
 import { get } from "../../api/get";
-import Navigation from "../../components/navigation/Navigation";
 
 import { badgeCalc } from "../../logic/badgeCalc";
 
@@ -106,68 +105,63 @@ export const Former = () => {
 
   // console.log("before", badgeId.current, companyId);
   return companies.data && badges.data && questions.data ? (
-    <React.Fragment>
-      <Navigation />
-      <h1 className="header" key="743">
-        Loading...
-      </h1>
-    </React.Fragment>
+    <h1 className="header" key="743">
+      Loading...
+    </h1>
   ) : companyId === 0 ? (
-    <React.Fragment>
-      <Navigation></Navigation>
-      <div key="54" className="company">
-        <h2 className="searchHead">
-          Which company would you like to award a Kuli badge?
-        </h2>
-        <span className="warning">{warning.current}</span>
-        <div className="search">
-          <input
-            className="input"
-            type="input"
-            placeholder="Company Name"
-            value={companySearch}
-            onChange={(e) => {
-              setCompanySearch(e.target.value);
-            }}
-          ></input>
-          <Button
-            kind="button"
-            title="Search"
-            color="dark-pink"
-            action={handleSearch}
-          />
-        </div>
-        <div className="search-field">
-          <ul>
-            {companies.map((company) =>
-              companySearch.length === 0 ? (
-                <React.Fragment key={company.id}></React.Fragment>
-              ) : company.attributes.name
-                  .toLowerCase()
-                  .includes(companySearch.toLowerCase()) ? (
-                <li
-                  key={company.id}
-                  onClick={() => setCompanySearch(company.attributes.name)}
-                >
-                  {company.attributes.name}
-                </li>
-              ) : (
-                <React.Fragment key={company.id}></React.Fragment>
-              )
-            )}
-          </ul>
-        </div>
-        {/* <Link to={"/questionnaire"}> */}
+    <div key="54" className="company">
+      <h2 className="searchHead">
+        Which company would you like to award a Kuli badge?
+      </h2>
+      <span className="warning">{warning.current}</span>
+      <div className="search">
+        <input
+          className="input"
+          type="input"
+          placeholder="Company Name"
+          value={companySearch}
+          onChange={(e) => {
+            setCompanySearch(e.target.value);
+          }}
+        ></input>
         <Button
-          title="Go Back"
           kind="button"
-          color="pink-outline"
-          action={handleReturn}
-          // action={() => {setWarning("");}}
+          title="Search"
+          color="dark-pink"
+          action={handleSearch}
         />
-        {/* </Link> */}
       </div>
-    </React.Fragment>
+      <div className="search-field">
+        {" "}
+        <ul>
+          {companies.map((company) =>
+            companySearch.length === 0 ? (
+              <React.Fragment key={company.id}></React.Fragment>
+            ) : company.attributes.name
+                .toLowerCase()
+                .includes(companySearch.toLowerCase()) ? (
+              <li
+                key={company.id}
+                onClick={() => setCompanySearch(company.attributes.name)}
+              >
+                {company.attributes.name}
+              </li>
+            ) : (
+              <React.Fragment key={company.id}></React.Fragment>
+            )
+          )}
+        </ul>
+      </div>
+      {/* <Link to={"/questionnaire"}> */}
+      <Button
+        title="Go Back"
+        kind="button"
+        color="pink-outline"
+        action={handleReturn}
+        // action={() => {setWarning("");}}
+      />
+      {/* </Link> */}
+    </div>
   ) : (
     <Formik
       validationSchema={object({
@@ -181,7 +175,7 @@ export const Former = () => {
           setTimeout(() => {
             setAnswers(values.checked);
             if (toSubmit.current === true) {
-              // console.log("submitting", answers, companyId, badgeId.current);
+              console.log("submitting", answers, companyId, badgeId.current);
               // badgeId.current= companies[companyId].attributes.badges.data;
               badgeCalc(answers, companyId, badgeId.current);
               toSubmit.current = false;
@@ -193,122 +187,107 @@ export const Former = () => {
       }}
     >
       {({ values, errors, touched, isSubmitting }) => (
-        <React.Fragment>
-          <Navigation></Navigation>
-          <Form>
-            <div className="questionnaire">
-              {category === badges.length || (!badges && !questions) ? (
-                <h1 className="head-confirm">Please confirm your choices</h1>
-              ) : (
-                <React.Fragment key="93" />
-              )}
-              <h1 className="head-quest" key="20">
-                {badges[category]}
-              </h1>
-              {!badges && !questions ? (
-                <h1 className="head-confirm" key="30">
-                  Loading...
-                </h1>
-              ) : category === badges.length ? (
-                questions.map((quest) =>
-                  quest.selections.map((sel) =>
-                    answers.includes(sel.score) ? (
-                      <div className="confirm-section" key={sel.id}>
-                        <h4 className="h-quest">{quest.prompt}</h4>
-                        <p className="confirm-p">{sel.answer}</p>
-                      </div>
-                    ) : (
-                      <React.Fragment key={sel.id} />
-                    )
-                  )
-                )
-              ) : (
-                questions.map((question) =>
-                  question.badge !== badges[category] ? (
-                    <React.Fragment key={question.id} />
+        <Form>
+          <div className="questionnaire">
+            {category === badges.length || (!badges && !questions) ? (
+              <h1>Please confirm your choices</h1>
+            ) : (
+              <React.Fragment key="93" />
+            )}
+            <h1 className="header" key="20">
+              {badges[category]}
+            </h1>
+            {!badges && !questions ? (
+              <h1 key="30">Loading...</h1>
+            ) : category === badges.length ? (
+              questions.map((quest) =>
+                quest.selections.map((sel) =>
+                  answers.includes(sel.score) ? (
+                    <div key={sel.id}>
+                      <h3>{quest.prompt}</h3>
+                      <p className="confirm">{sel.answer}</p>
+                    </div>
                   ) : (
-                    <React.Fragment key={question.id}>
-                      <h4 className="h-up">{question.prompt}</h4>
-                      <div className="check-section-q">
-                        {question.selections.map((answer) => (
-                          <React.Fragment key={answer.id}>
-                            <div className="row">
-                              <label className="check-up-q">
-                                <Field
-                                  component="input"
-                                  type="checkbox"
-                                  name="checked"
-                                  {...(touched.checked && errors.checked
-                                    ? errors.checked
-                                    : null)}
-                                  value={answer.score}
-                                />
-                                <span className="circle-q"></span>
-                              </label>
-                              <p className="p-quest">{answer.answer}</p>
-                            </div>
-                          </React.Fragment>
-                        ))}
-                      </div>
-                    </React.Fragment>
+                    <React.Fragment key={sel.id} />
                   )
                 )
-              )}
-            </div>
-            <div className="btn-quest">
-              {category === 0 ? (
-                <Link to={"/form"}>
-                  <Button
-                    title="Return"
-                    kind="button"
-                    color="dark-pink"
-                    action={() => {
-                      setCompanyId(0);
-                      setCompanySearch("");
-                    }}
-                  />
-                </Link>
-              ) : (
-                <Button
-                  color="dark-pink"
-                  title="Back"
-                  kind="button"
-                  action={handleBack}
-                />
-              )}
-              {category === badges.length ? (
-                <Button
-                  title="Submit"
-                  kind="submit"
-                  color="dark-blue"
-                  disabled={isSubmitting}
-                  action={() => (toSubmit.current = true)}
-                />
-              ) : category === badges.length - 1 ? (
-                <Button
-                  title="Confirm"
-                  kind="button"
-                  color="dark-blue"
-                  action={() => {
-                    setCategory(category + 1);
-                  }}
-                />
-              ) : (
-                <Button
-                  title="Next"
-                  kind="button"
-                  color="dark-blue"
-                  action={() => {
-                    setCategory(category + 1);
-                  }}
-                />
-              )}
-            </div>
-            {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
-            {/* <pre>{JSON.stringify(errors, null, 4)}</pre> */}
-          </Form>
-        </React.Fragment>
+              )
+            ) : (
+              questions.map((question) =>
+                question.badge !== badges[category] ? (
+                  <React.Fragment key={question.id} />
+                ) : (
+                  <div key={question.id}>
+                    <p className="question">{question.prompt}</p>
+                    {question.selections.map((answer) => (
+                      <label className="batch" key={answer.id}>
+                        <Field
+                          type="checkbox"
+                          name="checked"
+                          {...(touched.checked && errors.checked
+                            ? errors.checked
+                            : null)}
+                          value={answer.score}
+                        />
+                        <p className="answer">{answer.answer}</p>
+                      </label>
+                    ))}
+                  </div>
+                )
+              )
+            )}
+          </div>
+          {category === 0 ? (
+            <Link to={"/form"}>
+              <Button
+                title="Return"
+                kind="button"
+                color="dark-pink"
+                action={() => {
+                  setCompanyId(0);
+                  setCompanySearch("");
+                }}
+              />
+            </Link>
+          ) : (
+            <Button
+              color="dark-pink"
+              title="Back"
+              kind="button"
+              action={handleBack}
+            />
+          )}
+          {category === badges.length ? (
+            <Button
+              title="Submit"
+              kind="submit"
+              color="dark-blue"
+              disabled={isSubmitting}
+              action={() => (toSubmit.current = true)}
+            />
+          ) : category === badges.length - 1 ? (
+            <Button
+              title="Confirm"
+              kind="button"
+              color="dark-blue"
+              action={() => {
+                setCategory(category + 1);
+              }}
+            />
+          ) : (
+            <Button
+              title="Next"
+              kind="button"
+              color="dark-blue"
+              action={() => {
+                setCategory(category + 1);
+              }}
+            />
+          )}
+          {/* <pre>{JSON.stringify(errors, null, 4)}</pre> */}
+        </Form>
       )}
     </Formik>
   );
 };
+>>>>>>> c2091845a46ac5a0692a801764de9a392d513c35

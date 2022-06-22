@@ -11,20 +11,21 @@ export const Congratulate = () => {
   const login = useGlobalState("userLoggedIn");
   // console.log(login[0], Boolean(login[0].id));
   return (
-    <React.Fragment>
+    <>
       <Navigation />
+
       <div className="wrap">
         <div>
           <h1 className="header">Thank You!</h1>
-          <h3 className="sub-head">Your feedback was submitted successfully</h3>
+          <h3 className="subHead">Your feedback was submitted successfully</h3>
         </div>
         <div className="cta">
           {!login[0].id ? (
-            <div className="p-box">
-              <h4 className="pr">
+            <div className="boxed">
+              <p className="par">
                 Become an official member of the Kuli community (sign-up can be
                 done anonymously)
-              </h4>
+              </p>
               <Link to="/sign-up">
                 <Button color="dark-blue" title="Sign Up" />
               </Link>
@@ -32,17 +33,17 @@ export const Congratulate = () => {
           ) : (
             <React.Fragment></React.Fragment>
           )}
-          <div className="p-box">
-            <h4 className="pr">
+          <div className="boxed">
+            <p className="par">
               Browse our growing library of companies and badges and find your
               next match
-            </h4>
+            </p>
             <Link to="/">
               <Button color="dark-pink" title="Explore Kuli" />
             </Link>
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
