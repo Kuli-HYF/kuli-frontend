@@ -44,7 +44,7 @@ const CompanyDetail = () => {
   return (
     <div className="main-container">
       <Navigation />
-      <div className="company-container">
+      <div className="company-detail-container">
         <div className="company-card">
           <div className="company-header__container">
             <div className="company-title__container">
