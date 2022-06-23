@@ -87,8 +87,8 @@ const CompanyHome = () => {
 
   const handleSectors = (e) => {
     const { checked, value } = e.target;
-    const sectorId = e.currentTarget.id;
-    const sectorNumber = parseInt(sectorId, 10);
+    // const sectorId = e.currentTarget.id;
+    // const sectorNumber = parseInt(sectorId, 10);
 
     // console.log(checked, value);
     // console.log(e.target);

@@ -1,5 +1,5 @@
 const CompanyListItem = ({ company }) => {
-  console.log(company.attributes.badges.data);
+  // console.log(company.attributes.badges.data);
   return (
     <>
       <div className="company-list-header">
@@ -11,6 +11,7 @@ const CompanyListItem = ({ company }) => {
               key={i}
               className="company-list-image"
               src={el.attributes.image.data.attributes.formats.small.url}
+              alt="Kuli badge"
             ></img>
           ))}
         </div>

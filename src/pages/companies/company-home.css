@@ -200,6 +200,22 @@
   opacity: 1;
 }
 
+.company-paginate-wrapper{
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+.company-paginate-container{
+  display: flex;
+  justify-content: center;
+  width: 300px;
+}
+
+.company-paginate-container li{
+  list-style-type: none;
+}
+
+
 
 
 @media (max-width: 1324px) {
