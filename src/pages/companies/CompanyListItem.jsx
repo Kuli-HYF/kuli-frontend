@@ -6,8 +6,9 @@ const CompanyListItem = ({ company }) => {
         <h4 className="company-list-title">{company.attributes.name}</h4>
 
         <div className="company-list-image-container">
-          {company.attributes.badges.data.map((el) => (
+          {company.attributes.badges.data.map((el, i) => (
             <img
+              key={i}
               className="company-list-image"
               src={el.attributes.image.data.attributes.formats.small.url}
             ></img>

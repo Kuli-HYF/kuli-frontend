@@ -12,23 +12,25 @@
   height: 100vh;
   /* height: calc(100vh - 80px); */
   margin: 0 auto;
-  padding-top: 80px;
+  /* padding-top: 80px; */
   padding-inline: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.header-content-container{
+.header-content-container {
   height: calc(100vh - 80px);
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  padding-top: 10%;
 }
 
 .header-left {
   width: 50%;
+  padding-top: 2%;
 }
 
 .header-illustration-container {
@@ -98,6 +100,9 @@ h1 {
 
 .dark-pink:hover {
   background-color: var(--dark-pink-hsl-darker);
+}
+
+@media (max-width: 1500) {
 }
 
 @media (max-width: 1324px) {

@@ -200,7 +200,13 @@
   opacity: 1;
 }
 
-@media (max-width: 800px) {
+
+
+@media (max-width: 1324px) {
+
+}
+
+@media (max-width: 992px) {
   .company-content-container {
     padding-inline: 24px;
   }
@@ -220,4 +226,22 @@
     /* grid-column: span 12; */
     width: 100%;
   }
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 640px) {
+
+}
+
+@media (max-width: 576px) {
+
+  
+  .company-list-image-container{
+    flex-direction: column;
+  }
+
 }
