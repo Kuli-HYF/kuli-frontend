@@ -28,6 +28,7 @@ export const Former = () => {
   const toSearch = useRef("");
   const badgeId = useRef([]);
   const warning = useRef("");
+  const dummy = useRef(0);
 
   const fetchCompanies = async () => {
     const promiseCompany = await get("companies?populate=badges");
@@ -53,7 +54,7 @@ export const Former = () => {
   }, []);
 
   const handleBack = () => {
-    category > 0 ? setCategory(category - 1) : console.log(category);
+    category > 0 ? setCategory(category - 1) : dummy.current = 1;
   };
 
   const handleSearch = (event) => {
@@ -100,7 +101,7 @@ export const Former = () => {
 
     badgesArray[0].length !== 0
       ? (badgeId.current = badgesArray[0].map((one) => one.id))
-      : console.log("NO badges", badgeId.current);
+      : console.log();
     // console.log("set badges", badgeId.current, badgesArray);
   }
 

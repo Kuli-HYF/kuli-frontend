@@ -23,7 +23,7 @@ const CompanyFilterBar = ({
           handleInput={handleInput}
         />
 
-        <List title={"filter badges"}>
+        <List title={"Filter badges"}>
           <ListItem
             object={badges}
             handleOnChange={handleBadges}
@@ -35,7 +35,7 @@ const CompanyFilterBar = ({
 
         <hr className="filter-line"></hr>
 
-        <List title={"filter sectors"}>
+        <List title={"Filter sectors"}>
           <ListItem
             object={sectors}
             handleOnChange={handleSectors}
