@@ -21,8 +21,6 @@ const CompanyHome = () => {
   // const [count, setCount] = useState(1);
   // const [checked, setChecked] = useState(false)
 
-
-  
   const fetchCompanies = async () => {
     // const sort = order ? "desc" : "asc";
     // const pageStart = 1;
