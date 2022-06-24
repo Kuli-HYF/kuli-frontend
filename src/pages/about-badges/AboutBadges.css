@@ -83,11 +83,18 @@
 .badge__text-container p {
   margin: 0 0 16px 0;
   text-align: justify;
+  padding: 20px 20px 20px 20px;
 }
 
 .badge__img-container {
-  width: 32%;
-  min-width: 320px;
+  /* width: 32%; */
+  min-width: 260px;
+  display: flex;
+  justify-content: center;
+}
+
+.badge__img-container img {
+  max-width: 200px;
 }
 
 /* Badge 1 */
@@ -95,8 +102,9 @@
 .content1-container {
   display: flex;
   flex-direction: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
+  justify-content: center;
+  margin-top: 60px;
+  gap: 60px;
 }
 
 @media (max-width: 900px) {
@@ -116,8 +124,9 @@
 .content2-container {
   display: flex;
   flex-direction: row-reverse;
-  flex-wrap: wrap;
-  margin-top: 20px;
+  justify-content: center;
+  margin-top: 60px;
+  gap: 60px;
 }
 
 @media (max-width: 900px) {
@@ -137,8 +146,9 @@
 .content3-container {
   display: flex;
   flex-direction: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
+  justify-content: center;
+  margin-top: 60px;
+  gap: 60px;
 }
 
 @media (max-width: 900px) {
@@ -158,8 +168,9 @@
 .content4-container {
   display: flex;
   flex-direction: row-reverse;
-  flex-wrap: wrap;
-  margin-top: 20px;
+  justify-content: center;
+  margin-top: 60px;
+  gap: 60px;
 }
 
 @media (max-width: 900px) {
