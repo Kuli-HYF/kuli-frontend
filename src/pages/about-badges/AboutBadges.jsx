@@ -49,7 +49,7 @@ export const AboutBadges = () => (
                 <div className="content1-container">
                   <div className="badge__img-container">
                     <img
-                      src="https://res.cloudinary.com/doz3koti5/image/upload/v1655159113/logo_e314104866.png"
+                      src="https://res.cloudinary.com/doz3koti5/image/upload/v1656076881/kuli_badge_purple_58a8eac3f9.svg?updated_at=2022-06-24T13:21:22.979Z"
                       alt="badge"
                     />
                   </div>
@@ -84,7 +84,7 @@ export const AboutBadges = () => (
                 <div className="content2-container">
                   <div className="badge__img-container">
                     <img
-                      src="https://res.cloudinary.com/doz3koti5/image/upload/v1655159113/logo_e314104866.png"
+                      src="https://res.cloudinary.com/doz3koti5/image/upload/v1656076881/kuli_badge_green_ff05bf9d9d.svg?updated_at=2022-06-24T13:21:23.020Z"
                       alt="badge"
                     />
                   </div>
@@ -118,7 +118,7 @@ export const AboutBadges = () => (
                 <div className="content3-container">
                   <div className="badge__img-container">
                     <img
-                      src="https://res.cloudinary.com/doz3koti5/image/upload/v1655159113/logo_e314104866.png"
+                      src="https://res.cloudinary.com/doz3koti5/image/upload/v1656076881/kuli_badge_red_0f9d592c12.svg?updated_at=2022-06-24T13:21:23.269Z"
                       alt="badge"
                     />
                   </div>
@@ -149,7 +149,7 @@ export const AboutBadges = () => (
                 <div className="content4-container">
                   <div className="badge__img-container">
                     <img
-                      src="https://res.cloudinary.com/doz3koti5/image/upload/v1655159113/logo_e314104866.png"
+                      src="https://res.cloudinary.com/doz3koti5/image/upload/v1656076881/kuli_badge_blue_43e2a6a69e.svg?updated_at=2022-06-24T13:21:23.148Z"
                       alt="badge"
                     />
                   </div>

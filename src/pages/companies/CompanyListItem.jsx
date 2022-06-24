@@ -10,7 +10,7 @@ const CompanyListItem = ({ company }) => {
             <img
               key={i}
               className="company-list-image"
-              src={el.attributes.image.data.attributes.formats.small.url}
+              src={el.attributes.image.data.attributes.url}
               alt="Kuli badge"
             ></img>
           ))}
