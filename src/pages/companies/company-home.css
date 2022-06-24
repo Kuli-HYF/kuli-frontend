@@ -82,21 +82,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 6px;
 }
 
 .company-list-image-container {
   display: flex;
+  gap: 8px;
 }
 
 .company-list-title {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--dark-blue);
-  margin-bottom: 6px;
 }
 
 .company-list-image {
-  width: 50px;
+  width: 30px;
 }
 
 .company-list-location {
@@ -119,17 +120,16 @@
   font-size: 1rem;
 }
 
-.disabled{
+.disabled {
   display: none;
 }
 
-.company-order-button{
+.company-order-button {
   background-color: var(--dark-blue);
   margin: 0;
   font-size: 0.8rem;
   width: 60px;
   padding: 4px;
-
 }
 
 .badges-container {
