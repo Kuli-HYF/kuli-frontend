@@ -14,6 +14,8 @@ const CompanyList = ({ companies, selectedCompanies, handleOrder }) => {
     setCurrentItems(selectedCompanies.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(selectedCompanies.length / itemsPerPage));
 
+    console.log(itemOffset)
+
     if (selectedCompanies.length < 9) {
       setItemOffset(0);
     }
@@ -24,7 +26,7 @@ const CompanyList = ({ companies, selectedCompanies, handleOrder }) => {
 
     setItemOffset(newOffset);
 
-    console.log(pageCount);
+    // console.log(pageCount);
   };
 
   return (
