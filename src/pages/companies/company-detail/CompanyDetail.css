@@ -3,22 +3,16 @@
 }
 
 .company-detail-container {
-  max-width: 100%;
+  /* max-width: 100%;
   padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: fit-content;
+  height: fit-content; */
   padding-top: 200px;
   margin: 0 auto;
   padding-inline: 64px;
-}
-
-.company-detail-line {
-  width: 100%;
-  border: 1px solid var(--light-blue);
-  margin-bottom: 24px;
 }
 
 .company-card {
@@ -46,25 +40,24 @@
 }
 
 .company-info__container {
-  width: 90%;
-  /* padding-inline: 24px; */
-
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   gap: 20px;
   /* flex-wrap: wrap; */
 }
 
 .company-badges {
+  max-width: 1200px;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
   height: -moz-fit-content;
   height: fit-content;
-  width: 100%;
   margin-top: 60px;
   margin-bottom: 24px;
   border-radius: 8px;
@@ -88,12 +81,18 @@
 }
 
 .company-badges__container {
-  max-width: 90%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
   margin-top: 24px;
   flex-wrap: wrap;
+}
+
+.company-detail-line {
+  width: 100%;
+  border: 1px solid var(--light-blue);
+  margin-bottom: 24px;
 }
 
 .company-sector__container {
@@ -141,16 +140,6 @@
   margin-top: 20px;
 }
 
-/* .company-detail-badges-title {
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-.company-detail-badges-title {
-  font-size: 2rem;
-  font-weight: 600;
-} */
-
 .company-detail-badge {
   height: fit-content;
   max-width: 240px;
@@ -171,4 +160,9 @@
   justify-content: center;
   gap: 24px;
   width: 90%;
+}
+
+.no-badges {
+  margin-top: 0px !important;
+  margin-bottom: 24px;
 }

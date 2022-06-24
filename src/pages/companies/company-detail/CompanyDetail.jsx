@@ -91,7 +91,7 @@ const CompanyDetail = () => {
                 {badge && badge.length > 0 ? (
                   badge.map((el, i) => <CompanyBadge badge={el} key={i} />)
                 ) : (
-                  <p>No badges have been awarded yet</p>
+                  <p className="no-badges">No badges have been awarded yet</p>
                 )}
               </div>
             </div>
