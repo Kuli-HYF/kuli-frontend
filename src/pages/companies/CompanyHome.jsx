@@ -21,8 +21,6 @@ const CompanyHome = () => {
   // const [count, setCount] = useState(1);
   // const [checked, setChecked] = useState(false)
 
-
-  
   const fetchCompanies = async () => {
     // const sort = order ? "desc" : "asc";
     // const pageStart = 1;
@@ -34,7 +32,7 @@ const CompanyHome = () => {
       `companies?sort[0]=name:asc&populate[badges][populate]=*&populate[location][populate]=*&populate[sectors][populate]=*`
     );
     setCompanies(result.data);
-    console.log(result.data);
+    // console.log(result.data);
   };
 
   const fetchBadges = async () => {
