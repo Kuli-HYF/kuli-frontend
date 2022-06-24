@@ -2,12 +2,22 @@
   height: 100%;
 }
 
-.company-container {
-  padding-top: 160px;
+.company-detail-container {
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  height: fit-content;
+}
+
+.company-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  background-color: hsl(220, 50%, 97%);
+  padding: 40px 40px 40px 40px;
 }
 
 .company-header__container {
@@ -20,18 +30,79 @@
 
 .company-info__container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 70%;
-  flex-wrap: wrap;
-  gap: 8%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  /* flex-wrap: wrap; */
+}
 
+.company-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: white;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  padding: 20px 20px 20px 20px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
+    rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+}
+
+.company-badges p {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.company-badges h2 {
+  margin-bottom: 24px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--dark-blue);
+  font-family: "Mulish", sans-serif;
 }
 
 .company-badges__container {
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .company-sector__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: white;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
+    rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+}
 
+.company-sector__container p {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.company-sector__container h3 {
+  margin-bottom: 24px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--dark-blue);
+  font-family: "Mulish", sans-serif;
 }
