@@ -24,7 +24,7 @@ const FormStart = () => {
     fetchData();
   }, []);
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="container">

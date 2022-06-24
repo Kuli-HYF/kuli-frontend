@@ -16,7 +16,7 @@ export const badgeCalc = (toCalc, companyId, badgeArray) => {
   const scores = groups.filter((group) => group.length !== 0);
   // console.log("filterd", groups, scores);
   const totals = [];
-  
+
   // console.log("badge array", badges[0]);
   scores.map((score) => {
     const total = {};
@@ -27,47 +27,80 @@ export const badgeCalc = (toCalc, companyId, badgeArray) => {
     const average = sum / score.length;
     total.average = average;
     totals.push(total);
-    return dummy
+    return dummy;
   });
 
-  const sort = totals.sort((a, b) => a.average - b.average);
+  // const sort = totals.sort((a, b) => a.average - b.average);
 
-  const sorted = sort[sort.length - 1];
-  // console.log("sorting", sort, sorted);
-  let toUpdate = {};
+  // const sorted = sort[sort.length - 1];
 
+  /*
   filtered.length !== 0
     ? sorted.average >= 3
       ? (toUpdate.badge = sorted.badge)
       : (toUpdate.badge = 0)
-    : dummy = 1;
+    : (dummy = 1);
+*/
 
-  const badgeId = toUpdate.badge;
-
-  // console.log("to update", toUpdate, badgeId);
-  // const existingBadges = [];
-  // existingBadges.push(badgeArray.map((item) => item.id));
+  /*
   const testArray = [];
 
   badgeArray.map((item) =>
-    item === Number(badgeId) ? testArray.push(item) : dummy = 2
+    item === Number(badgeId) ? testArray.push(item) : (dummy = 2)
   );
   // console.log("compare", badgeArray, testArray);
+*/
 
-  if (badgeId === 0 || filtered.length === 0) {
-    dummy = 3;
-    return;
-  }
+  // const badgeId = toUpdate.badge;
+
+  /*
   if (testArray.length !== 0) {
     dummy = 4;
     return;
+    }
+*/
+
+  // console.log("averages", totals);
+  // let toUpdate = {};
+  const badgesList = [];
+
+  filtered.length !== 0
+    ? totals.map((one) =>
+        one.average >= 3 ? badgesList.push(one.badge) : (dummy = 2)
+      )
+    : (dummy = 1);
+
+  const actualBadge = [];
+
+  badgesList.map((one) =>
+    badgeArray.includes(Number(one))
+      ? (dummy = 3)
+      : actualBadge.push(Number(one))
+  );
+
+  // console.log("badges array", badgesList);
+  // console.log("to award", actualBadge);
+
+  // toUpdate.badges = newBadges;
+
+  // console.log("combined array", newBadges);
+
+  // console.log("to update", newBadges);
+  // const existingBadges = [];
+  // existingBadges.push(badgeArray.map((item) => item.id));
+
+  if (filtered.length === 0 || actualBadge.length === 0) {
+    return;
   } else {
+    const newBadges = badgeArray.concat(actualBadge);
+
+    /*
     badgeArray.push(Number(badgeId));
     dummy = 5;
-
-    const awardBadge = async (companyId, badgeArray) => {
+*/
+    const awardBadge = async (companyId, newBadges) => {
       const idArray = [];
-      badgeArray.map((item) => idArray.push({ id: item }));
+      newBadges.map((item) => idArray.push({ id: item }));
       // console.log("to send", idArray);
       const search = `companies/${companyId}/?populate=badges`;
       const body = {
@@ -78,6 +111,6 @@ export const badgeCalc = (toCalc, companyId, badgeArray) => {
       const result = await put(search, body);
       dummy = result;
     };
-    awardBadge(companyId, badgeArray);
+    awardBadge(companyId, newBadges);
   }
 };
