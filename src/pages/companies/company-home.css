@@ -142,13 +142,14 @@
   padding: 6px 12px;
   margin-bottom: 4px;
   margin-right: 6px;
-  background-color: var(--light-blue);
+  background-color: hsl(220, 50%, 80%);
   border-radius: 24px;
   text-align: center;
 }
 
 .filter-badge p {
   font-size: 0.8rem;
+  color: white;
 }
 
 .filterlist-container label {
@@ -194,20 +195,20 @@
 }
 
 .Work {
-  background-color: hsla(140, 40%, 34%, 1);
+  background-color: #71b134;
   /* opacity: 0.5; */
 }
 
 .Employment {
-  background-color: hsla(292, 79%, 30%, 0.7);
+  background-color: #8e336e;
 }
 
 .Health {
-  background-color: hsla(354, 86%, 54%, 0.7);
+  background-color: #e52f22;
 }
 
 .Governance {
-  background-color: hsla(191, 95%, 34%, 0.7);
+  background-color: #0e8993;
 }
 
 .filter-name {
