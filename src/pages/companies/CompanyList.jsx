@@ -33,9 +33,9 @@ const CompanyList = ({ companies, selectedCompanies, handleOrder }) => {
         <>
           <div className="company-list-topbar">
             <p>{`Total companies found: ${selectedCompanies.length}`}</p>
-            <button className="company-order-button" onClick={handleOrder}>
+            {/* <button className="company-order-button" onClick={handleOrder}>
               A ⇄ Z
-            </button>
+            </button> */}
           </div>
           {currentItems.map((company) => (
             <div key={company.id} className="company-list-item">

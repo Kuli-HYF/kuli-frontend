@@ -17,22 +17,24 @@ const CompanyHome = () => {
   const [sectors, setSectors] = useState([]);
   const [selectedSectors, setSelectedSectors] = useState([]);
   const [selectedCompanies, setSelectedCompanies] = useState(companies);
-  const [order, setOrder] = useState(false);
-  const [count, setCount] = useState(1);
+  // const [order, setOrder] = useState(false);
+  // const [count, setCount] = useState(1);
   // const [checked, setChecked] = useState(false)
 
+
+  
   const fetchCompanies = async () => {
-    const sort = order ? "desc" : "asc";
+    // const sort = order ? "desc" : "asc";
     // const pageStart = 1;
     // const pageCount = 4;
     // console.log(sort);
     const result = await get(
       // `companies?sort[0]=name:${sort}&pagination[page]=${count}&pagination[pageSize]=${pageCount}&populate[badges][populate]=*&populate[location][populate]=*&populate[sectors][populate]=*`
 
-      `companies?sort[0]=name:${sort}&populate[badges][populate]=*&populate[location][populate]=*&populate[sectors][populate]=*`
+      `companies?sort[0]=name:asc&populate[badges][populate]=*&populate[location][populate]=*&populate[sectors][populate]=*`
     );
     setCompanies(result.data);
-    console.log(result.data);
+    // console.log(result.data);
   };
 
   const fetchBadges = async () => {
@@ -51,19 +53,19 @@ const CompanyHome = () => {
     fetchSectors();
   }, []);
 
-  useEffect(() => {
-    fetchCompanies();
-  }, [order, count]);
+  // useEffect(() => {
+  //   fetchCompanies();
+  // }, [order]);
 
   const handleInput = (e) => {
     setSearchInput(e.target.value);
   };
 
-  const handleOrder = () => {
-    setOrder(!order);
-    fetchCompanies();
-    console.log(order);
-  };
+  // const handleOrder = () => {
+  //   setOrder(!order);
+  //   fetchCompanies();
+  //   // console.log(order);
+  // };
 
   const handleBadges = (e) => {
     const { checked, value } = e.target;
@@ -167,7 +169,7 @@ const CompanyHome = () => {
               companies={companies}
               selectedCompanies={selectedCompanies}
               searchInput={searchInput}
-              handleOrder={handleOrder}
+              // handleOrder={handleOrder}
             />
           </div>
           {/* <button onClick={clearFilters}></button> */}
