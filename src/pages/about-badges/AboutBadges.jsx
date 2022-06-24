@@ -14,7 +14,6 @@ export const AboutBadges = () => (
       render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>
-            
             <div className="section">
               <div className="about-badges__container">
                 <div className="about-badges__title-container">
@@ -56,18 +55,17 @@ export const AboutBadges = () => (
 
                   <div className="badge__text-container">
                     <p>
-                      Studies have demonstrated a link between an organization’s
-                      performance and the level of diversity of its governing
-                      body. Organizations need to expand this process and ensure
-                      that both women and men are represented at key positions
-                      throughout the administration. Having a gender balanced
-                      senior management also sends a strong message to
-                      employees, that the organization’s commitment to diversity
-                      is not just a marketing ploy, but an actual strategic
-                      corporate value. <br></br>
-                      <br></br>Organizations awarded this badge have a strong
-                      Gender Equality and Diversity culture at every level,
-                      including their managerial and administrative positions.
+                      The gender pay gap is the difference in men's and women's
+                      average earnings. It is the result of a variety of forms
+                      of gender discrimination in the workplace, intentional and
+                      unintentional. These include discrimination in hiring,
+                      promotion and pay. The gender pay gap exists, partly,
+                      because many women are still segregated into lower paying
+                      jobs or are paid less than their male colleagues, even for
+                      the same type of job. <br></br>
+                      <br></br>Organizations that earned this badge are aware of
+                      this and promote an "equal pay for work of equal value"
+                      policy.
                     </p>
                   </div>
                 </div>
@@ -173,7 +171,6 @@ export const AboutBadges = () => (
                 </div>
               </div>
             </div>
-
           </ReactFullpage.Wrapper>
         );
       }}
