@@ -12,7 +12,6 @@ export const AboutUs = () => {
   const fetchTeamMembers = async () => {
     const result = await get("about-us?populate[teamMembers][populate]=*");
     setTeamMembers(result.data);
-    console.log(result.data);
   };
 
   useEffect(() => {

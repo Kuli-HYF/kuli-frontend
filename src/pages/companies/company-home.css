@@ -53,7 +53,6 @@
   padding: 16px;
 }
 
-
 .filterlist-container {
   margin-bottom: 40px;
 }
@@ -79,11 +78,25 @@
   padding: 20px;
 }
 
+.company-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.company-list-image-container {
+  display: flex;
+}
+
 .company-list-title {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--dark-blue);
   margin-bottom: 6px;
+}
+
+.company-list-image {
+  width: 50px;
 }
 
 .company-list-location {
@@ -98,10 +111,25 @@
   margin-top: 8px;
 }
 
-.companies-found {
+.company-list-topbar {
   color: var(--dark-blue);
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 24px;
   font-size: 1rem;
+}
+
+.disabled{
+  display: none;
+}
+
+.company-order-button{
+  background-color: var(--dark-blue);
+  margin: 0;
+  font-size: 0.8rem;
+  width: 60px;
+  padding: 4px;
+
 }
 
 .badges-container {
@@ -111,7 +139,7 @@
 }
 
 .filter-badge {
-  padding: 6px;
+  padding: 6px 12px;
   margin-bottom: 4px;
   margin-right: 6px;
   background-color: var(--light-blue);
@@ -152,11 +180,9 @@
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
-.company-list-item a:hover{
-  background-color:  hsl(220, 50%, 99%);
-  ;
+.company-list-item a:hover {
+  background-color: hsl(220, 50%, 99%);
 }
-
 
 .search-input {
   width: 100%;
@@ -167,7 +193,47 @@
   border: 1px solid var(--light-blue);
 }
 
-@media (max-width: 800px) {
+.Work {
+  background-color: hsla(140, 40%, 34%, 1);
+  /* opacity: 0.5; */
+}
+
+.Employment {
+  background-color: hsla(292, 79%, 30%, 0.7);
+}
+
+.Health {
+  background-color: hsla(354, 86%, 54%, 0.7);
+}
+
+.Governance {
+  background-color: hsla(191, 95%, 34%, 0.7);
+}
+
+.filter-name {
+  color: white;
+  opacity: 1;
+}
+
+.company-paginate-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.company-paginate-container {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+}
+
+.company-paginate-container li {
+  list-style-type: none;
+}
+
+@media (max-width: 1324px) {
+}
+
+@media (max-width: 992px) {
   .company-content-container {
     padding-inline: 24px;
   }
@@ -186,5 +252,17 @@
   .company-list-container {
     /* grid-column: span 12; */
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 640px) {
+}
+
+@media (max-width: 576px) {
+  .company-list-image-container {
+    flex-direction: column;
   }
 }
