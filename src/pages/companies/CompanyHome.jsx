@@ -34,7 +34,7 @@ const CompanyHome = () => {
       `companies?sort[0]=name:asc&populate[badges][populate]=*&populate[location][populate]=*&populate[sectors][populate]=*`
     );
     setCompanies(result.data);
-    // console.log(result.data);
+    console.log(result.data);
   };
 
   const fetchBadges = async () => {
