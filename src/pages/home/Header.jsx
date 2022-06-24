@@ -2,7 +2,7 @@ import "./home.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import kuliHeader from "../../assets/kuli-main.png";
+import kuliHeader from "../../assets/kuli-main-v2.png";
 // import logo from "../../assets/logo.png";
 
 import { Button } from "../../components/button/Button";
