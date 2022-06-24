@@ -3,12 +3,7 @@ import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import CompanyListItem from "./CompanyListItem";
 
-const CompanyList = ({
-  companies,
-  selectedCompanies,
-  handleOrder
-
-}) => {
+const CompanyList = ({ companies, selectedCompanies, handleOrder }) => {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
@@ -18,10 +13,11 @@ const CompanyList = ({
     let endOffset = itemOffset + itemsPerPage;
     setCurrentItems(selectedCompanies.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(selectedCompanies.length / itemsPerPage));
-    if (selectedCompanies.length < 8) {
+
+    if (selectedCompanies.length < 9) {
       setItemOffset(0);
     }
-  }, [itemOffset, itemsPerPage, selectedCompanies]);
+  }, [itemOffset, itemsPerPage, selectedCompanies, pageCount]);
 
   const handlePageClick = (event) => {
     let newOffset = (event.selected * itemsPerPage) % selectedCompanies.length;
