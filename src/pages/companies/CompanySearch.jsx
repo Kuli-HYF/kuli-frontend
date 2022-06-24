@@ -13,7 +13,7 @@ const CompanySearch = ({
           type="input"
           value={search}
           onChange={handleInput}
-          placeholder="search"
+          placeholder="Search"
         ></input>
 
         {/* {value && <div className="search-output-container">{`you searched for: ${value}`}</div>} */}

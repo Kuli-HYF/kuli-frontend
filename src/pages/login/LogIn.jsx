@@ -80,7 +80,6 @@ export const LogIn = () => {
       <div className="login-container">
         <header></header>
 
-        <span className="warning">{warning}</span>
         <Formik
           validationSchema={object({
             email: string().required("Required Field"),
@@ -115,7 +114,7 @@ export const LogIn = () => {
                 <h1 className="login-title">Welcome to Kuli!</h1>
                 <p className="login-subtitle">Log in to your Account</p>
               </div>
-
+              <span className="warning">{warning}</span>
               <div className="login-input-container">
                 <section>
                   <ul className="login-fields-container">

@@ -38,8 +38,8 @@ const CompanyDetail = () => {
     fetchDataBadge();
   }, [fetchDataCompany, fetchDataBadge]);
 
-  console.log(company);
-  console.log("badge: ", badge);
+  // console.log(company);
+  // console.log("badge: ", badge);
 
   return (
     <div className="main-container">
