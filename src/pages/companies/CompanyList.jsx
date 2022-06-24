@@ -1,33 +1,43 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
+// import { useEffect, useState } from "react";
+// import ReactPaginate from "react-paginate";
 import CompanyListItem from "./CompanyListItem";
 
 const CompanyList = ({ companies, selectedCompanies, handleOrder }) => {
-  const [currentItems, setCurrentItems] = useState([]);
-  const [pageCount, setPageCount] = useState(0);
-  const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 8;
+  // const [currentItems, setCurrentItems] = useState([]);
+  // const [pageCount, setPageCount] = useState(0);
+  // const [itemOffset, setItemOffset] = useState(0);
+  // const [currentPage, setCurrentPage] = useState(-1);
+  // const itemsPerPage = 8;
 
-  useEffect(() => {
-    let endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(selectedCompanies.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(selectedCompanies.length / itemsPerPage));
+  // useEffect(() => {
+  //   // Fetch items from another resources.
+  //   let endOffset = 0;
 
-    console.log(itemOffset)
+  //   if (selectedCompanies.length < 8) {
+  //     endOffset = 8;
+  //     setItemOffset(0);
+  //     setPageCount(0);
+  //   } else {
+  //     endOffset = itemOffset + itemsPerPage;
+  //   }
+  //   console.log("pagecount: " + pageCount);
+  //   console.log(`Loading items from ${itemOffset} to ${endOffset}`);
 
-    if (selectedCompanies.length < 9) {
-      setItemOffset(0);
-    }
-  }, [itemOffset, itemsPerPage, selectedCompanies, pageCount]);
+  //   setCurrentItems(selectedCompanies.slice(itemOffset, endOffset));
+  //   setPageCount(Math.ceil(selectedCompanies.length / itemsPerPage));
 
-  const handlePageClick = (event) => {
-    let newOffset = (event.selected * itemsPerPage) % selectedCompanies.length;
+  // }, [itemOffset, itemsPerPage, selectedCompanies]);
 
-    setItemOffset(newOffset);
-
-    // console.log(pageCount);
-  };
+  // // Invoke when user click to request another page.
+  // const handlePageClick = (event) => {
+  //   const newOffset =
+  //     (event.selected * itemsPerPage) % selectedCompanies.length;
+  //   console.log(
+  //     `User requested page number ${event.selected}, which is offset ${newOffset}`
+  //   );
+  //   setItemOffset(newOffset);
+  // };
 
   return (
     <>
@@ -39,7 +49,7 @@ const CompanyList = ({ companies, selectedCompanies, handleOrder }) => {
               A ⇄ Z
             </button> */}
           </div>
-          {currentItems.map((company) => (
+          {selectedCompanies.map((company) => (
             <div key={company.id} className="company-list-item">
               <Link to={`/companies/${company.id}`} state={{ companies }}>
                 <CompanyListItem company={company} />
@@ -47,7 +57,7 @@ const CompanyList = ({ companies, selectedCompanies, handleOrder }) => {
             </div>
           ))}
         </>
-        <div className="company-paginate-wrapper">
+        {/* <div className="company-paginate-wrapper">
           <ReactPaginate
             breakLabel="..."
             nextLabel="next >"
@@ -58,8 +68,9 @@ const CompanyList = ({ companies, selectedCompanies, handleOrder }) => {
             renderOnZeroPageCount={null}
             containerClassName="company-paginate-container"
             // initialPage={1}
+            // forcePage={currentPage}
           />
-        </div>
+        </div> */}
       </div>
     </>
   );
