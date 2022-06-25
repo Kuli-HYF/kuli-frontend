@@ -10,7 +10,10 @@
   align-items: center;
   justify-content: space-between;
   height: fit-content; */
+  height: 100%;
+  position: relative;
   padding-top: 200px;
+  padding-bottom: 120px;
   margin: 0 auto;
   padding-inline: 64px;
 }

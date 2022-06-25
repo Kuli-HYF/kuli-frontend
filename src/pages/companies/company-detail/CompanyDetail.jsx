@@ -5,6 +5,7 @@ import { CompanyBadge } from "./CompanyBadge";
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import { get } from "../../../api/get";
+import Footer from "../../../components/footer/Footer";
 
 const CompanyDetail = () => {
   // Companies array and company object
@@ -97,6 +98,7 @@ const CompanyDetail = () => {
             </div>
           </div>
         </div>
+        <Footer/>
       </div>
     </div>
   );
