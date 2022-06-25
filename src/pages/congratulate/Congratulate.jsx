@@ -15,16 +15,16 @@ export const Congratulate = () => {
       <Navigation />
       <div className="congrats-wrap">
         <div>
-          <h1 className="header">Thank You!</h1>
+          <h2 className="header">Thank You!</h2>
           <h3 className="sub-head">Your feedback was submitted successfully</h3>
         </div>
         <div className="cta">
           {!login[0].id ? (
             <div className="p-box">
-              <h4 className="pr">
+              <p className="pr">
                 Become an official member of the Kuli community (sign-up can be
                 done anonymously)
-              </h4>
+              </p>
               <Link to="/sign-up">
                 <Button color="dark-blue" title="Sign Up" />
               </Link>

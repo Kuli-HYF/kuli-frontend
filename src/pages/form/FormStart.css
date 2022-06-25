@@ -4,9 +4,12 @@
   padding-bottom: 100px;
 }
 
+.searchHead{
+  text-align: center;
+}
+
 .survey-intro__container {
-  margin-left: 8%;
-  margin-right: 8%;
+  max-width: 1400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,11 +36,16 @@
   font-weight: 300;
 }
 
+.survey-intro__body-text {
+  margin-bottom: 40px;
+}
+
 .category-list__container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+  row-gap: 32px;
   margin: 4% 0 0% 0;
   margin-bottom: 80px;
 }
@@ -48,7 +56,6 @@
   align-items: center;
   margin: 0 auto;
   padding-bottom: 6%;
-  
 }
 
 @media (max-width: 460px) {

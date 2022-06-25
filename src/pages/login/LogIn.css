@@ -20,7 +20,7 @@
   /* display: flex;
   flex-direction: column;
   align-items: center; */
-  padding-top: 180px;
+  padding-top: 160px;
   /* margin: 0 auto;
   width: fit-content; */
 }
@@ -62,16 +62,22 @@
   margin-bottom: 24px;
 }
 
+.login-fields-container label {
+  font-weight:500;
+}
+
 .login-input-container {
   width: 100%;
 }
 
 .login-field {
-  height: 3rem;
+  height: 2.8rem;
   border-radius: 8px;
-  border: none;
+  border: 1px solid hsla(244, 45%, 30%, 0.2);
   padding: 4px;
+  padding-inline: 8px;
   width: 100%;
+  margin-top: 6px;
 }
 
 .login-button-container {

@@ -38,7 +38,7 @@ const CompanyDetail = () => {
     fetchDataBadge();
   }, [fetchDataCompany, fetchDataBadge]);
 
-  console.log(company);
+  // console.log(company);
   // console.log("badge: ", badge);
 
   return (
@@ -48,9 +48,9 @@ const CompanyDetail = () => {
         <div className="company-card">
           <div className="company-header__container">
             <div className="company-title__container">
-              <h1 className="company-title">
+              <h2 className="company-title">
                 {company ? company.name : "Loading"}
-              </h1>
+              </h2>
             </div>
 
             <hr className="company-detail-line"></hr>

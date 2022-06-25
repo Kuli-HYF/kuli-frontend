@@ -3,7 +3,13 @@ import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 
 const NavLinkItem = ({ link, name }) => {
+  const variants = {
+    visible: { opacity: 1, transition: {duration: 0.55} },
+    hidden: { opacity: 0 }
+  };
   const { pathname } = useLocation();
+
+
 
   return (
     <>
@@ -20,8 +26,11 @@ const NavLinkItem = ({ link, name }) => {
           {name}
           {pathname === link && (
             <motion.span
+              initial="hidden"
+              animate="visible"
+              variants={variants}
               className="underline"
-              layoutId="underline"
+              // layoutId="underline"
             ></motion.span>
           )}
         </NavLink>
