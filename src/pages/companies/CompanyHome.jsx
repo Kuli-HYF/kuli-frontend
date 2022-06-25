@@ -68,8 +68,8 @@ const CompanyHome = () => {
 
   const handleBadges = (e) => {
     const { checked, value } = e.target;
-    const badgeId = e.currentTarget.id;
-    const badgeNumber = parseInt(badgeId, 10);
+    // const badgeId = e.currentTarget.id;
+    // const badgeNumber = parseInt(badgeId, 10);
 
     // console.log("badge number: " + badgeNumber);
 
