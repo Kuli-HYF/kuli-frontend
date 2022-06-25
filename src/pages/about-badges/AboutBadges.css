@@ -4,6 +4,7 @@
   height: 100%;
 }
 
+
 .about-badges__container {
   display: flex;
   flex-direction: column;
@@ -176,10 +177,17 @@
   flex-direction: row-reverse;
   justify-content: center;
   margin-top: 60px;
+  padding-bottom: 140px;
   gap: 48px;
 }
 
 @media (max-width: 900px) {
+
+  .badge-container{
+    position: relative;
+    height: fit-content;
+  }
+
   .content4-container {
     display: flex;
     flex-direction: column;

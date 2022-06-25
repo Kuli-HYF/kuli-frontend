@@ -170,8 +170,9 @@ export const AboutBadges = () => (
                     </p>
                   </div>
                 </div>
+                <Footer />
+
               </div>
-              <Footer/>
             </div>
           </ReactFullpage.Wrapper>
         );

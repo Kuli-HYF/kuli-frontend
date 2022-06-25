@@ -1,6 +1,7 @@
 .header-container {
   background-color: var(--light-pink);
   position: relative;
+  min-height: 800px;
   height: fit-content;
   /* position: relative; */
   /* overflow: scroll; */
