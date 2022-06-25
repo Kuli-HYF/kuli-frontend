@@ -150,11 +150,11 @@ body {
 
 @media (max-width: 576px) {
   .footer-container {
-    height: 80px;
+    height: 100px;
   }
 
   .footer-home-container {
-    height: 80px;
+    height: 100px;
   }
   
   .footer-content-container {

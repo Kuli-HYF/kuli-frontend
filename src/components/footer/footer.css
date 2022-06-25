@@ -67,3 +67,32 @@
 }
 
 
+@media (max-width: 576px) {
+  .footer-container {
+    height: fit-content;
+    padding-block: 12px;
+  }
+
+  .footer-home-container {
+    height: fit-content;
+    padding-block: 12px;
+
+  }
+  
+  .footer-content-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-home-content-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo-container {
+    margin-top: 4px;
+  }
+}
+
+
+

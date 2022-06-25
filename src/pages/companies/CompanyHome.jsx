@@ -71,7 +71,7 @@ const CompanyHome = () => {
     const badgeId = e.currentTarget.id;
     const badgeNumber = parseInt(badgeId, 10);
 
-    console.log("badge number: " + badgeNumber);
+    // console.log("badge number: " + badgeNumber);
 
     if (checked) {
       setSelectedBadges((selectedBadges) => [...selectedBadges, value]);
