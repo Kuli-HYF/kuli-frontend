@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 160px;
 }
 
 .header {
@@ -15,7 +16,7 @@
   margin-right: 20%;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  gap: 40px;
 }
 
 .sub-head {
@@ -27,12 +28,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
+  text-align: center;
 }
 
 .pr {
   font-weight: 400;
   color: #302b70;
-  font-size: 16px;
+  font-size: 1rem;
   margin-bottom: 20px;
+}
+
+@media(max-width:800px){
+  .cta{
+    flex-direction: column;
+    margin-top: 60px;
+  }
 }

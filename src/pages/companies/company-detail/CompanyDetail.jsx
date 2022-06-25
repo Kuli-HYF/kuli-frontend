@@ -48,41 +48,50 @@ const CompanyDetail = () => {
         <div className="company-card">
           <div className="company-header__container">
             <div className="company-title__container">
-              <h1 className="company-title">
+              <h2 className="company-title">
                 {company ? company.name : "Loading"}
-              </h1>
+              </h2>
+            </div>
+
+            <hr className="company-detail-line"></hr>
+
+            <div>
+              <p className="company-detail-address">
+                {company ? company.location.address : "Loading"}
+              </p>
             </div>
             <div>
               <a href={company ? company.webpage : "#"}>
-                <p>
-                  {company
-                    ? company.webpage
-                    : "Loading"}
-                </p>
+                <p>{company ? company.webpage : "Loading"}</p>
               </a>
+            </div>
+
+            <div className="company-sector__container">
+              <h3 className="company-detail-sectors-title">Sectors:</h3>
+              <div className="company-sector-list-container">
+                {company ? (
+                  company.sectors.data.map((el, i) => (
+                    <div key={i} className="company-sector__list">
+                      <p>{el.attributes.name}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p>Try again</p>
+                )}
+              </div>
             </div>
           </div>
 
           <div className="company-info__container">
-            <div className="company-sector__container">
-              <h3>Sectors:</h3>
-              {company ? (
-                company.sectors.data.map((el, i) => (
-                  <div key={i} className="company-sector__list">
-                    <p>{el.attributes.name}</p>
-                  </div>
-                ))
-              ) : (
-                <p>Try again</p>
-              )}
-            </div>
             <div className="company-badges">
-              <h2>Badges:</h2>
+              <h3 className="company-detail-badges-title">Badges:</h3>
+              <hr className="company-detail-badges-line"></hr>
+
               <div className="company-badges__container">
                 {badge && badge.length > 0 ? (
                   badge.map((el, i) => <CompanyBadge badge={el} key={i} />)
                 ) : (
-                  <p>No badges have been awarded yet</p>
+                  <p className="no-badges">No badges have been awarded yet</p>
                 )}
               </div>
             </div>

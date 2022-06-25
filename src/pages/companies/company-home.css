@@ -1,15 +1,17 @@
 .line {
-  border: 1px solid var(--light-blue);
+  border: 1px solid hsl(220, 50%, 96%);
 }
 
 .filter-line {
-  border: 1px solid var(--light-blue);
+  border: 1px solid hsl(220, 50%, 93%);
   margin-bottom: 24px;
 }
 
 .company-container {
+  position: relative;
   background-color: white;
   padding-top: 140px;
+  min-height: 1200px;
   /* height: 100vh;
   overflow: scroll; */
 }
@@ -40,6 +42,7 @@
   display: flex;
   /* grid-template-columns: repeat(12, 1fr); */
   gap: 40px;
+  padding-bottom: 72px;
 }
 
 .filters-container {
@@ -48,9 +51,10 @@
   height: fit-content;
   width: 30%;
   /* background-color: var(--light-blue); */
-  border: 1px solid var(--light-blue);
+  /* border: 1px solid hsl(220, 50%, 93%); */
+  border-radius: 8px;
   background-color: hsl(220, 50%, 98%);
-  padding: 16px;
+  padding: 24px;
 }
 
 .filterlist-container {
@@ -74,8 +78,9 @@
   width: 70%;
   list-style-type: none;
   margin-bottom: 40px;
-  background-color: hsl(220, 50%, 97%);
-  padding: 20px;
+  background-color: hsl(220, 50%, 98%);
+  padding: 24px;
+  border-radius: 8px;
 }
 
 .company-list-header {
@@ -92,7 +97,7 @@
 
 .company-list-title {
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 900;
   color: var(--dark-blue);
 }
 
@@ -142,13 +147,14 @@
   padding: 6px 12px;
   margin-bottom: 4px;
   margin-right: 6px;
-  background-color: var(--light-blue);
+  background-color: hsl(220, 50%, 80%);
   border-radius: 24px;
   text-align: center;
 }
 
 .filter-badge p {
   font-size: 0.8rem;
+  color: white;
 }
 
 .filterlist-container label {
@@ -189,25 +195,27 @@
   height: 40px;
   border: none;
   padding: 4px;
+  padding-inline: 8px;
   margin-top: 20px;
   border: 1px solid var(--light-blue);
+  border-radius: 8px;;
 }
 
 .Work {
-  background-color: hsla(140, 40%, 34%, 1);
+  background-color: #71b134;
   /* opacity: 0.5; */
 }
 
 .Employment {
-  background-color: hsla(292, 79%, 30%, 0.7);
+  background-color: #8e336e;
 }
 
 .Health {
-  background-color: hsla(354, 86%, 54%, 0.7);
+  background-color: #e52f22;
 }
 
 .Governance {
-  background-color: hsla(191, 95%, 34%, 0.7);
+  background-color: #0e8993;
 }
 
 .filter-name {
@@ -262,7 +270,20 @@
 }
 
 @media (max-width: 576px) {
-  .company-list-image-container {
+
+  .company-container{
+    padding-top: 128px;
+  }
+
+  .company-header-title{
+    line-height: 1.3;
+  }
+  .company-list-header{
     flex-direction: column;
+
+  }
+  .company-list-image-container {
+    margin-top: 4px;
+    margin-bottom: 4px;
   }
 }

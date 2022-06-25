@@ -1,7 +1,7 @@
 .survey-intro__category-list__item {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   margin: 0 auto;
@@ -14,4 +14,13 @@
 .survey-intro__category-list__item img {
   min-width: 20px;
   max-width: 80px;
+}
+
+.survey-intro__category-list__item p {
+
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 16px;
+  line-height: 1.3;
 }
