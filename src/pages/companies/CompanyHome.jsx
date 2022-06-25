@@ -8,6 +8,7 @@ import Navigation from "../../components/navigation/Navigation";
 import CompanyList from "./CompanyList";
 import CompanyFilterBar from "./CompanyFilterBar";
 import { useCallback } from "react";
+import Footer from "../../components/footer/Footer";
 
 const CompanyHome = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -171,6 +172,8 @@ const CompanyHome = () => {
             />
           </div>
           {/* <button onClick={clearFilters}></button> */}
+          <Footer/>
+
         </div>
       </div>
     </>

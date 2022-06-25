@@ -1,6 +1,8 @@
 .about-us__main-container {
+  position: relative;
   /* height: 100%; */
   width: 100%;
+  min-height: 1200px;
   padding-bottom: 100px;
 }
 

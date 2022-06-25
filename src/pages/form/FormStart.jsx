@@ -10,6 +10,7 @@ import React, { useState, useEffect } from "react";
 import { get } from "../../api/get.js";
 
 import { useGlobalState } from "../../global";
+import Footer from "../../components/footer/Footer";
 
 const FormStart = () => {
   const login = useGlobalState("userLoggedIn");
@@ -56,6 +57,7 @@ const FormStart = () => {
           )}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

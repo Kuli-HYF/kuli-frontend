@@ -1,15 +1,16 @@
 .header-container {
   background-color: var(--light-pink);
-  height: 100vh;
+  position: relative;
+  height: fit-content;
   /* position: relative; */
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 .header-content {
   /* position: absolute;
-  top: 80px; */
+  top: 80px; */padding-top: 80px;
   max-width: 1560px;
-  height: 100vh;
+  height: fit-content;
   /* height: calc(100vh - 80px); */
   margin: 0 auto;
   /* padding-top: 80px; */
@@ -25,7 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 120px;
+  padding-top: 100px;
 }
 
 .header-left {
@@ -106,7 +107,7 @@
 
 @media (max-width: 1500px) {
   .header-content-container {
-    padding-top: 140px;
+    padding-top: 120px;
   }
 
   .header-left {
@@ -135,7 +136,7 @@
 
 @media (max-width: 1400px) {
   .header-content-container {
-    padding-top: 150px;
+    padding-top: 130px;
   }
 
   .header-title {

@@ -12,6 +12,7 @@ import { useGlobalState, setGlobalState } from "../../global";
 import Navigation from "../../components/navigation/Navigation";
 import { get } from "../../api/get";
 import { Button } from "../../components/button/Button";
+import Footer from "../../components/footer/Footer";
 
 export const LogIn = () => {
   const login = useGlobalState("userLoggedIn");
@@ -163,6 +164,7 @@ export const LogIn = () => {
             </Form>
           )}
         </Formik>
+        <Footer/>
       </div>
     </React.Fragment>
   );

@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   height: 100%;
   width: 100%;
   padding-bottom: 100px;
@@ -17,6 +18,8 @@
   padding-left: 4%;
   padding-top: 160px;
   height: 100vh;
+  margin: 0 auto;
+
 }
 
 .survey-intro__title {

@@ -8,8 +8,10 @@
 }
 
 .company-container {
+  position: relative;
   background-color: white;
   padding-top: 140px;
+  min-height: 1200px;
   /* height: 100vh;
   overflow: scroll; */
 }
@@ -40,6 +42,7 @@
   display: flex;
   /* grid-template-columns: repeat(12, 1fr); */
   gap: 40px;
+  padding-bottom: 72px;
 }
 
 .filters-container {

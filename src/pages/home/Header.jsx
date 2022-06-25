@@ -69,6 +69,7 @@ const Header = () => {
             <img src={kuliHeader} className="" alt="Kuli logo"></img>
           </div>
         </div>
+        
       </motion.div>
     </>
   );

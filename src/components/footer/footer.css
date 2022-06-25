@@ -1,0 +1,69 @@
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* height: 140px; */
+  width: 100%;
+  height: 60px;
+  background-color: var(--dark-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* scroll-snap-type: start; */
+}
+
+.footer-content-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0px 40px;
+  color: white;
+}
+
+.kuli-logo-light {
+  width: 60px;
+}
+
+.footer-text-container {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.footer-home-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* height: 140px; */
+  width: 100%;
+  height: 60px;
+  /* background-color: var(--dark-blue); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* scroll-snap-type: start; */
+}
+
+.footer-home-content-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0px 40px;
+  color: white;
+}
+
+.kuli-logo-light {
+  width: 60px;
+}
+
+
+.footer-logo-container{
+  height: 24px;
+  width: 24px;
+}
+
+

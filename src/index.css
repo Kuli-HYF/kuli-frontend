@@ -103,3 +103,71 @@ body {
   transition: 0.2s ease-in;
   --lightness: 40%;
 } */
+
+/* footer styles */
+
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* height: 140px; */
+  width: 100%;
+  height: 60px;
+  background-color: var(--dark-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* scroll-snap-type: start; */
+}
+
+.footer-content-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0px 40px;
+  color: white;
+}
+
+.kuli-logo-light {
+  width: 60px;
+}
+
+.footer-home-text {
+  font-family: "Work Sans", sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  color: #ee826c;
+}
+
+.footer-text {
+  font-family: "Work Sans", sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  color: white;
+}
+
+@media (max-width: 576px) {
+  .footer-container {
+    height: 80px;
+  }
+
+  .footer-home-container {
+    height: 80px;
+  }
+  
+  .footer-content-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-home-content-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo-container {
+    /* margin-bottom: 16px; */
+  }
+}
