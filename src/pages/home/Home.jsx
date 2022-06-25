@@ -1,3 +1,5 @@
+
+import FooterHome from "../../components/footer/FooterHome";
 import Navigation from "../../components/navigation/Navigation";
 import Header from "./Header";
 
@@ -7,6 +9,7 @@ const Home = () => {
       <div className="header-container">
         <Navigation />
         <Header />
+        <FooterHome/>
       </div>
     </>
   );

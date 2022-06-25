@@ -5,6 +5,7 @@ import { get } from "../../api/get.js";
 import Navigation from "../../components/navigation/Navigation";
 
 import AboutUsCard from "./AboutUsCard";
+import Footer from "../../components/footer/Footer";
 
 export const AboutUs = () => {
   const [teamMembers, setTeamMembers] = useState("");
@@ -30,32 +31,37 @@ export const AboutUs = () => {
   // }, []);
 
   return (
-    <div className="about-us__main-container">
-      <Navigation />
-      {teamMembers ? (
-        <div className="about-us__container">
-          <div className="about-us__title-container">
-            <h2 className="about-us__title">{teamMembers.attributes.Title}</h2>
-          </div>
-          <div className="about-us__body-text__container">
-            <p className="about-us__body-text">
-              {teamMembers.attributes.bodyText}
-            </p>
-          </div>
+    <>
+      <div className="about-us__main-container">
+        <Navigation />
+        {teamMembers ? (
+          <div className="about-us__container">
+            <div className="about-us__title-container">
+              <h2 className="about-us__title">
+                {teamMembers.attributes.Title}
+              </h2>
+            </div>
+            <div className="about-us__body-text__container">
+              <p className="about-us__body-text">
+                {teamMembers.attributes.bodyText}
+              </p>
+            </div>
 
-          <div className="about-us__row-container">
-            {teamMembers ? (
-              teamMembers.attributes.teamMembers.map((teamMember) => (
-                <AboutUsCard key={teamMember.id} teamMember={teamMember} />
-              ))
-            ) : (
-              <div>loading</div>
-            )}
+            <div className="about-us__row-container">
+              {teamMembers ? (
+                teamMembers.attributes.teamMembers.map((teamMember) => (
+                  <AboutUsCard key={teamMember.id} teamMember={teamMember} />
+                ))
+              ) : (
+                <div>loading</div>
+              )}
+            </div>
           </div>
-        </div>
-      ) : (
-        <p>Please, try again later.</p>
-      )}
-    </div>
+        ) : (
+          <p>Please, try again later.</p>
+        )}
+        <Footer />
+      </div>
+    </>
   );
 };

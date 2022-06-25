@@ -3,21 +3,31 @@
 }
 
 .company-detail-container {
+  /* max-width: 100%;
   padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: fit-content;
+  height: fit-content; */
+  height: 100%;
+  position: relative;
+  padding-top: 200px;
+  padding-bottom: 120px;
+  margin: 0 auto;
+  padding-inline: 64px;
 }
 
 .company-card {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 40px;
-  background-color: hsl(220, 50%, 97%);
+  /* background-color: hsl(220, 50%, 97%); */
   padding: 40px 40px 40px 40px;
+  background-color: hsl(220, 50%, 97%);
+  border-radius: 8px;
 }
 
 .company-header__container {
@@ -25,54 +35,68 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px 20px 20px 20px;
+  margin-top: -80px;
+  padding: 40px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .company-info__container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   gap: 20px;
   /* flex-wrap: wrap; */
 }
 
 .company-badges {
+  max-width: 1200px;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-decoration: none;
-  background-color: white;
   height: -moz-fit-content;
   height: fit-content;
-  width: 100%;
+  margin-top: 60px;
   margin-bottom: 24px;
   border-radius: 8px;
   padding: 20px 20px 20px 20px;
-  box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
-    rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+  background-color: white;
 }
 
-.company-badges p {
-  font-family: "Work Sans", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 300;
-}
-
-.company-badges h2 {
-  margin-bottom: 24px;
-  font-size: 2.4rem;
-  font-weight: 700;
+.company-badges h3 {
+  font-size: 1.8rem;
+  /* font-weight: 700; */
   line-height: 1.3;
   color: var(--dark-blue);
   font-family: "Mulish", sans-serif;
 }
 
+.company-badges p {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-top: 24px;
+}
+
 .company-badges__container {
+  max-width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.company-detail-line {
+  width: 100%;
+  border: 1px solid var(--light-blue);
+  margin-bottom: 24px;
 }
 
 .company-sector__container {
@@ -81,28 +105,102 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  background-color: white;
   height: -moz-fit-content;
   height: fit-content;
   width: 100%;
-  margin-bottom: 24px;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
-    rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+  margin-top: 40px;
+  background-color: hsl(220, 50%, 97%);
 }
 
 .company-sector__container p {
   font-family: "Work Sans", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 300;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 .company-sector__container h3 {
-  margin-bottom: 24px;
-  font-size: 2.4rem;
+  font-size: 1.4rem;
   font-weight: 700;
   line-height: 1.3;
   color: var(--dark-blue);
   font-family: "Mulish", sans-serif;
+}
+
+.company-title {
+  color: var(--dark-blue);
+  margin-bottom: 12px;
+}
+
+.company-detail-address {
+  margin-bottom: 24px;
+}
+
+.company-detail-badges-line {
+  width: 100%;
+  border: 1px solid var(--light-blue);
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.company-detail-badge {
+  height: fit-content;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  text-align: center;
+}
+
+.company-detail-badge p{
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.company-detail-badge img {
+  width: 100px;
+}
+
+.company-sector-list-container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  width: 90%;
+}
+
+.no-badges {
+  margin-top: 0px !important;
+  margin-bottom: 24px;
+}
+
+
+@media (max-width: 1324px) {
+}
+
+@media (max-width: 992px) {
+  .company-badges__container{
+    gap: 12px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .company-detail-container{
+    padding-inline: 32px;
+  }
+  .company-header__container{
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+}
+
+@media (max-width: 576px) {
+
 }

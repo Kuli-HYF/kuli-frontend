@@ -2,6 +2,7 @@ import "./AboutBadges.css";
 
 import ReactFullpage from "@fullpage/react-fullpage";
 import Navigation from "../../components/navigation/Navigation";
+import Footer from "../../components/footer/Footer";
 
 export const AboutBadges = () => (
   <>
@@ -169,6 +170,8 @@ export const AboutBadges = () => (
                     </p>
                   </div>
                 </div>
+                <Footer />
+
               </div>
             </div>
           </ReactFullpage.Wrapper>
